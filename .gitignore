@@ -1,0 +1,45 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+key.properties
+google-services.json
+GoogleService-Info.plist
+*service-account*.json
+
+# Local tools and build output
+.qa/
+.codex/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+node_modules/
+.dart_tool/
+.flutter-plugins*
+build/
+dist/
+coverage/
+android/local.properties
+.idea/
+.vscode/
+~$*
+*.tmp
+*.log
+*.apk
+*.aab
+
+# Real participant data and database exports
+data/private/
+data/biometrics/
+data/locations/
+backups/
+*.dump
+*.sqlite*

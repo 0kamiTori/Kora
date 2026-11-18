@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/kora/event.schema.json",
+  "title": "Sobre de evento Köra",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "trip_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "trip.updated",
+        "location.updated",
+        "verification.updated",
+        "alert.updated"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entity_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "entity_version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "event_id",
+    "trip_id",
+    "sequence",
+    "type",
+    "occurred_at",
+    "entity_id",
+    "entity_version"
+  ],
+  "additionalProperties": false
+}
