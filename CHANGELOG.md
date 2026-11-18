@@ -1,5 +1,19 @@
 # Historial de cambios
 
+## 0.4 — 2026-11-18 — CAM-2026-004
+
+- Registrada entrega requerida antes de la segunda semana de diciembre, usuario en móvil y John Ortiz en web, aproximadamente 30 h semanales por persona.
+- Propuestos objetivo interno 06/12/2026, capacidad conservadora, alcance demostrable y presupuesto operativo remoto de 300.000 COP con alternativas.
+- Escenario anterior de 20 semanas conservado como antecedente; no se da por aprobado un recorte académico ni financiación.
+- Actualizados plan estructurado, referencias de estado y decisiones y registro Word; añadido anexo de entrega de diciembre.
+
+## Revisión F0 — 2026-11-18 — CAM-2026-003
+
+- Revisión del punto de partida y clasificación de instrucciones vigentes, supuestos y pendientes en docs/DIAGNOSTICO_F0.md.
+- Identificación de desactualizaciones, limitaciones del verificador y brechas del contrato para revisión posterior.
+- Estado y registro de decisiones actualizados; evidencia añadida al Word de control de cambios.
+- Fechas, disponibilidad, presupuesto, alcance, contratos y aplicaciones conservados. F0 no se declara terminada ni se atribuyen aprobaciones.
+
 ## 0.2 — 2026-11-18 — CAM-2026-002
 
 - Reorientación de la planificación a Android con interfaces de pasajera y conductora, manteniendo la web administrativa paralela.

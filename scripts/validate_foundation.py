@@ -10,25 +10,53 @@ def check(condition,message):
 def main():
  p=read('docs/project-plan.json');a=p['availability'];b=p['budget'];weeks=p['weeks'];phases=p['phases'];start=date.fromisoformat(p['start'])
  check(p['project_name']=='Köra','Nombre inesperado')
- check((date.fromisoformat(p['end'])-start).days+1==7*p['duration_weeks'],'Duración incorrecta')
- check(start.weekday()==0 and len(weeks)==p['duration_weeks'],'Semanas incorrectas')
- check(p['academic_deadline_confirmed'] is False,'No asumir plazo académico confirmado')
- for i,w in enumerate(weeks):
-  check(w['week']==i+1 and date.fromisoformat(w['start'])==start+timedelta(weeks=i),'Semana desordenada')
+ days=(date.fromisoformat(p['end'])-start).days+1
+ check(isinstance(p['academic_deadline_confirmed'],bool),'Estado académico debe ser booleano')
+ if p['academic_deadline_confirmed']:check(bool(p.get('academic_deadline_evidence')),'Falta evidencia del día académico confirmado')
+ if p.get('planning_mode')=='short_delivery_partial_weeks':
+  check(days==p['duration_days'],'Duración de ventana incorrecta')
+  check(len(weeks)==p['duration_weeks'],'Cantidad de ventanas semanales incorrecta')
+  next_day=start
+  for i,w in enumerate(weeks):
+   check(w['week']==i+1 and date.fromisoformat(w['start'])==next_day,'Ventana semanal desordenada')
+   check(date.fromisoformat(w['end'])>=next_day,'Fin semanal anterior al inicio')
+   next_day=date.fromisoformat(w['end'])+timedelta(days=1)
+  check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Ventanas incompletas')
+ else:
+  check(days==7*p['duration_weeks'],'Duración incorrecta')
+  check(start.weekday()==0 and len(weeks)==p['duration_weeks'],'Semanas incorrectas')
+  for i,w in enumerate(weeks):
+   check(w['week']==i+1 and date.fromisoformat(w['start'])==start+timedelta(weeks=i),'Semana desordenada')
  check(sum(x['mobile_hours'] for x in weeks)==a['mobile_gross_hours'],'Horas móviles incorrectas')
  check(sum(x['web_hours'] for x in weeks)==a['web_gross_hours'],'Horas web incorrectas')
- check(sum(x['mobile_gross_hours'] for x in phases)==a['mobile_gross_hours'],'Capacidad de fases incorrecta')
+ if p.get('planning_mode')!='short_delivery_partial_weeks':check(sum(x['mobile_gross_hours'] for x in phases)==a['mobile_gross_hours'],'Capacidad de fases incorrecta')
  check(sum(x['mobile_planned_hours'] for x in phases)+a['mobile_buffer_hours']==a['mobile_gross_hours'],'Reserva incorrecta')
- covered=[]
- for x in phases:
-  covered.extend(range(x['week_from'],x['week_to']+1));check(x['start']==weeks[x['week_from']-1]['start'] and x['end']==weeks[x['week_to']-1]['end'],'Fechas de fase incorrectas')
- check(covered==list(range(1,len(weeks)+1)),'Fases superpuestas o incompletas')
+ if p.get('planning_mode')=='short_delivery_partial_weeks':
+  next_day=start
+  for x in phases:
+   check(date.fromisoformat(x['start'])==next_day,'Fases superpuestas o con huecos')
+   check(date.fromisoformat(x['end'])>=next_day,'Fin de fase incorrecto')
+   next_day=date.fromisoformat(x['end'])+timedelta(days=1)
+  check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Fases no cubren la ventana')
+  check(sum(x['web_planned_hours'] for x in phases)+a['web_buffer_hours']==a['web_gross_hours'],'Capacidad web incorrecta')
+ else:
+  covered=[]
+  for x in phases:
+   covered.extend(range(x['week_from'],x['week_to']+1));check(x['start']==weeks[x['week_from']-1]['start'] and x['end']==weeks[x['week_to']-1]['end'],'Fechas de fase incorrectas')
+  check(covered==list(range(1,len(weeks)+1)),'Fases superpuestas o incompletas')
  check(all(x['quantity']*x['unit_cop']==x['total_cop'] for x in b['cash_items']),'Rubro incorrecto')
  check(sum(x['total_cop'] for x in b['cash_items'])==b['cash_base_cop'],'Subtotal incorrecto')
  check(b['cash_total_cop']==b['cash_base_cop']+b['cash_contingency_cop'],'Total operativo incorrecto')
  check(b['mobile_labor_hours']*b['labor_hour_valuation_cop']==b['mobile_labor_valuation_cop'],'Valor laboral incorrecto')
- check(b['combined_base_cop']==b['mobile_labor_valuation_cop']+b['cash_base_cop'],'Base combinada incorrecta')
- check(b['combined_total_cop']==b['combined_base_cop']+b['combined_contingency_cop'],'Total combinado incorrecto')
+ if 'team_economic_base_cop' in b:
+  check(b['web_labor_hours']*b['labor_hour_valuation_cop']==b['web_labor_valuation_cop'],'Valor laboral web incorrecto')
+  check(b['team_economic_base_cop']==b['mobile_labor_valuation_cop']+b['web_labor_valuation_cop']+b['cash_base_cop'],'Base de equipo incorrecta')
+  check(b['team_economic_total_cop']==b['team_economic_base_cop']+b['team_economic_contingency_cop'],'Total equipo incorrecto')
+  for name in ['local_alternative','biometric_option']:
+   option=b[name];check(option['total_cop']==option['base_cop']+option['contingency_cop'],'Alternativa presupuestal incorrecta')
+ else:
+  check(b['combined_base_cop']==b['mobile_labor_valuation_cop']+b['cash_base_cop'],'Base combinada incorrecta')
+  check(b['combined_total_cop']==b['combined_base_cop']+b['combined_contingency_cop'],'Total combinado incorrecto')
  api=read('contracts/openapi.json');ids=[]
  def walk(node):
   if isinstance(node,dict):
@@ -57,8 +85,8 @@ def main():
   for target in re.findall(r'\]\(([^)]+)\)',f.read_text(encoding='utf-8')):
    if '://' in target or target.startswith('#'):continue
    check((f.parent/target.split('#')[0]).exists(),f'Enlace roto en {f.name}: {target}')
- print(f'OK: {len(weeks)} semanas, {len(phases)} fases, {len(ids)} operaciones y ejemplo de evento.')
+ print(f'OK: {days} días, {len(weeks)} ventanas semanales, {len(phases)} fases propuestas, {len(ids)} operaciones y ejemplo de evento.')
  print(f'Capacidad móvil {a["mobile_gross_hours"]} h; planificadas {a["mobile_planned_hours"]} h; reserva {a["mobile_buffer_hours"]} h.')
- print(f'Operación {b["cash_total_cop"]:,} COP; con mano de obra valorada {b["combined_total_cop"]:,} COP.')
+ print(f'Operación sugerida {b["cash_total_cop"]:,} COP; confirmación financiera pendiente.')
  print('No valida todo el estándar OpenAPI ni el funcionamiento de las aplicaciones.')
 if __name__=='__main__':main()

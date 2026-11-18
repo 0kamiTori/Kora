@@ -1,5 +1,7 @@
 # Guía para desarrollar el proyecto con Codex
 
+**Prioridad vigente:** leer primero [ENTREGA_DICIEMBRE.md](ENTREGA_DICIEMBRE.md). El usuario requiere presentar antes de la segunda semana de diciembre; John Ortiz hace web y el usuario móvil, 30 h semanales aproximadamente cada uno. Priorizar requisitos e integración de la entrega acordada; la secuencia completa siguiente es la hoja de ruta del producto y no una promesa de finalización total en diciembre.
+
 ## Punto de partida
 
 Abrir este repositorio como proyecto. Leer AGENTS.md y docs/ESTADO.md. Las carpetas actuales describen el trabajo pendiente; todavía no existe una app ejecutable. El primer objetivo es una base reproducible con autenticación y un flujo compartido, antes de integrar GPS o biometría.

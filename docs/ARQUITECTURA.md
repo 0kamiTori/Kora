@@ -2,6 +2,8 @@
 
 Decisión técnica de trabajo del 18/11/2026. Se prioriza un prototipo académico Android y un backend compartido para permitir el desarrollo paralelo de la web. La propuesta debe probarse en F2 antes de fijar versiones y dimensionar producción.
 
+Actualización CAM-2026-004: esta es la arquitectura objetivo del proyecto completo. El [plan de diciembre](ENTREGA_DICIEMBRE.md) propone una entrega mínima y presupuesto de un mes; no presupone contratar trabajador biométrico ni completar todas las capacidades descritas aquí en esa ventana. Revisar alcance antes de implementar o desplegar.
+
 ```mermaid
 flowchart LR
   A[Android Flutter pasajera y conductora] -->|HTTPS REST| API[FastAPI compartida]

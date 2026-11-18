@@ -1,5 +1,7 @@
 # Plan móvil de Köra
 
+**Actualización vigente del 18/11/2026, CAM-2026-004:** el usuario requiere entregar antes de la segunda semana de diciembre. Móvil: usuario; web: John Ortiz; aproximadamente 30 h semanales por persona. El [plan de entrega de diciembre](ENTREGA_DICIEMBRE.md) reemplaza las fechas y capacidad del escenario siguiente. Objetivo interno propuesto: 06/12/2026. Alcance de presentación y presupuesto sugerido aún por acordar. El escenario de 20 semanas que sigue se conserva como antecedente, no como compromiso vigente.
+
 Versión 0.2 · 18 de noviembre de 2026 · Escenario de planificación para revisión.
 
 El entregable principal es Android con perfiles de pasajera y conductora. La web administrativa se desarrolla en paralelo con el mismo backend. El alcance incluye registro, consentimiento, aprobación de conductoras, viajes, identidad y detección de vida, mapa y GPS, anomalías, alertas e historial. Pagos, iOS, tiendas y operación comercial quedan fuera del MVP.
