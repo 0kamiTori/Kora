@@ -1,0 +1,62 @@
+/* Tokens de diseño. Los pares texto/fondo cumplen contraste AA (≥ 4.5:1). */
+:root {
+  /* Superficies y texto */
+  --color-bg: #f5f4f8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #faf9fc;
+  --color-border: #d4d2de;
+  --color-text: #1c1b22;
+  --color-text-muted: #55536a;
+
+  /* Marca */
+  --color-brand: #5b21b6;
+  --color-brand-hover: #4c1d95;
+  --color-brand-soft: #ede9fe;
+  --color-on-brand: #ffffff;
+
+  /* Menú lateral */
+  --color-sidebar-bg: #1e1b2e;
+  --color-sidebar-text: #ebe9f5;
+  --color-sidebar-muted: #b9b5cf;
+
+  /* Estados (texto sobre fondo suave) */
+  --color-success: #166534;
+  --color-success-soft: #dcfce7;
+  --color-warning: #92400e;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fee2e2;
+  --color-info: #1e40af;
+  --color-info-soft: #dbeafe;
+  --color-neutral: #374151;
+  --color-neutral-soft: #e5e7eb;
+
+  /* Mapa */
+  --color-map-bg: #eef1f6;
+  --color-map-route: #1d4ed8;
+  --color-map-trail: #5b21b6;
+  --color-map-deviation: #b91c1c;
+  --color-map-stale: #6b7280;
+
+  --color-focus: #1d4ed8;
+
+  /* Tipografía */
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.625rem;
+
+  /* Espaciado y forma */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --radius: 0.5rem;
+  --radius-pill: 999px;
+  --shadow: 0 1px 2px rgb(28 27 34 / 8%), 0 1px 6px rgb(28 27 34 / 6%);
+
+  --sidebar-width: 15rem;
+}

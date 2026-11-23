@@ -1,0 +1,18 @@
+node_modules
+dist
+*.local
+
+# Variables de entorno: nunca se commitean claves reales
+.env
+.env.*
+!.env.example
+
+# Playwright
+playwright-report
+test-results
+
+# Editor / SO
+.vscode
+.idea
+.DS_Store
+Thumbs.db
