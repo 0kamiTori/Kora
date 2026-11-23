@@ -1,0 +1,5 @@
+# Finales de linea LF en todos los sistemas (coincide con Prettier).
+* text=auto eol=lf
+*.ico binary
+*.mp3 binary
+*.png binary
