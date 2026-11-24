@@ -12,3 +12,12 @@
 | DEC25 | Cierre de fases con evidencia y revisión cruzada | Regla de trabajo; nunca sustituir vida o identidad por simulación para cumplir fecha. |
 
 No se inventan aprobación del director, proveedores contratados, responsables institucionales de datos ni autorizaciones de piloto. Pendientes concretos en PENDIENTES.md.
+
+## Exploración visual CAM 2026 006
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC26 | Cinco propuestas: dos premium, dos sencillas y una 3D; producir un estilo y después el siguiente | Distribución elegida por el usuario. Propuestas en Diseno; ninguna seleccionada como diseño final. |
+| DEC27 | Prototipo visual local y guía con estados coherentes con la visión; movimiento opcional, sin decoración en marcha | Propuesta de interacción para revisión, no implementación de APK ni autorización simulada de viajes. No cambia los contratos ni añade motor 3D. |
+
+Recomendación de diseño inicial: Sencilla Clara por su estructura directa, a contrastar con usuarias. No se presenta como evaluación de usabilidad ni aprobación de los autores. No cambian fecha, presupuesto o alcance funcional.

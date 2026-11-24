@@ -6,3 +6,5 @@ Sistema académico de movilidad segura para mujeres: aplicación Android con per
 Toda la documentación técnica y planificadora está en **[Documentación](Documentación/README.md)**. Empezar por [visión](Documentación/VISION.md), [plan](Documentación/PLAN_MOVIL.md), [estado](Documentación/ESTADO.md) y [guía de Codex](Documentación/GUIA_CODEX.md). Word de revisión y registro de cambios en esa misma carpeta. Versiones anteriores en Historial, sin vigencia operativa.
 
 Los directorios apps, services e infra son ubicaciones previstas para código, aún sin proyectos ejecutables. Los contratos iniciales viven en Documentación/Contratos. La comprobación `python scripts/validate_foundation.py` valida coherencia documental y estructura parcial de contratos; no prueba el producto. No hay servicios contratados.
+
+Exploración visual: [cinco propuestas de diseño móvil](Documentación/Diseno/README.md). Incluye prototipo navegable local con datos ficticios; todavía no es la APK ni un sitio desplegado.

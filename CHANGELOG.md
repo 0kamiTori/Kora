@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## 0.6 — 2026-11-24 — CAM-2026-006
+
+- Creadas cinco direcciones visuales: Premium Platino, Premium Órbita, Sencilla Clara, Sencilla Paso a Paso y 3D Trayecto, según distribución elegida por el usuario.
+- Añadidas cinco láminas, ilustración 3D original, prototipo navegable local, paletas, guía de interacción y prompts en Documentación/Diseno.
+- Prototipo con ambos perfiles, estados de muestra, diálogos, desconexión y movimiento reducido; no implementa viajes, identidad ni alertas reales.
+- Selección visual pendiente; se mantienen alcance, fechas, presupuesto y contratos. Registro Word actualizado; no se declara cerrada una fase.
+
 ## 0.5 — 2026-11-24 — CAM-2026-005
 
 - Visión revisada para sistema completo y fecha tentativa 14/01/2027.

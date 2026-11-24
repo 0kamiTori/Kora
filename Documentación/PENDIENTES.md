@@ -13,5 +13,6 @@
 | P08 | Infraestructura | Medir recursos y confirmar región, cuotas, recuperación y cobertura de presupuesto antes de activar Render u otro proveedor. | Antes del primer despliegue |
 | P09 | Conciliación del presupuesto | Revisar diferencia de 20.000 COP con fuente; conservar montos declarados hasta tramitar corrección. | Antes de aprobación financiera |
 | P10 | Distribución Android | Elegir applicationId, Android mínimo y dispositivos soportados; custodiar firma fuera de Git. | F2 y antes de firmar entrega |
+| P11 | Dirección visual de la APK | Revisar las cinco propuestas en Diseno, elegir una o una combinación coherente, registrar correcciones y ampliar los flujos faltantes. Julian y John revisan. | Antes de fijar componentes visuales en Flutter |
 
 Estos puntos permiten iniciar análisis y base técnica con datos sintéticos. No equivalen a autorización para recopilar datos reales o realizar el piloto.

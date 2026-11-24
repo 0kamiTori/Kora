@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Köra — Cinco caminos de diseño</title>
+<link rel="stylesheet" href="prototipos.css">
+</head>
+<body>
+<header class="studio-header"><a class="studio-brand" href="#">köra<span>ESTUDIO DE DISEÑO</span></a><span class="edition">COLECCIÓN 01 / NOVIEMBRE 2026</span></header>
+<main>
+ <div class="intro"><p class="eyebrow">UNA APP, CINCO POSIBILIDADES</p><h1>Encuentra el carácter de Köra.</h1><p>Cambia de propuesta y recorre la misma experiencia. Elige por cómo se siente y por lo fácil que resulta usarla.</p></div>
+ <nav id="variants" class="variants" aria-label="Propuestas de diseño"></nav>
+ <div class="workspace">
+  <aside class="direction"><p id="family" class="eyebrow"></p><h2 id="design-name"></h2><p id="design-description"></p><div id="swatches" class="swatches" aria-label="Paleta de colores"></div><dl><dt>La idea</dt><dd id="design-idea"></dd><dt>Qué comparar</dt><dd id="design-watch"></dd></dl><button class="studio-button" id="open-board">Ver lámina de tres pantallas ↗</button><p class="small-note">La lámina explora el acabado. Esta vista navegable precisa textos, estados y comportamiento.</p></aside>
+  <section class="preview" aria-label="Vista navegable de la aplicación">
+   <div class="preview-tools"><label>Perfil<select id="role"><option value="passenger">Pasajera</option><option value="driver">Conductora</option></select></label><label>Pantalla<select id="screen"><option value="home">Inicio</option><option value="prepare">Antes de iniciar</option><option value="active">En viaje</option></select></label></div>
+   <div id="phone" class="phone" data-design="platino"><div class="statusbar"><span>9:41</span><span aria-label="Señal y batería">▰ ▰ ▰</span></div><div id="app-content" class="app-content"></div><nav class="app-nav" aria-label="Navegación de Köra"><button data-nav="home"></button><button data-nav="trips"></button><button data-nav="profile"></button></nav></div>
+   <label class="motion-control"><input id="motion" type="checkbox" checked> Movimiento suave en las ilustraciones</label>
+   <p class="demo-note">Prototipo visual · Datos ficticios<br>No verifica identidad, crea viajes ni envía alertas.</p>
+  </section>
+  <aside class="review"><p class="eyebrow">PARA TU REVISIÓN</p><h2>Prueba el recorrido.</h2><ol><li>Planea un viaje o consulta una solicitud.</li><li>Revisa la identidad pendiente antes de iniciar.</li><li>Cambia a «En viaje» y abre Compartir o Ayuda.</li><li>Prueba «Sin conexión» para ver el estado pendiente.</li></ol><label class="offline-toggle"><input type="checkbox" id="offline"> Sin conexión</label><div class="review-note"><span>También importa</span><p>¿Encuentras Ayuda sin buscar? ¿Distingues una identidad pendiente de una verificada? ¿Sabes cuándo llegó la última ubicación?</p></div><p class="small-note">Los escenarios se eligen desde el estudio. Ninguna opción aprueba una verificación real. En conductora en marcha se desactiva el movimiento decorativo.</p></aside>
+ </div>
+</main>
+<dialog id="board-dialog" class="board-dialog"><button class="close-board" aria-label="Cerrar lámina">Cerrar ×</button><img id="board-image" alt=""><p>Exploración visual generada con IA. Los detalles normativos de interacción están en la guía de diseño.</p></dialog>
+<dialog id="app-dialog" class="app-dialog"><div id="dialog-content"></div></dialog>
+<script src="prototipos.js"></script>
+</body></html>
