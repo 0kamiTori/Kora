@@ -119,7 +119,7 @@ packages:
     source: hosted
     version: "6.0.0"
   flutter_localizations:
-    dependency: "direct main"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -246,7 +246,7 @@ packages:
     source: hosted
     version: "0.13.0"
   material_ui:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: material_ui
       sha256: a6b19012df437a356cbc01f8ea22a105e07194c47c9a6009da0032a0ce35c4ab
@@ -515,5 +515,5 @@ packages:
     source: hosted
     version: "3.1.4"
 sdks:
-  dart: ">=3.13.0 <4.0.0"
-  flutter: ">=3.47.0"
+  dart: ">=3.14.0 <4.0.0"
+  flutter: ">=3.50.1"

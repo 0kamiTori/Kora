@@ -150,9 +150,9 @@ void main() {
       await tester.runAsync(() async {
         final loader = FontLoader('Roboto')
           ..addFont(
-            File(
-              fontPath,
-            ).readAsBytes().then((bytes) => ByteData.sublistView(bytes)),
+            File(fontPath)
+                .readAsBytes()
+                .then((bytes) => ByteData.sublistView(bytes)),
           );
         await loader.load();
         final iconPath = Platform.environment['KORA_CAPTURE_ICONS'];
@@ -163,9 +163,9 @@ void main() {
               : 'packages/${icon.fontPackage}/${icon.fontFamily}';
           final icons = FontLoader(family)
             ..addFont(
-              File(
-                iconPath,
-              ).readAsBytes().then((bytes) => ByteData.sublistView(bytes)),
+              File(iconPath)
+                  .readAsBytes()
+                  .then((bytes) => ByteData.sublistView(bytes)),
             );
           await icons.load();
         }
@@ -179,9 +179,8 @@ void main() {
             key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
         final image = await boundary.toImage(pixelRatio: 2);
         final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-        await File(
-          '$captureDirectory/$name.png',
-        ).writeAsBytes(bytes!.buffer.asUint8List());
+        await File('$captureDirectory/$name.png')
+            .writeAsBytes(bytes!.buffer.asUint8List());
         image.dispose();
       });
     }

@@ -56,9 +56,9 @@ class HomePage extends StatelessWidget {
                                         fit: BoxFit.scaleDown,
                                         child: Text(
                                           'köra',
-                                          style: Theme.of(
-                                            context,
-                                          ).textTheme.displayLarge,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayLarge,
                                         ),
                                       ),
                                     ),
@@ -196,9 +196,9 @@ class HomePage extends StatelessWidget {
                                       children: [
                                         Text(
                                           'Tu cuenta primero',
-                                          style: Theme.of(
-                                            context,
-                                          ).textTheme.headlineMedium,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineMedium,
                                         ),
                                         const SizedBox(height: 14),
                                         const Text(

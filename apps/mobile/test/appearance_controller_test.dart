@@ -143,32 +143,29 @@ void main() {
     },
   );
 
-  test(
-    'arbitrary dark and saturated colors preserve legible text and semantic colors',
-    () {
-      for (final color in [
-        Colors.black,
-        Colors.white,
-        const Color(0xFF001122),
-        Colors.blue,
-        Colors.red,
-        Colors.green,
-        const Color(0xFFD5D9DC),
-      ]) {
-        final accent = readableAccent(color);
-        expect(
-          contrastRatio(accent, KoraColors.elevated),
-          greaterThanOrEqualTo(4.5),
-        );
-        expect(
-          contrastRatio(accent, textOnAccent(accent)),
-          greaterThanOrEqualTo(4.5),
-        );
-        expect(
-          premiumTheme(color.toARGB32()).colorScheme.error,
-          KoraColors.danger,
-        );
-      }
-    },
-  );
+  test('arbitrary dark and saturated colors preserve legible text and semantic colors', () {
+    for (final color in [
+      Colors.black,
+      Colors.white,
+      const Color(0xFF001122),
+      Colors.blue,
+      Colors.red,
+      Colors.green,
+      const Color(0xFFD5D9DC),
+    ]) {
+      final accent = readableAccent(color);
+      expect(
+        contrastRatio(accent, KoraColors.elevated),
+        greaterThanOrEqualTo(4.5),
+      );
+      expect(
+        contrastRatio(accent, textOnAccent(accent)),
+        greaterThanOrEqualTo(4.5),
+      );
+      expect(
+        premiumTheme(color.toARGB32()).colorScheme.error,
+        KoraColors.danger,
+      );
+    }
+  });
 }

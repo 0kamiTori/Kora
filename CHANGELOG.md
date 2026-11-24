@@ -6,6 +6,7 @@
 - Historia APP01: Apariencia con seis colores, selector RGB, vista previa, cancelación, restauración y preferencia local persistida; control de errores y escrituras serializadas.
 - Separados tema, estado, repositorio y rutas. Colores semánticos fijos y ajuste de tonos oscuros para lectura.
 - SDK y dependencias fijados, lock conservado y pipeline Android para análisis, pruebas y APK debug.
+- Resolución directa de Material UI y formato refrescados con Dart 3.14 para reproducir las comprobaciones en Linux.
 - Documentación y Word actualizados; sin cambios de backend o contratos. No se implementan ni simulan verificaciones, ubicación, solicitudes de viaje o alertas.
 
 ## 0.6 — 2026-11-24 — CAM-2026-006
