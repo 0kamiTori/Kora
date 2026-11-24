@@ -8,56 +8,51 @@ def read(path):return json.loads((ROOT/path).read_text(encoding='utf-8'))
 def check(condition,message):
  if not condition:raise ValueError(message)
 def main():
- p=read('docs/project-plan.json');a=p['availability'];b=p['budget'];weeks=p['weeks'];phases=p['phases'];start=date.fromisoformat(p['start'])
+ p=read('Documentación/project-plan.json');a=p['availability'];b=p['budget'];weeks=p['weeks'];phases=p['phases'];start=date.fromisoformat(p['start'])
  check(p['project_name']=='Köra','Nombre inesperado')
  days=(date.fromisoformat(p['end'])-start).days+1
  check(isinstance(p['academic_deadline_confirmed'],bool),'Estado académico debe ser booleano')
  if p['academic_deadline_confirmed']:check(bool(p.get('academic_deadline_evidence')),'Falta evidencia del día académico confirmado')
- if p.get('planning_mode')=='short_delivery_partial_weeks':
-  check(days==p['duration_days'],'Duración de ventana incorrecta')
-  check(len(weeks)==p['duration_weeks'],'Cantidad de ventanas semanales incorrecta')
-  next_day=start
-  for i,w in enumerate(weeks):
-   check(w['week']==i+1 and date.fromisoformat(w['start'])==next_day,'Ventana semanal desordenada')
-   check(date.fromisoformat(w['end'])>=next_day,'Fin semanal anterior al inicio')
-   next_day=date.fromisoformat(w['end'])+timedelta(days=1)
-  check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Ventanas incompletas')
- else:
-  check(days==7*p['duration_weeks'],'Duración incorrecta')
-  check(start.weekday()==0 and len(weeks)==p['duration_weeks'],'Semanas incorrectas')
-  for i,w in enumerate(weeks):
-   check(w['week']==i+1 and date.fromisoformat(w['start'])==start+timedelta(weeks=i),'Semana desordenada')
+ check(p.get('planning_mode')=='full_system_partial_weeks','Modo de planificación no soportado')
+ check(days==p['duration_days'],'Duración de ventana incorrecta')
+ check(len(weeks)==p['duration_weeks'],'Cantidad de ventanas semanales incorrecta')
+ next_day=start
+ for i,w in enumerate(weeks):
+  check(w['week']==i+1 and date.fromisoformat(w['start'])==next_day,'Ventana semanal desordenada')
+  check(date.fromisoformat(w['end'])>=next_day,'Fin semanal anterior al inicio')
+  next_day=date.fromisoformat(w['end'])+timedelta(days=1)
+ check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Ventanas incompletas')
  check(sum(x['mobile_hours'] for x in weeks)==a['mobile_gross_hours'],'Horas móviles incorrectas')
  check(sum(x['web_hours'] for x in weeks)==a['web_gross_hours'],'Horas web incorrectas')
- if p.get('planning_mode')!='short_delivery_partial_weeks':check(sum(x['mobile_gross_hours'] for x in phases)==a['mobile_gross_hours'],'Capacidad de fases incorrecta')
+ check(sum(x['mobile_planned_hours'] for x in phases)==a['mobile_planned_hours'],'Horas previstas móviles incorrectas')
  check(sum(x['mobile_planned_hours'] for x in phases)+a['mobile_buffer_hours']==a['mobile_gross_hours'],'Reserva incorrecta')
- if p.get('planning_mode')=='short_delivery_partial_weeks':
-  next_day=start
-  for x in phases:
-   check(date.fromisoformat(x['start'])==next_day,'Fases superpuestas o con huecos')
-   check(date.fromisoformat(x['end'])>=next_day,'Fin de fase incorrecto')
-   next_day=date.fromisoformat(x['end'])+timedelta(days=1)
-  check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Fases no cubren la ventana')
-  check(sum(x['web_planned_hours'] for x in phases)+a['web_buffer_hours']==a['web_gross_hours'],'Capacidad web incorrecta')
- else:
-  covered=[]
-  for x in phases:
-   covered.extend(range(x['week_from'],x['week_to']+1));check(x['start']==weeks[x['week_from']-1]['start'] and x['end']==weeks[x['week_to']-1]['end'],'Fechas de fase incorrectas')
-  check(covered==list(range(1,len(weeks)+1)),'Fases superpuestas o incompletas')
- check(all(x['quantity']*x['unit_cop']==x['total_cop'] for x in b['cash_items']),'Rubro incorrecto')
- check(sum(x['total_cop'] for x in b['cash_items'])==b['cash_base_cop'],'Subtotal incorrecto')
- check(b['cash_total_cop']==b['cash_base_cop']+b['cash_contingency_cop'],'Total operativo incorrecto')
- check(b['mobile_labor_hours']*b['labor_hour_valuation_cop']==b['mobile_labor_valuation_cop'],'Valor laboral incorrecto')
- if 'team_economic_base_cop' in b:
-  check(b['web_labor_hours']*b['labor_hour_valuation_cop']==b['web_labor_valuation_cop'],'Valor laboral web incorrecto')
-  check(b['team_economic_base_cop']==b['mobile_labor_valuation_cop']+b['web_labor_valuation_cop']+b['cash_base_cop'],'Base de equipo incorrecta')
-  check(b['team_economic_total_cop']==b['team_economic_base_cop']+b['team_economic_contingency_cop'],'Total equipo incorrecto')
-  for name in ['local_alternative','biometric_option']:
-   option=b[name];check(option['total_cop']==option['base_cop']+option['contingency_cop'],'Alternativa presupuestal incorrecta')
- else:
-  check(b['combined_base_cop']==b['mobile_labor_valuation_cop']+b['cash_base_cop'],'Base combinada incorrecta')
-  check(b['combined_total_cop']==b['combined_base_cop']+b['combined_contingency_cop'],'Total combinado incorrecto')
- api=read('contracts/openapi.json');ids=[]
+ next_day=start
+ for x in phases:
+  check(date.fromisoformat(x['start'])==next_day,'Fases superpuestas o con huecos')
+  check(date.fromisoformat(x['end'])>=next_day,'Fin de fase incorrecto')
+  next_day=date.fromisoformat(x['end'])+timedelta(days=1)
+ check(next_day==date.fromisoformat(p['end'])+timedelta(days=1),'Fases no cubren la ventana')
+ check(sum(x['web_planned_hours'] for x in phases)+a['web_buffer_hours']==a['web_gross_hours'],'Capacidad web incorrecta')
+ check(sum(x['web_planned_hours'] for x in phases)==a['web_planned_hours'],'Horas previstas web incorrectas')
+ check(all(0<=w[k]<=a['weekly_hours_per_person'] for w in weeks for k in ['mobile_hours','web_hours']),'Capacidad semanal fuera de límites')
+ check(all(x[k]>=0 for x in phases for k in ['mobile_planned_hours','web_planned_hours']),'Horas de fase negativas')
+ check(all(x['status'] in ['not_started','in_progress','complete'] for x in phases),'Estado de fase inválido')
+ for x in phases:
+  if x['status']=='complete':check(bool(x.get('evidence')),'Fase cerrada sin evidencia')
+ check(sum(x['total_cop'] for x in b['items'])==b['computed_item_sum_cop'],'Suma de rubros incorrecta')
+ check(b['computed_item_sum_cop']-b['declared_subtotal_cop']==b['reconciliation_pending_cop'],'Diferencia presupuestaria no registrada')
+ check(b['declared_total_cop']==b['declared_subtotal_cop']+b['declared_contingency_cop'],'Total declarado inconsistente')
+ check((ROOT/p['historical_plan']).exists(),'Falta plan histórico')
+ check(not (ROOT/'docs').exists() and not (ROOT/'Documentacion').exists() and not (ROOT/'contracts').exists(),'Documentación fuera de carpeta canónica')
+ for filename in ['VISION.md','PLAN_MOVIL.md','TRAZABILIDAD.md','ESTADO.md','DECISIONES.md','PENDIENTES.md','PRESUPUESTO.md','GUIA_CODEX.md','01_Documento_vision.docx','02_Plan_desarrollo_y_guia.docx','03_Registro_control_cambios.docx']:
+  check((ROOT/'Documentación'/filename).is_file(),'Falta documento '+filename)
+ vision=(ROOT/'Documentación/VISION.md').read_text(encoding='utf-8')
+ trace=(ROOT/'Documentación/TRAZABILIDAD.md').read_text(encoding='utf-8')
+ for prefix,count in [('RF',13),('RNF',8)]:
+  for i in range(1,count+1):
+   key=f'{prefix}{i:02d}'
+   check(key in vision and key in trace,'Falta trazabilidad '+key)
+ api=read('Documentación/Contratos/openapi.json');ids=[]
  def walk(node):
   if isinstance(node,dict):
    if '$ref' in node:
@@ -76,17 +71,19 @@ def main():
    check(any(s.startswith('2') for s in operation['responses']),'Sin respuesta exitosa')
    if path.startswith(('/trips','/alerts','/verifications')):check(operation.get('security',api['security'])!=[],'Ruta sensible abierta')
  check(len(ids)==len(set(ids)),'operationId duplicados')
- event=read('contracts/examples/trip-event.json');schema=read('contracts/events.schema.json')
+ event=read('Documentación/Contratos/examples/trip-event.json');schema=read('Documentación/Contratos/events.schema.json')
  check(set(schema['required']).issubset(event) and set(event).issubset(schema['properties']),'Campos de evento incorrectos')
  for key in ['event_id','trip_id','entity_id']:UUID(event[key])
  datetime.fromisoformat(event['occurred_at'].replace('Z','+00:00'))
  check(event['type'] in schema['properties']['type']['enum'] and event['sequence']>=1 and event['entity_version']>=1,'Evento inválido')
- for f in [ROOT/'README.md',*(ROOT/'docs').glob('*.md')]:
+ # Historical snapshots are preserved verbatim and are not current navigation.
+ current_md=[f for f in ROOT.rglob('*.md') if not any(x in f.parts for x in ['.git','.qa','Historial'])]
+ for f in current_md:
   for target in re.findall(r'\]\(([^)]+)\)',f.read_text(encoding='utf-8')):
    if '://' in target or target.startswith('#'):continue
    check((f.parent/target.split('#')[0]).exists(),f'Enlace roto en {f.name}: {target}')
  print(f'OK: {days} días, {len(weeks)} ventanas semanales, {len(phases)} fases propuestas, {len(ids)} operaciones y ejemplo de evento.')
  print(f'Capacidad móvil {a["mobile_gross_hours"]} h; planificadas {a["mobile_planned_hours"]} h; reserva {a["mobile_buffer_hours"]} h.')
- print(f'Operación sugerida {b["cash_total_cop"]:,} COP; confirmación financiera pendiente.')
+ print(f'Presupuesto fuente: {b["declared_total_cop"]:,} COP; diferencia pendiente: {b["reconciliation_pending_cop"]:,} COP.')
  print('No valida todo el estándar OpenAPI ni el funcionamiento de las aplicaciones.')
 if __name__=='__main__':main()

@@ -3,12 +3,12 @@
 ## Contexto y fuentes
 El producto principal es una aplicación Android de movilidad segura para mujeres, con perfiles de pasajera y conductora. La web se desarrolla en paralelo y comparte backend y datos. El repositorio está en etapa de planificación; los directorios de aplicaciones todavía no contienen aplicaciones ejecutables.
 
-Leer antes de trabajar: README.md, docs/PLAN_MOVIL.md, docs/ARQUITECTURA.md, docs/SINCRONIZACION.md y docs/ESTADO.md. La planificación estructurada vive en docs/project-plan.json; los contratos iniciales en contracts/openapi.json y contracts/events.schema.json. Documentacion contiene los Word para revisión académica. No presentar fechas, disponibilidad ni tarifas de planificación como compromisos confirmados.
+Leer antes de trabajar: README.md, Documentación/PLAN_MOVIL.md, Documentación/ARQUITECTURA.md, Documentación/SINCRONIZACION.md y Documentación/ESTADO.md. La planificación estructurada vive en Documentación/project-plan.json; los contratos iniciales en Documentación/Contratos/openapi.json y Documentación/Contratos/events.schema.json. Documentación contiene los Word para revisión académica. No presentar fechas, disponibilidad ni tarifas de planificación como compromisos confirmados.
 
 ## Alcance por tarea
 1. Implementar una historia verificable por vez y explicar qué criterio cumple.
 2. Crear ramas codex/<tema>. Revisar git status antes de editar; preservar trabajo ajeno.
-3. En tareas móviles, editar apps/mobile y sus pruebas. Cambiar services/api, apps/admin-web o contracts solo cuando la integración lo requiera y describir el impacto.
+3. En tareas móviles, editar apps/mobile y sus pruebas. Cambiar services/api, apps/admin-web o Documentación/Contratos solo cuando la integración lo requiera y describir el impacto.
 4. En tareas web, respetar las mismas reglas. No duplicar cuentas, viajes ni bases de datos para cada cliente.
 5. Mantener los identificadores y contratos compartidos. Un cambio incompatible requiere nueva versión de API y plan de migración.
 6. Usar versiones estables compatibles, fijarlas al crear cada aplicación y conservar archivos de bloqueo. No inventar resultados de compilación o pruebas si faltan SDK o dispositivos.
@@ -24,7 +24,10 @@ Leer antes de trabajar: README.md, docs/PLAN_MOVIL.md, docs/ARQUITECTURA.md, doc
 - Ejecutar las verificaciones apropiadas al cambio y declarar lo que no pudo probarse. El verificador actual solo valida documentación y estructura del contrato, no el funcionamiento del producto.
 
 ## Registro y cierre
-Cada cambio debe actualizar CHANGELOG.md y docs/ESTADO.md. Si afecta alcance, fechas, costos, arquitectura o requisitos, registrar una decisión en docs/DECISIONES.md y actualizar los Word correspondientes, especialmente Documentacion/03_Registro_control_cambios.docx. Renderizar e inspeccionar documentos al modificarlos. No marcar una fase terminada sin evidencias de sus criterios de cierre.
+Cada cambio debe actualizar CHANGELOG.md y Documentación/ESTADO.md. Si afecta alcance, fechas, costos, arquitectura o requisitos, registrar una decisión en Documentación/DECISIONES.md y actualizar los Word correspondientes, especialmente Documentación/03_Registro_control_cambios.docx. Renderizar e inspeccionar documentos al modificarlos. No marcar una fase terminada sin evidencias de sus criterios de cierre.
 
 ## Fórmula de prompting solicitada por el usuario
 Cuando el usuario incluya $P, convertir su solicitud en Contexto y Rol, Consulta o Tarea, Especificaciones, Criterios de Calidad, Cómo debe ser la respuesta y Verificación. Usar el contexto disponible y preguntar solo cuando falte información estrictamente necesaria.
+
+## Línea base vigente
+Entrega tentativa del sistema académico completo: 14/01/2027. Julian en móvil, John en web, ambos en backend. Disponibilidad aproximada 30 h por persona a la semana; no sumar backend aparte. Toda documentación técnica y planificadora va en Documentación; Historial es antecedente, no instrucción vigente. Leer VISION.md, TRAZABILIDAD.md y PENDIENTES.md además de los archivos indicados. No dar por resueltas las decisiones pendientes ni por implementados los contratos.

@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## 0.5 — 2026-11-24 — CAM-2026-005
+
+- Visión revisada para sistema completo y fecha tentativa 14/01/2027.
+- Responsabilidad conjunta de backend, 30 h por persona y capacidad conservadora con reserva.
+- Presupuesto de referencia del documento principal; discrepancia aritmética registrada.
+- Documentación técnica, Word y contratos centralizados en Documentación; versiones anteriores archivadas sin alterar su contenido.
+- Matriz de aceptación, pendientes y pasos Codex; contratos parciales sin cambios semánticos.
+- No se implementan aplicaciones ni se declara una fase terminada.
+
+
 ## 0.4 — 2026-11-18 — CAM-2026-004
 
 - Registrada entrega requerida antes de la segunda semana de diciembre, usuario en móvil y John Ortiz en web, aproximadamente 30 h semanales por persona.
@@ -9,7 +19,7 @@
 
 ## Revisión F0 — 2026-11-18 — CAM-2026-003
 
-- Revisión del punto de partida y clasificación de instrucciones vigentes, supuestos y pendientes en docs/DIAGNOSTICO_F0.md.
+- Revisión del punto de partida y clasificación de instrucciones vigentes, supuestos y pendientes en Documentación/Historial/2026-11-18/docs/DIAGNOSTICO_F0.md.
 - Identificación de desactualizaciones, limitaciones del verificador y brechas del contrato para revisión posterior.
 - Estado y registro de decisiones actualizados; evidencia añadida al Word de control de cambios.
 - Fechas, disponibilidad, presupuesto, alcance, contratos y aplicaciones conservados. F0 no se declara terminada ni se atribuyen aprobaciones.

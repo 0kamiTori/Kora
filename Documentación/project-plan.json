@@ -1,0 +1,233 @@
+{
+  "project_name": "Köra",
+  "version": "0.5",
+  "updated": "2026-11-24",
+  "planning_mode": "full_system_partial_weeks",
+  "start": "2026-11-24",
+  "end": "2027-01-14",
+  "duration_days": 52,
+  "duration_weeks": 8,
+  "academic_deadline_confirmed": false,
+  "deadline_status": "Fecha tentativa comunicada por el usuario; no plazo institucional certificado",
+  "scope": "Sistema académico completo RF01–RF13 con APK, web y backend; no operación comercial",
+  "availability": {
+    "weekly_hours_per_person": 30,
+    "mobile_owner": "Julian Hernando Perez Villamizar",
+    "web_owner": "John Eduardo Ortiz Castellanos",
+    "backend_owners": [
+      "Julian Hernando Perez Villamizar",
+      "John Eduardo Ortiz Castellanos"
+    ],
+    "mobile_gross_hours": 220,
+    "web_gross_hours": 220,
+    "mobile_planned_hours": 176,
+    "web_planned_hours": 176,
+    "mobile_buffer_hours": 44,
+    "web_buffer_hours": 44,
+    "assumption": "Ventanas parciales estimadas conservadoramente en 25 h y 15 h; sin ausencias ni vacaciones confirmadas. Backend, pruebas y documentación incluidos, no horas adicionales."
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "start": "2026-11-24",
+      "end": "2026-11-29",
+      "mobile_hours": 25,
+      "web_hours": 25
+    },
+    {
+      "week": 2,
+      "start": "2026-11-30",
+      "end": "2026-12-06",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 3,
+      "start": "2026-12-07",
+      "end": "2026-12-13",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 4,
+      "start": "2026-12-14",
+      "end": "2026-12-20",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 5,
+      "start": "2026-12-21",
+      "end": "2026-12-27",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 6,
+      "start": "2026-12-28",
+      "end": "2027-01-03",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 7,
+      "start": "2027-01-04",
+      "end": "2027-01-10",
+      "mobile_hours": 30,
+      "web_hours": 30
+    },
+    {
+      "week": 8,
+      "start": "2027-01-11",
+      "end": "2027-01-14",
+      "mobile_hours": 15,
+      "web_hours": 15
+    }
+  ],
+  "phases": [
+    {
+      "id": "F0",
+      "name": "Bases y revisión",
+      "start": "2026-11-24",
+      "end": "2026-11-25",
+      "mobile_planned_hours": 8,
+      "web_planned_hours": 8,
+      "deliverable": "Visión y línea base documental",
+      "exit_gate": "Revisar alcance, roles, pendientes y criterios; registrar observaciones.",
+      "status": "in_progress"
+    },
+    {
+      "id": "F1",
+      "name": "Requisitos y contratos",
+      "start": "2026-11-26",
+      "end": "2026-11-29",
+      "mobile_planned_hours": 16,
+      "web_planned_hours": 16,
+      "deliverable": "SRS y trazabilidad RF01 a RF13",
+      "exit_gate": "Flujos normales y de error, reglas y aceptación revisados por ambos; contratos suficientes para la primera historia.",
+      "status": "not_started"
+    },
+    {
+      "id": "F2",
+      "name": "Base técnica y viabilidad",
+      "start": "2026-11-30",
+      "end": "2026-12-06",
+      "mobile_planned_hours": 24,
+      "web_planned_hours": 24,
+      "deliverable": "Clientes y API base; ensayos GPS y biometría",
+      "exit_gate": "Ambos clientes acceden a la misma API; decisiones de viabilidad y licencias con evidencia; replanificar si fallan.",
+      "status": "not_started"
+    },
+    {
+      "id": "F3",
+      "name": "Identidad y ciclo de viaje",
+      "start": "2026-12-07",
+      "end": "2026-12-16",
+      "mobile_planned_hours": 40,
+      "web_planned_hours": 40,
+      "deliverable": "Cuentas, aprobación, viajes y verificación real",
+      "exit_gate": "Permisos por recurso; ninguna transición a ready sin identidad y detección de vida vigentes; pruebas de errores y ataques.",
+      "status": "not_started"
+    },
+    {
+      "id": "F4",
+      "name": "Ubicación rutas y anomalías",
+      "start": "2026-12-17",
+      "end": "2026-12-27",
+      "mobile_planned_hours": 40,
+      "web_planned_hours": 40,
+      "deliverable": "GPS, rutas, cola local e índice explicable",
+      "exit_gate": "Pruebas de precisión, desconexión, duplicados, pantalla apagada y verificación segura durante paradas.",
+      "status": "not_started"
+    },
+    {
+      "id": "F5",
+      "name": "Alertas y sincronización integral",
+      "start": "2026-12-28",
+      "end": "2027-01-03",
+      "mobile_planned_hours": 24,
+      "web_planned_hours": 24,
+      "deliverable": "Web operativa, alertas y seguimiento compartido",
+      "exit_gate": "Recuperación REST tras corte; permisos, enlace revocable y acuses; FCM no equivale a atención.",
+      "status": "not_started"
+    },
+    {
+      "id": "F6",
+      "name": "Validación y correcciones",
+      "start": "2027-01-04",
+      "end": "2027-01-10",
+      "mobile_planned_hours": 16,
+      "web_planned_hours": 16,
+      "deliverable": "Pruebas integrales y evaluación controlada",
+      "exit_gate": "Protocolo autorizado antes de datos reales; métricas y limitaciones registradas; defectos críticos cerrados.",
+      "status": "not_started"
+    },
+    {
+      "id": "F7",
+      "name": "Entrega reproducible",
+      "start": "2027-01-11",
+      "end": "2027-01-14",
+      "mobile_planned_hours": 8,
+      "web_planned_hours": 8,
+      "deliverable": "APK firmada, web, API y documentación",
+      "exit_gate": "Instalación por el otro integrante, restauración y matriz completa de evidencias; acta de revisión, sin inventar aprobación académica.",
+      "status": "not_started"
+    }
+  ],
+  "budget": {
+    "currency": "COP",
+    "source": "Propuesta 65-2026-185, páginas 19–21",
+    "status": "Presupuesto de referencia del documento principal; no contratación ni aportes institucionales acreditados",
+    "items": [
+      {
+        "item": "Desarrolladores",
+        "total_cop": 15600000
+      },
+      {
+        "item": "Director de trabajo de grado",
+        "total_cop": 2400000
+      },
+      {
+        "item": "Equipos de cómputo",
+        "total_cop": 7000000
+      },
+      {
+        "item": "Dispositivos Android",
+        "total_cop": 2400000
+      },
+      {
+        "item": "Infraestructura cloud y base de datos",
+        "total_cop": 480000
+      },
+      {
+        "item": "Cartografía y ruteo",
+        "total_cop": 360000
+      },
+      {
+        "item": "Modalidad de trabajo de grado",
+        "total_cop": 1050544
+      },
+      {
+        "item": "Conectividad",
+        "total_cop": 1080000
+      }
+    ],
+    "declared_subtotal_cop": 30350544,
+    "declared_contingency_cop": 3035054,
+    "declared_total_cop": 33385598,
+    "computed_item_sum_cop": 30370544,
+    "reconciliation_pending_cop": 20000,
+    "shared_cost_rule": "API y base comunes, sin duplicación por cliente; no trasladar los seis meses originales al nuevo calendario sin revisión."
+  },
+  "success_targets": {
+    "events_p95_seconds": 5,
+    "stale_location_seconds": 30,
+    "route_recall_percent": 90,
+    "normal_trip_false_alert_percent_max": 10,
+    "genuine_rejection_percent_max": 5,
+    "impostor_acceptance_percent_max": 1,
+    "usability_task_success_percent": 90,
+    "status": "Metas propuestas para acordar y evaluar; no resultados obtenidos"
+  },
+  "historical_plan": "Documentación/Historial/2026-11-18/docs/project-plan.json"
+}
