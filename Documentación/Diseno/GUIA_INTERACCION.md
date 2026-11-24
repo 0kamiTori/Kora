@@ -1,6 +1,6 @@
 # Guía de interacción para elegir y trasladar el diseño
 
-Esta guía acompaña cinco direcciones visuales del mismo producto. No sustituye la visión, los contratos ni el SRS. El diseño elegido queda pendiente de revisión de Julian y John.
+Esta guía conserva la exploración de cinco direcciones visuales. No sustituye visión, contratos o SRS. En CAM-2026-007 el usuario eligió premium con color configurable; APP01 adapta Órbita en Flutter. La aceptación visual y de accesibilidad en Android físico sigue pendiente.
 
 ## Flujos y correspondencia
 

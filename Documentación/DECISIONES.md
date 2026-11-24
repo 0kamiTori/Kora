@@ -21,3 +21,13 @@ No se inventan aprobación del director, proveedores contratados, responsables i
 | DEC27 | Prototipo visual local y guía con estados coherentes con la visión; movimiento opcional, sin decoración en marcha | Propuesta de interacción para revisión, no implementación de APK ni autorización simulada de viajes. No cambia los contratos ni añade motor 3D. |
 
 Recomendación de diseño inicial: Sencilla Clara por su estructura directa, a contrastar con usuarias. No se presenta como evaluación de usabilidad ni aprobación de los autores. No cambian fecha, presupuesto o alcance funcional.
+
+## Implementación móvil CAM 2026 007
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC28 | Estilo premium con apartado para cambiar el color de la aplicación móvil | Solicitado por el usuario. Se adapta Premium Órbita como composición de implementación; no se atribuye elección explícita de esa subvariante. Sustituye la selección abierta de DEC26. |
+| DEC29 | Acento personal persistido localmente, superficies oscuras y estados semánticos fijos | APP01 implementa presets, RGB, cancelación, restauración y errores. SharedPreferencesAsync guarda solo color, sin sincronización web ni API nueva. |
+| DEC30 | Flutter 3.50.1, Dart 3.14.0, Material UI oficial separado, versiones fijadas y Android API 24 mínimo | Base inicial verificable; dev.kora.kora_mobile es identificador de desarrollo, no identidad de tienda aprobada. El cierre de F2 sigue requiriendo web, API y viabilidad. |
+
+No cambian fechas, capacidad o presupuesto. La apariencia complementa RF11 y RNF05. Registro, roles y controles de seguridad se implementarán mediante sus historias, sin datos fingidos en producción.

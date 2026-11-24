@@ -1,8 +1,8 @@
 # Documento visión de Köra
 
-Versión 0.5 · 24/11/2026 · CAM-2026-005
+Versión 0.7 · 24/11/2026 · CAM-2026-005
 
-Köra integrará una aplicación Android para pasajeras y conductoras, una web administrativa y un backend común. Esta visión define el sistema académico completo, sus límites y la evidencia necesaria para aceptarlo. La fecha de entrega indicada por el usuario es tentativa: 14 de enero de 2027. El avance actual es documental; no existe una aplicación ejecutable.
+Köra integrará una aplicación Android para pasajeras y conductoras, una web administrativa y un backend común. Esta visión define el sistema académico completo, sus límites y la evidencia necesaria para aceptarlo. La fecha de entrega indicada por el usuario es tentativa: 14 de enero de 2027. Ya existe la base Flutter y apariencia local; las funciones centrales del sistema siguen pendientes.
 
 ## 1 Problema y propósito
 
@@ -190,7 +190,7 @@ Entregar código versionado y locks; APK firmada instalable y firma custodiada f
 
 El guion integral debe cubrir registro y aprobación, viaje con identidad y vida reales, ruta y posiciones, anomalía y alerta, atención web, enlace revocable, reconexión, finalización y tratamiento de datos. Probar recursos ajenos y roles inválidos. Otro integrante reproduce instalación y restauración. No cerrar con defectos críticos de seguridad o integridad abiertos; evidenciar qué metas se alcanzaron y cuáles no.
 
-OE1 se evidencia con requisitos, contratos y arquitectura; OE2 con verificación y evaluación biométrica; OE3 con GPS, anomalías y métricas; OE4 con APK y web funcionales; OE5 con pruebas integradas y evaluación controlada. La matriz TRAZABILIDAD.md relaciona RF, fases y casos de aceptación. Hoy todas las funciones figuran no implementadas.
+OE1 se evidencia con requisitos, contratos y arquitectura; OE2 con verificación y evaluación biométrica; OE3 con GPS, anomalías y métricas; OE4 con APK y web funcionales; OE5 con pruebas integradas y evaluación controlada. La matriz TRAZABILIDAD.md relaciona RF, fases y casos de aceptación. Los requisitos completos siguen pendientes de aceptación; APP01 se detalla en la sección siguiente.
 
 ## 16 Documentación y control de cambios
 
@@ -198,6 +198,14 @@ Documentación es la carpeta canónica en GitHub para visión, planificación, r
 
 ## 17 Fuentes y estado de revisión
 
-Fuente principal: propuesta 65-2026-185 aportada por el usuario, objetivos, resultados, actividades, presupuesto y ética. Acuerdos posteriores del usuario: entrega tentativa, sistema completo, responsables, dedicación, presupuesto de referencia y carpeta Documentación. Esta revisión 0.5 está preparada para revisión de los autores; no atribuye aprobación académica.
+Fuente principal: propuesta 65-2026-185 aportada por el usuario, objetivos, resultados, actividades, presupuesto y ética. Acuerdos posteriores del usuario: entrega tentativa, sistema completo, responsables, dedicación, presupuesto de referencia y carpeta Documentación. Esta revisión 0.7 está preparada para revisión de los autores; no atribuye aprobación académica.
 
 Fuentes técnicas oficiales: docs.flutter.dev/app-architecture/recommendations; render.com/docs/postgresql-extensions; render.com/docs/websocket; developer.android.com/develop/background-work/services/fgs/service-types. Consultadas el 24/11/2026. Detalle y enlaces en ARQUITECTURA.md. Decisiones pendientes en PENDIENTES.md.
+
+## 18 Diseño premium y personalización móvil
+
+El usuario solicita la aplicación móvil con estilo premium y un apartado para cambiar su color. Se adapta la composición Premium Órbita, manteniendo superficies grafito y detalles platinados. La elección de premium y personalización procede del usuario; la subvariante Órbita es una decisión de implementación revisable.
+
+La historia APP01 permite elegir Platino, Zafiro, Jade, Amatista, Cobre o Rosa y crear un color RGB con vista previa. Guardar confirma; Cancelar conserva el anterior; Volver al platino restaura el diseño inicial. La preferencia se recupera localmente al volver a abrir. Los colores de errores, ayuda y verificación no se personalizan.
+
+Esta base Flutter incluye Inicio, Viajes, Perfil y Apariencia; complementa RF11 y RNF05. No implementa cuentas, GPS, biometría, solicitudes, sincronización ni atención de alertas. No muestra verificaciones o viajes ficticios como funcionales. No cierra F0, F1 ni F2: siguen pendientes contratos, web y API, viabilidad y validación en dispositivos.

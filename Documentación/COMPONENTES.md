@@ -1,14 +1,14 @@
 # Componentes y ejecución
 
-No hay aplicaciones inicializadas ni comandos de construcción validados. Al crear cada componente, registrar aquí versiones, variables sin secretos, instalación, pruebas, construcción y diagnóstico.
+Android ya está inicializado; comandos y alcance en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). Los demás componentes siguen pendientes. Registrar versiones, variables sin secretos, instalación, pruebas, construcción y diagnóstico al implementarlos.
 
 ## Android
 
-Pendiente de inicializar con Flutter. Una aplicación con perfiles de pasajera y conductora. Arquitectura prevista: lib/core, lib/features/<funcion>/data y lib/features/<funcion>/presentation; añadir dominio solo cuando sea necesario.
+Base Flutter Android inicializada en CAM-2026-007. Una aplicación con perfiles de pasajera y conductora. Arquitectura prevista: lib/core, lib/features/<funcion>/data y lib/features/<funcion>/presentation; añadir dominio solo cuando sea necesario.
 
-Seguir Documentación/GUIA_CODEX.md y Documentación/SINCRONIZACION.md. Crear pubspec.yaml y pubspec.lock reales al inicializar. Seleccionar y fijar identificador Android de desarrollo antes de crear el proyecto; no usar el nombre provisional del repositorio como compromiso de identificador de tienda.
+Seguir Documentación/GUIA_CODEX.md y Documentación/SINCRONIZACION.md. Conservar pubspec.yaml, pubspec.lock y Flutter 3.50.1. Identificador de desarrollo actual dev.kora.kora_mobile; revisar antes de distribución y no confundirlo con el nombre visible Köra.
 
-No hay código móvil, APK ni pruebas de dispositivo en esta etapa.
+Existe código móvil de APP01 y pruebas locales; la aceptación en dispositivo físico sigue pendiente.
 
 ## Web
 

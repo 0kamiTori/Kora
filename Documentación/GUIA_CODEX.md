@@ -3,13 +3,13 @@
 
 ## Punto de partida
 
-Abrir este repositorio como proyecto. Leer AGENTS.md y Documentación/ESTADO.md. Las carpetas actuales describen el trabajo pendiente; todavía no existe una app ejecutable. El primer objetivo es una base reproducible con autenticación y un flujo compartido, antes de integrar GPS o biometría.
+Abrir este repositorio como proyecto. Leer AGENTS.md y Documentación/ESTADO.md. Android ya tiene base Flutter premium y apariencia local APP01; conservarla. Web y backend siguen pendientes. Completar requisitos y construir autenticación y un flujo compartido antes de GPS o biometría. Comandos Android en MOVIL_APARIENCIA.md.
 
 ## Secuencia de tareas
 
 1. Revisar fecha tentativa 14/01/2027 y capacidad; conservar el sistema completo y revisar viabilidad y completar SRS para RF01 a RF13, flujos de error y aceptación. Resolver la detección de vida en una prueba de viabilidad separada.
 2. Inventariar Flutter, Android SDK, Java, Node, Python y Docker. Instalar solo faltantes desde fuentes oficiales, fijar versiones y dejar un dispositivo físico disponible. No confundir el Python integrado de Codex para documentos con el entorno del backend.
-3. Crear la base Flutter real en apps/mobile, React TypeScript en apps/admin-web y FastAPI en services/api. Evitar proyectos anidados duplicados. Añadir manifests y locks; registrar comandos reales en la guía de ejecución Documentación/COMPONENTES.md.
+3. Conservar y ampliar la base Flutter de apps/mobile. Inicializar React TypeScript en apps/admin-web y FastAPI en services/api cuando corresponda. Evitar proyectos anidados duplicados; conservar locks y registrar comandos reales en Documentación/COMPONENTES.md.
 4. Configurar PostgreSQL/PostGIS local, Alembic y /health. Mantener .env local y .env.example ficticio. Probar que móvil y web alcanzan la misma API. En emulador Android, el equipo anfitrión suele ser 10.0.2.2; un teléfono físico necesita la dirección LAN o un entorno HTTPS accesible. No usar localhost del teléfono como dirección del PC.
 5. Implementar registro, sesión, consentimiento y permisos por rol. La administración aprueba conductoras; un selector de perfil en Flutter no concede privilegios.
 6. Implementar estados de viaje y consultar un mismo viaje desde móvil y web. Añadir conflictos de versión, idempotencia y autorización por recurso antes de eventos en tiempo real.
@@ -26,7 +26,7 @@ Abrir este repositorio como proyecto. Leer AGENTS.md y Documentación/ESTADO.md.
 
 ### Primera tarea de implementación
 
-"Revisa los SDK y el estado de Git. Crea una rama codex/base-compartida e inicializa Flutter, React TypeScript y FastAPI en las carpetas previstas, usando versiones estables compatibles y conservando locks. Añade /health, configuración local por entorno y pruebas de acceso a la misma API desde los dos clientes. Actualiza instrucciones y documenta lo que no puedas ejecutar. No añadas biometría ni declares el producto terminado."
+"Revisa los SDK y el estado de Git. Crea una rama codex/base-compartida; conserva la base Android APP01 e inicializa React TypeScript y FastAPI en las carpetas previstas, usando versiones compatibles y conservando locks. Añade /health, configuración local por entorno y pruebas de acceso a la misma API desde los dos clientes. Actualiza instrucciones y documenta lo que no puedas ejecutar. No añadas biometría ni declares el producto terminado."
 
 ### Una historia móvil
 

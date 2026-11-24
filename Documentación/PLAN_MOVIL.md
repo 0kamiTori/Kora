@@ -1,5 +1,5 @@
 # Plan del sistema completo Köra
-Versión 0.5 · 24/11/2026 · CAM-2026-005. Esta versión sustituye los escenarios anteriores. Fecha tentativa de entrega: **14/01/2027**. El alcance es el sistema académico completo definido en [VISION.md](VISION.md), con Android, web administrativa y backend compartido; no una demostración con verificaciones simuladas.
+Versión 0.7 · 24/11/2026 · CAM-2026-005. Esta versión sustituye los escenarios anteriores. Fecha tentativa de entrega: **14/01/2027**. El alcance es el sistema académico completo definido en [VISION.md](VISION.md), con Android, web administrativa y backend compartido; no una demostración con verificaciones simuladas.
 
 ## Responsables y disponibilidad
 Julian Hernando Perez Villamizar desarrolla la APK; John Eduardo Ortiz Castellanos desarrolla la web. Ambos desarrollan y revisan el backend: contratos, identidad, viajes, datos, biometría, rutas, eventos, seguridad y despliegue. Para cada historia asignarán un implementador y un revisor antes de editar servicios compartidos; esa asignación no crea un tercer puesto ni duplica horas.
@@ -30,3 +30,7 @@ El [presupuesto de referencia](PRESUPUESTO.md) procede del documento principal. 
 
 ## Primera tarea
 Completar en F1 el SRS por historias y la [matriz de aceptación](TRAZABILIDAD.md). La primera historia a detallar es registro con consentimiento y acceso por rol (RF01); antes de implementarla verificar herramientas y base compartida de F2. Ver [GUIA_CODEX.md](GUIA_CODEX.md).
+
+## Preparación móvil APP01
+
+Se adelanta la base Android y la apariencia local, independientes de la identidad y los viajes. La implementación no acredita cierre de fase. Estado, versiones y comandos en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). Se mantienen fechas, horas y presupuesto de referencia.

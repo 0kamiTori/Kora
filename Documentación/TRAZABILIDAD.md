@@ -36,3 +36,7 @@ El contrato actual tiene 13 operaciones REST y un diseño de eventos; no cubre t
 
 ## Cierre del sistema
 RF01–RF13 y RNF01–RNF08 deben tener evidencia y revisión. Reportar metas no alcanzadas y defectos; no declarar aceptación total con controles de seguridad fallidos o datos de evaluación insuficientes. La revisión técnica de autores no reemplaza la aceptación académica.
+
+## Detalle de interfaz APP01
+
+RF11 y RNF05 se complementan con apariencia premium configurable. Criterios y límites en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). APP01 implementada con pruebas locales: presets, selector, cancelación, restauración, errores y escrituras ordenadas. Prueba física Android pendiente; RF11 y RNF05 completos continúan pendientes. No se dan por implementados identidad, GPS o viajes.

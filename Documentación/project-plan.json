@@ -1,6 +1,6 @@
 {
   "project_name": "Köra",
-  "version": "0.5",
+  "version": "0.7",
   "updated": "2026-11-24",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
@@ -229,5 +229,19 @@
     "usability_task_success_percent": 90,
     "status": "Metas propuestas para acordar y evaluar; no resultados obtenidos"
   },
-  "historical_plan": "Documentación/Historial/2026-11-18/docs/project-plan.json"
+  "historical_plan": "Documentación/Historial/2026-11-18/docs/project-plan.json",
+  "mobile_preparation": {
+    "story": "APP01",
+    "status": "implemented_local_checks",
+    "theme": "premium; Orbita composition",
+    "appearance": "six presets and custom RGB; local persistence",
+    "phase_gate": "F2 not closed; web/API and technical feasibility pending",
+    "physical_device_acceptance": "pending",
+    "reference_device": {
+      "model": "Xiaomi Redmi Note 15 Pro",
+      "android": "16",
+      "source": "user",
+      "tested": false
+    }
+  }
 }

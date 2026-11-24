@@ -1,6 +1,6 @@
 # Cinco propuestas para la aplicación Köra
 
-24/11/2026 · Diseño 0.1 · CAM-2026-006. El usuario eligió cinco propuestas en total: dos premium, dos sencillas y una 3D. Se trabajaron por estilo, en ese orden. No se ha elegido una propuesta definitiva ni implementado la APK.
+24/11/2026 · Diseño 0.1 · CAM-2026-006. Se conservan las cinco alternativas originales. Actualización CAM-2026-007: el usuario eligió premium y cambio de color en la aplicación móvil. La base Flutter adapta la composición Premium Órbita; instrucciones vigentes en [MOVIL_APARIENCIA](../MOVIL_APARIENCIA.md). Las demás propuestas se conservan para referencia.
 
 Abrir [la vista navegable](prototipos.html) en un navegador. Conservar los archivos CSS, JS y la carpeta Imagenes junto al HTML. Se ejecuta localmente sin servidor ni instalación; las fuentes web son opcionales y tienen sustitución local. GitHub muestra el código del HTML: para probarlo, descargar el repositorio y abrir el archivo. No se ha publicado un sitio independiente.
 

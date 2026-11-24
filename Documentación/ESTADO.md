@@ -1,18 +1,21 @@
 # Estado del proyecto
-24/11/2026 · revisión de diseño 0.1 · CAM-2026-006. Visión y plan funcional vigentes: versión 0.5.
+24/11/2026 · revisión 0.7 · CAM-2026-007.
 
 ## Base vigente
-Fecha tentativa 14/01/2027 y sistema académico completo RF01–RF13. Julian en APK, John en web y ambos en backend; disponibilidad aproximada declarada 30 h por persona a la semana. Presupuesto de referencia del documento principal. Documentación centralizada en esta carpeta. Ver [PLAN_MOVIL.md](PLAN_MOVIL.md), [VISION.md](VISION.md) y [PENDIENTES.md](PENDIENTES.md).
+Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
 
 ## Avance real
-F0 en curso: visión y planificación actualizadas para revisión; cinco alternativas visuales en [Diseno](Diseno/README.md) con láminas y prototipo navegable HTML local. No se ha elegido el diseño definitivo. No hay evidencia de cierre de fase ni aprobación académica nueva. No existen proyectos ejecutables Flutter/React/FastAPI, migraciones aplicadas, APK, integración real, biometría evaluada ni despliegue. OpenAPI y eventos son diseños parciales. El prototipo visual usa datos ficticios y no verifica identidad, crea viajes ni envía alertas. El verificador de las bases solo comprueba coherencia documental y estructura del contrato.
+apps/mobile es una aplicación Flutter Android inicializada: Inicio premium, Viajes sin datos, Perfil y Apariencia. APP01 permite seis acentos y RGB personalizado, cancelar, restaurar y recuperar preferencia local; errores y escrituras rápidas controlados. Premium elegido por el usuario; Órbita es composición de implementación. Ver [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md).
+
+F0 continúa en curso. APP01 es preparación independiente; no cierra F1 ni F2. No hay backend o web ejecutables, cuentas, biometría, GPS, viajes reales ni alertas. Los contratos continúan como diseños parciales. El dibujo del inicio no es ubicación ni mapa operativo. No se muestran verificaciones simuladas. Los dobles de almacenamiento existen solo en test.
+
+## Evidencia local de APP01
+Flutter 3.50.1, Dart 3.14.0. Análisis estático sin incidencias y doce pruebas locales aprobadas, incluida captura visual; la prueba opcional de captura se omite en CI. Cubren preferencia tras recrear controlador, lectura/escritura fallidas, selecciones rápidas, cancelación, restauración, color global, contraste de colores y texto al doble de tamaño. Capturas Flutter revisadas por separado del prototipo HTML. No equivalen a ejecución Android física.
+
+Flutter preparado fuera del repositorio. Android SDK no está instalado localmente; no se construyó ni ejecutó APK en este equipo. Workflow Android añadido para analizar, probar y generar APK debug en GitHub; comprobar resultado y artefacto al publicar. Instalación en teléfono, plugin tras cierre real, TalkBack y rendimiento están pendientes. Los Word 01, 02 y 03 incorporan CAM-2026-007 y requieren su revisión visual al cierre.
 
 ## Próxima tarea verificable
-Comparar y elegir la dirección visual entre las cinco propuestas; registrar correcciones antes de trasladarla a Flutter. Mantener la siguiente tarea funcional: completar la primera historia del SRS RF01 (registro, consentimiento y roles), con entradas, validaciones, errores, permisos y aceptación. Asignar implementador y revisor del backend. Después verificar SDK, inicializar la base compartida y probar /health desde ambos clientes en F2. No empezar con el reconocimiento facial completo antes de comprobar su viabilidad.
+Revisar APP01 en Android físico con la APK de desarrollo cuando esté disponible. Completar después SRS de RF01 (registro, consentimiento y roles), contrato necesario y responsable/revisor backend antes del código funcional. Web y API compartida siguen pendientes; no crear fuentes de identidad separadas por cliente.
 
-## Evidencias del diseño CAM 2026 006
-
-Se verificaron 15 combinaciones de pantalla y diseño en navegador, ambos perfiles, conservación de destino, navegación, diálogos, aviso pendiente, carga de cinco láminas, anchos 360/390/768 y movimiento reducido; sin errores JavaScript. Se revisaron las láminas y el registro Word actualizado de seis páginas. No se han medido usabilidad con participantes, rendimiento Android o contraste en dispositivos. La elección visual permanece pendiente.
-
-## Evidencias anteriores CAM 2026 005
-Los documentos vigentes son Word 01, 02 y 03, Markdown y project-plan.json. Registro CAM-2026-005. Pasó scripts/validate_foundation.py: fechas, capacidad, presupuesto transcrito, trazabilidad, enlaces y estructura de los 13 endpoints iniciales. Cinco casos negativos fueron rechazados: hueco semanal, reserva incorrecta, diferencia presupuestaria omitida, fase cerrada sin evidencia y fecha académica confirmada sin soporte. Se verificaron el archivo histórico y los contratos contra Git, la geometría Word y sus recursos gráficos. Se renderizaron e inspeccionaron las 18 páginas vigentes: visión 9, plan 5, registro 4. Ninguna comprobación documental acredita el producto. La publicación GitHub se verifica por commit y árbol remoto al cierre.
+## Antecedentes
+Las cinco propuestas y el HTML se conservan en Diseno, como exploración anterior. Las evidencias documentales CAM005 y diseño CAM006 se conservan en Git y Word; no se atribuyen al funcionamiento del producto. Ver [decisiones](DECISIONES.md), [plan](PLAN_MOVIL.md) y [pendientes](PENDIENTES.md).

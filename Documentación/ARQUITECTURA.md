@@ -71,3 +71,7 @@ La plantilla biométrica, si se conserva, se cifra a nivel de aplicación y se g
 - OpenCV y reconocimiento: https://docs.opencv.org/4.x/d0/dd4/tutorial_dnn_face.html
 
 Revisión del 24/11/2026: se mantiene la arquitectura objetivo para el sistema completo. La selección de Render es una recomendación pendiente de dimensionamiento y cobertura presupuestaria, no un despliegue. PostGIS y WebSocket se contrastaron en la documentación oficial del proveedor en esta revisión. Separación UI y datos contrastada con Flutter; permisos de servicios de ubicación con Android. Las versiones mayores antes propuestas (Python 3.12, PostgreSQL 16 y PostGIS 3) son una base de compatibilidad por comprobar, no una afirmación de ser las últimas versiones estables. Fijar versiones y locks en F2.
+
+
+## Base móvil implementada en CAM 2026 007
+Flutter Android 3.50.1 con material_ui oficial 1.11.1, Riverpod, GoRouter y SharedPreferencesAsync solo para apariencia local. Capas y versiones en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). No se crea identidad local alternativa ni API de sincronización de color; backend y contratos permanecen sin cambios.

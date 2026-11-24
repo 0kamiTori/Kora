@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## 0.7 — 2026-11-24 — CAM-2026-007
+
+- Inicializada aplicación Flutter Android, estilo premium oscuro con acento platino y navegación Inicio, Viajes y Perfil.
+- Historia APP01: Apariencia con seis colores, selector RGB, vista previa, cancelación, restauración y preferencia local persistida; control de errores y escrituras serializadas.
+- Separados tema, estado, repositorio y rutas. Colores semánticos fijos y ajuste de tonos oscuros para lectura.
+- SDK y dependencias fijados, lock conservado y pipeline Android para análisis, pruebas y APK debug.
+- Documentación y Word actualizados; sin cambios de backend o contratos. No se implementan ni simulan verificaciones, ubicación, solicitudes de viaje o alertas.
+
 ## 0.6 — 2026-11-24 — CAM-2026-006
 
 - Creadas cinco direcciones visuales: Premium Platino, Premium Órbita, Sencilla Clara, Sencilla Paso a Paso y 3D Trayecto, según distribución elegida por el usuario.

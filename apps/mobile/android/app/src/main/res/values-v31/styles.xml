@@ -1,0 +1,8 @@
+<resources>
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowSplashScreenBackground">#101416</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_kora</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">#101416</item>
+    </style>
+</resources>

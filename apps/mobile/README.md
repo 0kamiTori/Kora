@@ -1,3 +1,3 @@
 # Android
 
-Componente pendiente de implementar. Instrucciones técnicas y de ejecución centralizadas en [Documentación](../../Documentación/COMPONENTES.md).
+Base Flutter premium con apariencia configurable APP01. Instrucciones, versiones, pruebas y límites en [Documentación](../../Documentación/MOVIL_APARIENCIA.md).
