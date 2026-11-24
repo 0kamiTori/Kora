@@ -43,6 +43,8 @@ Para ejecutar en Android hace falta Android SDK, sus licencias y un teléfono co
 
 El workflow mobile.yml analiza, prueba y compila una APK debug en GitHub Actions. La APK se conserva como artefacto kora-android-debug por 14 días; es una compilación de desarrollo, no una publicación en tienda ni una versión firmada para producción. La firma de distribución deberá configurarse fuera de Git y la compilación release no usa automáticamente la clave debug.
 
+Primera compilación aprobada: [ejecución 45472492695](https://github.com/0kamiTori/Kora/actions/runs/45472492695), commit 48033679a135fa27752217ab6841a2103cc70e0a. [Artefacto APK debug](https://github.com/0kamiTori/Kora/actions/runs/45472492695/artifacts/14958721383). Descargar el ZIP y extraer app-debug.apk para probarlo en el teléfono. Si Android solicita permiso de instalación, habilitarlo para la aplicación desde la que abres este archivo. Integridad de ZIP y APK verificada; [procedencia y hashes](Diseno/ImplementacionAPP01/apk-provenance.json).
+
 ## Comprobaciones y límites
 
 Análisis estático sin incidencias y doce pruebas locales aprobadas, incluida captura visual. Las pruebas de controlador comprueban persistencia mediante repositorio de prueba, fallos, orden de escrituras y contraste; las de widgets comprueban navegación, color global, selector, cancelación, restauración y textos grandes. Los dobles solo viven en test. Capturas opcionales mediante KORA_CAPTURE_DIR, KORA_CAPTURE_FONT y KORA_CAPTURE_ICONS; fuentes oficiales del SDK cargadas solo para revisar el renderizado. En CI la captura se omite: once pruebas funcionales.

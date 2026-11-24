@@ -7,6 +7,7 @@
 - Separados tema, estado, repositorio y rutas. Colores semánticos fijos y ajuste de tonos oscuros para lectura.
 - SDK y dependencias fijados, lock conservado y pipeline Android para análisis, pruebas y APK debug.
 - Resolución directa de Material UI y formato refrescados con Dart 3.14 para reproducir las comprobaciones en Linux.
+- GitHub Actions aprobó análisis, once pruebas y APK debug del commit 48033679; artefacto de desarrollo disponible, prueba física pendiente.
 - Documentación y Word actualizados; sin cambios de backend o contratos. No se implementan ni simulan verificaciones, ubicación, solicitudes de viaje o alertas.
 
 ## 0.6 — 2026-11-24 — CAM-2026-006

@@ -1,0 +1,14 @@
+{
+  "application": "Köra",
+  "version": "0.1.0+1",
+  "build_type": "debug",
+  "source_commit": "48033679a135fa27752217ab6841a2103cc70e0a",
+  "workflow_run": 45472492695,
+  "artifact_id": 14958721383,
+  "artifact_name": "kora-android-debug",
+  "artifact_zip_sha256": "825706b748e27a409c9c6f4fd75244f053e36ee8bced39678a60347acce32d51",
+  "apk_sha256": "c8ea4f1ac25979b868c180c5f01c2e457a28db8996a5fb4ff13c91c3d2fe2339",
+  "apk_size_bytes": 165542216,
+  "physical_device_tested": false,
+  "planned_device_user_reported": "Xiaomi Redmi Note 15 Pro / Android 16"
+}
