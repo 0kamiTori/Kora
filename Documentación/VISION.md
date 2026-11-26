@@ -209,3 +209,21 @@ El usuario solicita la aplicación móvil con estilo premium y un apartado para 
 La historia APP01 permite elegir Platino, Zafiro, Jade, Amatista, Cobre o Rosa y crear un color RGB con vista previa. Guardar confirma; Cancelar conserva el anterior; Volver al platino restaura el diseño inicial. La preferencia se recupera localmente al volver a abrir. Los colores de errores, ayuda y verificación no se personalizan.
 
 Esta base Flutter incluye Inicio, Viajes, Perfil y Apariencia; complementa RF11 y RNF05. No implementa cuentas, GPS, biometría, solicitudes, sincronización ni atención de alertas. No muestra verificaciones o viajes ficticios como funcionales. No cierra F0, F1 ni F2: siguen pendientes contratos, web y API, viabilidad y validación en dispositivos.
+
+## 19 Primera entrega de registro y aprobación
+
+La primera entrega oficial será un avance académico de registro y aprobación de perfiles, sin viajes operativos. Pasajera y conductora crean cuenta desde Android. Una cuenta puede tener ambos perfiles; la habilitación para conducir requiere revisión administrativa. Administración accede por un panel web separado, con creación controlada de cuentas y sin registro público.
+
+Ambos perfiles requieren correo, contraseña, nombre de usuario, fecha de nacimiento, celular con código de país y consentimiento explícito de creación. La edad mínima es de 18 años cumplidos. La contraseña tiene al menos 12 caracteres e incluye mayúscula, minúscula, número y carácter especial. El nombre permite letras con tildes y ñ, números y espacios, excluye símbolos y tiene máximo 100 caracteres; no es único.
+
+Correo y teléfono internacional completo son únicos. Se normaliza el celular con su código de país: un número nacional puede repetirse con otro código si la combinación es válida y el número internacional resultante no existe. Espacios o guiones no permiten duplicar el mismo número.
+
+La captura facial, comparación de identidad y detección de vida se desarrollarán e integrarán en la segunda entrega. No se eliminan del sistema final ni se autorizarán viajes con simulaciones. La aprobación administrativa no equivale a biometría verificada. La biometría verifica identidad, no infiere género; la política de elegibilidad necesita definición y revisión.
+
+El detalle de campos, mensajes literales, criterios y pendientes está en Documentación/RF01_REGISTRO.md. Faltan el contrato completo, la solicitud de conductora y su revisión, la recuperación de acceso y las decisiones técnicas indicadas. No existe todavía registro ejecutable ni aprobación administrativa implementada. No se cierra ninguna fase ni se cambian la fecha tentativa final, capacidad o presupuesto.
+
+Requisitos de RF01 en [RF01_REGISTRO.md](RF01_REGISTRO.md), CAM-2026-008 del 26/11/2026. Esta decisión de entregas prevalece sobre las referencias anteriores al primer avance, sin reducir RF01–RF13 del producto final.
+
+## 20 Pantallas de registro y revisión
+
+CAM-2026-009 del 26/11/2026. Se incorporan las decisiones DEC37–DEC40: Colombia y automóviles en el primer avance, documentos de conductora obligatorios con integración posterior, dos apelaciones y espera de 30 días tras rechazo definitivo para una nueva solicitud. La aprobación de conductora no elimina el perfil pasajera. Las cuatro pantallas móviles premium APP02 existen como interfaz; no implementan la API, la aprobación o la biometría. Detalle en [PANTALLAS_REGISTRO.md](PANTALLAS_REGISTRO.md). No se reduce el alcance final ni se cierra fase.

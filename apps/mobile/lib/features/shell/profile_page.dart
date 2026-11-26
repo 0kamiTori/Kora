@@ -41,6 +41,30 @@ class ProfilePage extends StatelessWidget {
             style: TextStyle(color: KoraColors.muted),
           ),
           const SizedBox(height: 30),
+          _accountEntry(
+            context,
+            'Crear mi cuenta',
+            'Pasajera o futura conductora',
+            Icons.person_add_outlined,
+            '/profile/register',
+          ),
+          const SizedBox(height: 12),
+          _accountEntry(
+            context,
+            'Ser conductora',
+            'Requisitos y solicitud de habilitación',
+            Icons.directions_car_outlined,
+            '/profile/driver/request',
+          ),
+          const SizedBox(height: 12),
+          _accountEntry(
+            context,
+            'Mi solicitud',
+            'Estado, observaciones y apelaciones',
+            Icons.fact_check_outlined,
+            '/profile/driver/status',
+          ),
+          const SizedBox(height: 24),
           ListTile(
             key: const Key('appearance-entry'),
             contentPadding: const EdgeInsets.symmetric(
@@ -63,7 +87,7 @@ class ProfilePage extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const Text(
-            'Versión inicial · Las funciones de cuenta y viajes se incorporarán por etapas.',
+            'Versión inicial · Pantallas de cuenta en preparación. Registro y solicitudes aún sin conexión al servicio.',
             style: TextStyle(
               color: KoraColors.muted,
               fontSize: 12,
@@ -73,5 +97,25 @@ class ProfilePage extends StatelessWidget {
         ],
       ),
     ),
+  );
+
+  Widget _accountEntry(
+    BuildContext context,
+    String title,
+    String subtitle,
+    IconData icon,
+    String route,
+  ) => ListTile(
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: const BorderSide(color: KoraColors.border),
+    ),
+    tileColor: KoraColors.surface,
+    leading: Icon(icon, color: Theme.of(context).colorScheme.primary),
+    title: Text(title),
+    subtitle: Text(subtitle),
+    trailing: const Icon(Icons.chevron_right),
+    onTap: () => context.push(route),
   );
 }

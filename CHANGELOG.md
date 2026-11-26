@@ -1,5 +1,20 @@
 # Historial de cambios
 
+## 0.9 — 2026-11-26 — CAM-2026-009
+
+- APP02: pantallas Flutter premium de registro, solicitud, estado y apelaciones, accesibles desde Perfil y con acento personal compartido. App 0.2.0+2.
+- Validaciones locales y mensajes de RF01; motivos de apelación, dos oportunidades, una pendiente y fecha de nueva solicitud tras espera de 30 días de rechazo definitivo.
+- Sin cuentas locales ficticias ni envío simulado. Estado distribuido no disponible; escenarios de revisión solo en test. Documentos y biometría sin captura, integración aplazada.
+- Nueve pruebas nuevas, 20 funcionales locales aprobadas y análisis limpio; capturas para revisión visual. Android físico y backend pendientes.
+- Registro documental de decisiones. Word preparados localmente, pero se preservan originales porque el render de Word no termina ni con un control de un párrafo. Contratos sin cambios y fases abiertas.
+
+## 0.8 — 2026-11-26 — CAM-2026-008
+
+- Documentados campos, validaciones, unicidad y mensajes acordados de RF01; teléfono normalizado con código de país y nombre visible no único.
+- Primera entrega académica de registro y aprobación; biometría en segunda entrega, sin viajes operativos ni recorte del alcance final.
+- Registrado reporte del usuario de funcionamiento general en Redmi Note 15 Pro con Android 16; checklist específico pendiente.
+- Actualizados visión, plan, decisiones, trazabilidad, pendientes, estado y plan estructurado. Word 01/02/03 preparados localmente pero sin sustituir los vigentes: renderizador sin LibreOffice y exportación Word sin completar; inspección visual pendiente. Sin código funcional, cambios de contratos o nuevas fechas.
+
 ## 0.7 — 2026-11-24 — CAM-2026-007
 
 - Inicializada aplicación Flutter Android, estilo premium oscuro con acento platino y navegación Inicio, Viajes y Perfil.

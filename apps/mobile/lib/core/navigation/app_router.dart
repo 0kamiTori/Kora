@@ -6,6 +6,8 @@ import '../../features/appearance/appearance_page.dart';
 import '../../features/shell/home_page.dart';
 import '../../features/shell/profile_page.dart';
 import '../../features/shell/trips_page.dart';
+import '../../features/onboarding/registration_page.dart';
+import '../../features/onboarding/driver_pages.dart';
 import '../theme/premium_theme.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -21,6 +23,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             path: '/profile',
             builder: (_, _) => const ProfilePage(),
             routes: [
+              GoRoute(
+                path: 'register',
+                builder: (_, _) => const RegistrationPage(),
+              ),
+              GoRoute(
+                path: 'driver/request',
+                builder: (_, _) => const DriverRequestPage(),
+              ),
+              GoRoute(
+                path: 'driver/status',
+                builder: (_, _) => const DriverStatusPage(),
+              ),
+              GoRoute(
+                path: 'driver/appeal',
+                builder: (_, _) => const DriverAppealPage(),
+              ),
               GoRoute(
                 path: 'appearance',
                 builder: (_, _) => const AppearancePage(),

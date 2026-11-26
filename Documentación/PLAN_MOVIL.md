@@ -34,3 +34,13 @@ Completar en F1 el SRS por historias y la [matriz de aceptación](TRAZABILIDAD.m
 ## Preparación móvil APP01
 
 Se adelanta la base Android y la apariencia local, independientes de la identidad y los viajes. La implementación no acredita cierre de fase. Estado, versiones y comandos en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). Se mantienen fechas, horas y presupuesto de referencia.
+
+## Entregas acordadas el 26 de noviembre
+
+CAM-2026-008. La primera entrega oficial será un avance de registro y aprobación; la segunda incorporará desarrollo e integración biométrica. No son dos fases cerradas ni tienen fechas independientes confirmadas. Se conservan las fechas y horas propuestas de F0–F7 como referencia que debe reestimarse, sin asumir que este orden acredita su cumplimiento. No se habilitan viajes operativos antes de los controles reales.
+
+Orden inmediato: cerrar pendientes de [RF01](RF01_REGISTRO.md), completar contrato, asignar implementador y revisor backend, preparar API y persistencia compartidas, implementar registro verificable y después solicitud y panel de revisión. Probar fallos y permisos antes de aceptar cada historia. El alcance final, presupuesto y objetivo tentativo del 14/01/2027 permanecen; estimar el avance y la segunda entrega antes de comprometer fechas.
+
+## Preparación de pantallas APP02
+
+CAM-2026-009. Implementada interfaz móvil premium de registro y revisión, con pruebas locales; el siguiente trabajo es contrato y API compartida, no otra base de identidad local. Dos apelaciones y nueva solicitud tras 30 días de rechazo definitivo requieren persistencia en servidor. Documentos y biometría siguen aplazados según lo acordado. No se cierran fases ni se reestiman aquí fechas u horas.

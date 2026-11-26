@@ -1,7 +1,7 @@
 {
   "project_name": "Köra",
-  "version": "0.7",
-  "updated": "2026-11-24",
+  "version": "0.9",
+  "updated": "2026-11-26",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
   "end": "2027-01-14",
@@ -236,12 +236,63 @@
     "theme": "premium; Orbita composition",
     "appearance": "six presets and custom RGB; local persistence",
     "phase_gate": "F2 not closed; web/API and technical feasibility pending",
-    "physical_device_acceptance": "pending",
+    "physical_device_acceptance": "user_reported_general_success_detailed_checks_pending",
     "reference_device": {
       "model": "Xiaomi Redmi Note 15 Pro",
       "android": "16",
       "source": "user",
-      "tested": false
+      "tested": true,
+      "evidence": "Declaración del usuario el 26/11/2026; sin checklist detallado"
     }
+  },
+  "delivery_increments": [
+    {
+      "id": "E1",
+      "scope": "Avance académico de registro y aprobación de perfiles, sin viajes operativos",
+      "status": "requirements_in_progress",
+      "date": null
+    },
+    {
+      "id": "E2",
+      "scope": "Desarrollo e integración de biometría de identidad y detección de vida",
+      "status": "pending",
+      "date": null
+    }
+  ],
+  "registration_requirements": {
+    "source": "Documentación/RF01_REGISTRO.md",
+    "status": "agreed_rules_pending_contract_and_implementation",
+    "minimum_age_years": 18,
+    "unique_fields": [
+      "email",
+      "normalized_international_phone"
+    ],
+    "display_name_unique": false
+  },
+  "driver_review": {
+    "country": "CO",
+    "vehicle_type": "car",
+    "required_documents_integration": "deferred_by_user",
+    "max_appeals_per_application": 2,
+    "max_pending_appeals": 1,
+    "appeal_reason_required": true,
+    "admin_decision_reason_required": true,
+    "reapply_wait_days_after_final_rejection": 30,
+    "wait_enforcement": "server_pending",
+    "passenger_account_preserved": true,
+    "status": "screens_only_backend_pending"
+  },
+  "mobile_onboarding": {
+    "story": "APP02",
+    "version": "0.2.0+2",
+    "status": "ui_implemented_local_checks",
+    "screens": [
+      "registration",
+      "driver_request",
+      "review_status",
+      "appeal"
+    ],
+    "physical_device_acceptance": "pending",
+    "api_integration": "pending"
   }
 }

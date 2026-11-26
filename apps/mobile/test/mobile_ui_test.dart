@@ -48,6 +48,11 @@ void main() {
       180,
       scrollable: find.byType(Scrollable).last,
     );
+    await Scrollable.ensureVisible(
+      tester.element(find.byKey(const Key('appearance-entry'))),
+      alignment: .25,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('appearance-entry')));
     await tester.pumpAndSettle();
   }

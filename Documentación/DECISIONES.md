@@ -31,3 +31,31 @@ Recomendación de diseño inicial: Sencilla Clara por su estructura directa, a c
 | DEC30 | Flutter 3.50.1, Dart 3.14.0, Material UI oficial separado, versiones fijadas y Android API 24 mínimo | Base inicial verificable; dev.kora.kora_mobile es identificador de desarrollo, no identidad de tienda aprobada. El cierre de F2 sigue requiriendo web, API y viabilidad. |
 
 No cambian fechas, capacidad o presupuesto. La apariencia complementa RF11 y RNF05. Registro, roles y controles de seguridad se implementarán mediante sus historias, sin datos fingidos en producción.
+
+## Registro y entregas CAM 2026 008
+
+26/11/2026. Decisiones comunicadas y confirmadas por el usuario durante la definición de RF01.
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC31 | Primera entrega oficial académica de registro y aprobación, sin viajes; biometría en segunda entrega | Acordado por el usuario. No elimina alcance final ni fija nuevas fechas. |
+| DEC32 | Una cuenta admite pasajera y conductora; solicitud de conductora requiere revisión; administración en panel separado | Acordado. Pasajera sin aprobación rutinaria; administración sin alta pública. Procedimiento de creación administrativa y criterios pendientes. |
+| DEC33 | Acceso por correo y contraseña y campos obligatorios comunes | Acordado. Edad mínima 18; contraseña de 12 caracteres con cuatro categorías; nombre repetible de hasta 100, letras con tildes y ñ, números y espacios. |
+| DEC34 | Unicidad solo de correo y teléfono internacional normalizado, no de nombre de usuario | Acordado. Mismo número nacional con distinto código permitido solo si las combinaciones son válidas y distintas. |
+| DEC35 | Mensajes literales y alerta administrativa por fallo interno de registro | Acordado; textos en RF01_REGISTRO.md. Canal y recuperación del aviso pendientes; diagnóstico sin secretos ni formulario completo. |
+| DEC36 | Prueba física de la primera APK reportada como correcta por el usuario | Redmi Note 15 Pro con Android 16. No hay checklist, capturas ni evidencia específica de TalkBack, persistencia tras cierre o rendimiento; no se declara aceptación completa. |
+
+Los contratos no se modifican en CAM-2026-008. El registro y el panel siguen sin implementar. La verificación biométrica se destina a identidad, no a inferir género; elegibilidad y tratamiento de datos quedan pendientes de revisión.
+
+## Pantallas y apelaciones CAM 2026 009
+
+26/11/2026.
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC37 | Primera entrega para Colombia y automóviles; campos documentales de conductora obligatorios con integración aplazada | Acordado por el usuario. APP02 muestra requisitos sin capturar documentos. |
+| DEC38 | Dos apelaciones por solicitud, una pendiente, motivos obligatorios de solicitante y administración | Acordado. Correcciones separadas; historial y reintentos sin duplicados requieren backend. |
+| DEC39 | Esperar 30 días para nueva solicitud después del rechazo definitivo | Acordado. Se aplica al cierre rechazado de la segunda apelación; 30 × 24 h UTC como propuesta técnica. La cuenta de pasajera se conserva; servidor confirma fecha y autorización. |
+| DEC40 | Pantallas premium nativas de registro, solicitud, estado y apelaciones | Solicitadas por el usuario. APP02 implementa interfaz y validaciones locales, sin altas o decisiones ficticias; estados sintéticos solo en test. Contratos sin cambios. |
+
+Se mantienen fecha tentativa final, horas y presupuesto. Las pantallas no acreditan RF01/RF02 completos ni cierre de fase. Los Word de CAM008 y CAM009 están preparados localmente pero siguen pendientes de render: incluso el documento de control de un párrafo no completa la exportación Word en este equipo.

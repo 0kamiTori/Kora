@@ -40,3 +40,13 @@ RF01–RF13 y RNF01–RNF08 deben tener evidencia y revisión. Reportar metas no
 ## Detalle de interfaz APP01
 
 RF11 y RNF05 se complementan con apariencia premium configurable. Criterios y límites en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). APP01 implementada con pruebas locales: presets, selector, cancelación, restauración, errores y escrituras ordenadas. Prueba física Android pendiente; RF11 y RNF05 completos continúan pendientes. No se dan por implementados identidad, GPS o viajes.
+
+## Detalle de RF01 para primera entrega
+
+26/11/2026 · CAM-2026-008. [RF01_REGISTRO.md](RF01_REGISTRO.md) recoge campos, validaciones, mensajes literales y casos de aceptación acordados; todos pendientes de ejecución. RF02 requiere completar solicitud y revisión administrativa. RF04 se desarrollará e integrará en segunda entrega; no se acepta por una revisión manual ni se habilitan viajes en el primer avance. El contrato sigue parcial y no se declara implementado.
+
+El usuario reporta prueba correcta de la primera APK en Redmi Note 15 Pro con Android 16. Es evidencia declarada de funcionamiento general; los casos específicos de accesibilidad, persistencia y rendimiento no están documentados. RF11 y RNF05 completos siguen pendientes.
+
+## Interfaz APP02 y brecha de integración
+
+APP02 implementa pantallas y validación local de RF01/RF02, con nueve pruebas nuevas y capturas Flutter. La matriz RF sigue pendiente en su conjunto: correo/teléfono únicos, sesiones, revisión, dos apelaciones, deduplicación y plazo de 30 días necesitan servidor y pruebas de integración. No cambia OpenAPI. Detalle y límites en [PANTALLAS_REGISTRO.md](PANTALLAS_REGISTRO.md).

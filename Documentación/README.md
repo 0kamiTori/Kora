@@ -12,3 +12,7 @@ Revisión 0.7 · 24/11/2026. Punto de entrada para contexto técnico y planifica
 - [Historial sin vigencia operativa](Historial/2026-11-18/README.md).
 
 Los Word se mantienen alineados con los documentos de texto en cada cambio que afecte alcance, requisitos, fechas, costos o arquitectura. Los contratos iniciales son parciales; no son API implementada.
+
+- [Registro de cuentas y primera entrega](RF01_REGISTRO.md): reglas confirmadas el 26/11/2026; biometría en segunda entrega y registro aún no implementado.
+
+- [Pantallas de registro y apelaciones](PANTALLAS_REGISTRO.md): APP02, pruebas, dos oportunidades y espera de 30 días; integración de servidor pendiente.

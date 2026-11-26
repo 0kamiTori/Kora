@@ -16,3 +16,13 @@
 | P11 | Validación visual en Android | Premium y color configurable elegidos por el usuario. Revisar la base Órbita, probar contraste, TalkBack y persistencia en teléfono; ampliar los flujos faltantes. Julian y John revisan. | Antes de aceptar interfaz final y distribución |
 
 Estos puntos permiten iniciar análisis y base técnica con datos sintéticos. No equivalen a autorización para recopilar datos reales o realizar el piloto.
+
+## Pendientes del registro y aprobación
+
+26/11/2026 · CAM-2026-008. Confirmados: correo y contraseña, campos compartidos, 18 años cumplidos, nombre no único con tildes/ñ/números/espacios, correo y teléfono internacional únicos y mensajes de RF01. No volver a tratarlos como decisiones abiertas.
+
+Resolver los detalles listados en [RF01_REGISTRO.md](RF01_REGISTRO.md), en especial solicitud/documentos de conductora, revisión administrativa, creación controlada de administradores, consentimiento, canal de incidentes y contrato. La biometría pasa a segunda entrega; P04 sigue pendiente antes de aceptar RF04 y no se autoriza captura real por este acuerdo. La prueba general Android reportada por el usuario no cierra P11 sin sus comprobaciones específicas.
+
+## Actualización de pendientes APP02
+
+Confirmados: Colombia, automóviles, campos documentales obligatorios con integración posterior, estados de revisión, dos apelaciones con motivos y una pendiente, nueva solicitud tras 30 días de rechazo definitivo. Pendientes: contrato y aplicación del plazo en backend, historial, administración y evidencia de entrega. Definir criterios documentales y política de elegibilidad sin inferencia facial de género. El reloj local no autoriza el reingreso. Validación física de APP02 y sincronización Word aún pendientes.

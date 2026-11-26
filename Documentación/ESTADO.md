@@ -1,5 +1,5 @@
 # Estado del proyecto
-24/11/2026 · revisión 0.7 · CAM-2026-007.
+26/11/2026 · revisión documental 0.8 · CAM-2026-008.
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -20,7 +20,21 @@ Se refrescaron la clasificación de dependencias del lock y el formato bajo Dart
 La [ejecución 45472492695](https://github.com/0kamiTori/Kora/actions/runs/45472492695) aprobó formato, análisis, once pruebas y compilación APK debug del commit 48033679a135fa27752217ab6841a2103cc70e0a. Artefacto kora-android-debug, ID 14958721383. Compilación y pruebas de widgets no equivalen a instalación o pruebas instrumentadas Android. La aceptación física sigue pendiente.
 
 ## Próxima tarea verificable
-Revisar APP01 en Android físico con la APK de desarrollo cuando esté disponible. Completar después SRS de RF01 (registro, consentimiento y roles), contrato necesario y responsable/revisor backend antes del código funcional. Web y API compartida siguen pendientes; no crear fuentes de identidad separadas por cliente.
+Cerrar los pendientes de RF01_REGISTRO.md y completar el contrato de registro, con implementador y revisor del backend antes del código funcional. La primera entrega académica es registro y aprobación; la biometría se desarrolla e integra en segunda entrega. Web y API compartida siguen pendientes; no crear fuentes de identidad separadas por cliente. No se habilitan viajes operativos en el primer avance.
 
 ## Antecedentes
 Las cinco propuestas y el HTML se conservan en Diseno, como exploración anterior. Las evidencias documentales CAM005 y diseño CAM006 se conservan en Git y Word; no se atribuyen al funcionamiento del producto. Ver [decisiones](DECISIONES.md), [plan](PLAN_MOVIL.md) y [pendientes](PENDIENTES.md).
+
+## Acuerdos y prueba reportada el 26 de noviembre
+
+RF01_REGISTRO.md contiene las reglas acordadas y mensajes; son requisitos, no funciones implementadas. La primera entrega se divide de la biometría sin reducir el sistema final ni alterar fechas o presupuesto. El usuario reporta que la primera APK funciona correctamente en Redmi Note 15 Pro con Android 16; falta evidencia por caso de persistencia, accesibilidad y rendimiento. Las referencias anteriores a prueba física pendiente se refieren a esas verificaciones específicas, no a ausencia de toda prueba del usuario. Ninguna fase se cierra.
+
+## Sincronización Word pendiente
+
+CAM-2026-008 queda registrado en los documentos de texto. Las versiones actualizadas de Word 01/02/03 están preparadas localmente, pero el renderizador no dispone de LibreOffice y Word no completó la exportación a PDF. Se preservan los Word vigentes anteriores hasta renderizar e inspeccionar las nuevas versiones; no declarar completa la sincronización documental ni publicar candidatos sin revisión.
+
+## Pantallas APP02
+
+26/11/2026 · revisión documental 0.9 · CAM-2026-009. Flutter 0.2.0+2 añade registro, solicitud, estado y apelaciones desde Perfil con apariencia premium configurable. Validaciones locales y modelo de revisión separado de widgets; nueve pruebas nuevas, 20 funcionales aprobadas en total y análisis limpio. Las capturas son de widgets con escenarios de prueba, no decisiones reales. No hay alta, envío de solicitud, historial o revisión administrativa funcionales. Documentos y biometría siguen aplazados. El plazo de 30 días se presenta con fecha y permiso de servidor, aún no implementado. [Guía de pantallas](PANTALLAS_REGISTRO.md).
+
+La verificación Word vuelve a fallar incluso con un documento de control de un párrafo. Los Word vigentes siguen preservados; candidatos CAM008 y CAM009 preparados localmente sin publicación hasta renderizar e inspeccionar. No atribuir este límite a un bloqueo del usuario. La próxima historia funcional necesita contrato y backend compartidos; APP02 no cierra RF01, RF02 ni ninguna fase.

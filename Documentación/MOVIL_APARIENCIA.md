@@ -62,3 +62,7 @@ Dispositivo de referencia comunicado por el usuario: Xiaomi Redmi Note 15 Pro co
 - [material_ui](https://pub.dev/packages/material_ui).
 - [Shared preferences y APIs asíncronas](https://pub.dev/packages/shared_preferences).
 - [Riverpod](https://pub.dev/packages/flutter_riverpod) y [GoRouter](https://pub.dev/packages/go_router).
+
+## Prueba general reportada por el usuario
+
+26/11/2026. El usuario informa que probó la primera entrega en su Redmi Note 15 Pro con Android 16 y funciona correctamente. Se registra como prueba general declarada, sin inventar resultados específicos de persistencia tras cierre, TalkBack, rendimiento o todos los casos de APP01. El checklist detallado continúa pendiente.
