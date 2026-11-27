@@ -6,7 +6,7 @@
 - Añadidos 49 ejemplos y verificador JSON Schema 2020-12, herramientas fijadas y comprobación de CI separada del verificador inicial. No ejecutan backend ni pruebas de negocio.
 - Registrada aceptación general de diseños APP02 por el usuario y tirones como PERF01 pendiente de medición; no se promete corrección automática.
 - Julian se declara responsable del tratamiento; borrador de consentimiento y 12 escenarios sintéticos preparados, sin habilitar datos reales.
-- Corregida sintaxis YAML del comando pip tras fallo inicial de CI; comprobación de sintaxis añadida al verificador.
+- Corregida sintaxis YAML del comando pip tras fallo inicial de CI; comprobación de sintaxis añadida al verificador. Ejecución 45941147338 aprobada con verificador inicial, 49 fixtures y forma de 12 escenarios, sin backend.
 - Actualizados contexto, decisiones, estado y planificación. Sin cambios Flutter, SQL, conexión Neon o despliegue; consentimiento final y contactos pendientes; responsable declarado por el usuario.
 - Word CAM010 preparados localmente; originales conservados hasta resolver el render e inspeccionar candidatos. Ninguna fase cerrada.
 

@@ -21,6 +21,8 @@ El [contrato inicial v1](Contratos/openapi.json) permanece intacto y parcial. No
 
 El alta no emite tokens de sesión ni presenta automáticamente la solicitud de conductora. La cuenta nace con roles=[passenger], driver_approved=false y driver_review_status=not_submitted. requested_role=driver expresa intención para el recorrido posterior. La aprobación, dos apelaciones y espera de 30 días siguen en sus historias y bajo control de servidor.
 
+Una versión aprobada de consentimiento identifica un texto inmutable. Conservar su texto o referencia y huella íntegra junto con los recibos; cualquier cambio de contenido exige una versión nueva. No reutilizar el mismo identificador para otra redacción ni reescribir la evidencia de autorizaciones anteriores.
+
 ## Correspondencia de campos
 
 | Formulario Android | Contrato | Validación del servidor |
@@ -97,3 +99,5 @@ La siguiente historia será la base API y persistencia de registro con migracion
 Estos casos no se ejecutan en el verificador de esquemas ni se marcan aprobados antes de existir backend y base de pruebas.
 
 Fuentes técnicas: [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) y [jsonschema 4.26.0](https://pypi.org/project/jsonschema/). Son referencias del formato y herramientas, no evidencia de implementación.
+
+Comprobación remota: [Foundation checks 45941147338](https://github.com/0kamiTori/Kora/actions/runs/45941147338), commit ba5c7bd984fe9cf6e702b58d125a3dee9b91b440, terminó correctamente con la verificación inicial, 49 fixtures, forma de 12 escenarios sintéticos y sintaxis YAML. No ejecutó registro o base de datos.
