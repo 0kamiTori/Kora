@@ -64,3 +64,9 @@ La ejecución inicial de CI 45940413728 falló al interpretar YAML por el comand
 Python 3.12.16 aislado con uv, dependencias y lock fijados. Localmente: análisis y formato sin incidencias; 13 pruebas aprobadas y 15 de persistencia omitidas por falta de PostgreSQL/Docker local. Workflow API PostgreSQL checks preparado con base PostGIS real y guardas de entorno, pendiente de resultado remoto al registrar este cambio. No se usa SQLite para sustituir esa evidencia ni se realizan consultas a Neon.
 
 Revisión de John y fase F2 pendientes. Los Word reciben candidato CAM011 local sin sustituir los vigentes hasta resolver el fallo de render. PERF01 y consentimiento final/contactos continúan pendientes.
+
+## Evidencia PostgreSQL confirmada
+
+La [ejecución 46066007419](https://github.com/0kamiTori/Kora/actions/runs/46066007419) del commit 54dcb4fca50f98ead7bd8cda3ed90e5a823dba46 terminó correctamente. El job postgres aprobó sincronización del lock, análisis, formato y **28 pruebas sin omisiones**, incluidas las 15 de PostgreSQL/PostGIS real. La suite ejecutó el ciclo de migración y comprobación de deriva, salud preparada, concurrencia de contactos y protección de consentimiento/recibos. La [comprobación documental 46066007221](https://github.com/0kamiTori/Kora/actions/runs/46066007221) también aprobó.
+
+[Procedencia de la evidencia](API01_EVIDENCIA_CI.json). Esto verifica API01 sobre una base efímera de CI, no una conexión a Neon ni el alta funcional REG01–REG11. Las menciones anteriores a CI pendiente describen la preparación previa a este resultado. La revisión humana, consentimiento y Word siguen pendientes; no se cierra F2.

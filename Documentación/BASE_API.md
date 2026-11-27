@@ -84,12 +84,18 @@ uv run --frozen ruff format --check .
 uv run --frozen pytest -ra
 ```
 
-Localmente se aprobaron inicialmente 13 pruebas sin base y se omitieron 15 PostgreSQL por falta de servidor. La ejecución CI debe verificar el conjunto completo antes de afirmar persistencia comprobada. No se sustituyen las pruebas PostgreSQL por SQLite.
+Localmente se aprobaron 13 pruebas sin base y se omitieron 15 PostgreSQL por falta de servidor. La ejecución CI 46066007419 aprobó después las 28 sin omisiones sobre PostgreSQL/PostGIS real. No se sustituyen las pruebas PostgreSQL por SQLite. La evidencia no incluye todavía conexión Neon o alta funcional.
 
 Para ejecutar integración local, APP_ENV=test y KORA_TEST_DATABASE_URL deben señalar exclusivamente a una base kora_test_* en localhost. La suite rechaza otros hosts/nombres; realiza un ciclo upgrade/check/downgrade/upgrade en esa base desechable y usa transacciones de prueba. No debe apuntarse a Neon o al piloto. Todos los datos y aprobaciones de prueba se crean únicamente en tests, sin llamadas o notificaciones externas.
 
-CI está definido en .github/workflows/api.yml con imagen PostGIS fijada, uv y lock. Verifica formato, análisis, migraciones de ida/vuelta, ausencia de deriva, disponibilidad, contactos únicos concurrentes, integridad, consentimiento aprobado e inmutable y sanitización de errores. Resultado remoto pendiente al preparar esta revisión.
+CI está definido en .github/workflows/api.yml con imagen PostGIS fijada, uv y lock. Verifica formato, análisis, migraciones de ida/vuelta, ausencia de deriva, disponibilidad, contactos únicos concurrentes, integridad, consentimiento aprobado e inmutable y sanitización de errores. Resultado remoto aprobado, con procedencia al final de esta guía.
 
 ## Siguiente historia
 
 Implementar el alta transaccional según contrato y ejecutar REG01–REG11: normalización completa, edad, hash de contraseña, consentimiento vigente, reintentos e incidentes. Después conectar la APK y la web. Mantener registro real cerrado hasta completar el consentimiento y la operación correspondiente; no se modifica el diseño premium en esta historia. PERF01 y revisión visual de Word siguen pendientes.
+
+## Evidencia PostgreSQL confirmada
+
+La [ejecución 46066007419](https://github.com/0kamiTori/Kora/actions/runs/46066007419) del commit 54dcb4fca50f98ead7bd8cda3ed90e5a823dba46 terminó correctamente. El job postgres aprobó sincronización del lock, análisis, formato y **28 pruebas sin omisiones**, incluidas las 15 de PostgreSQL/PostGIS real. La suite ejecutó el ciclo de migración y comprobación de deriva, salud preparada, concurrencia de contactos y protección de consentimiento/recibos. La [comprobación documental 46066007221](https://github.com/0kamiTori/Kora/actions/runs/46066007221) también aprobó.
+
+[Procedencia de la evidencia](API01_EVIDENCIA_CI.json). Esto verifica API01 sobre una base efímera de CI, no una conexión a Neon ni el alta funcional REG01–REG11. Las menciones anteriores a CI pendiente describen la preparación previa a este resultado. La revisión humana, consentimiento y Word siguen pendientes; no se cierra F2.

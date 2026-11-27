@@ -58,3 +58,9 @@ Registro y política cuentan con diseño v2 separado, preservando v1. Detalle en
 ## Evidencia acotada de API01
 
 API01 aporta infraestructura para RF01 y RNF08: salud, preparación, migración y tablas compartidas. Las pruebas PostgreSQL verificarán restricciones, concurrencia de contactos y protección de consentimiento/recibos; no validan todavía el flujo REG01–REG11 de alta. RF01, autenticación, incidentes administrativos y revisión siguen pendientes. Local sin DB: 13 aprobadas y 15 omitidas con motivo; CI real pendiente de registrar. Ningún RF o fase se cierra por inicializar esta base.
+
+## Evidencia PostgreSQL confirmada
+
+La [ejecución 46066007419](https://github.com/0kamiTori/Kora/actions/runs/46066007419) del commit 54dcb4fca50f98ead7bd8cda3ed90e5a823dba46 terminó correctamente. El job postgres aprobó sincronización del lock, análisis, formato y **28 pruebas sin omisiones**, incluidas las 15 de PostgreSQL/PostGIS real. La suite ejecutó el ciclo de migración y comprobación de deriva, salud preparada, concurrencia de contactos y protección de consentimiento/recibos. La [comprobación documental 46066007221](https://github.com/0kamiTori/Kora/actions/runs/46066007221) también aprobó.
+
+[Procedencia de la evidencia](API01_EVIDENCIA_CI.json). Esto verifica API01 sobre una base efímera de CI, no una conexión a Neon ni el alta funcional REG01–REG11. Las menciones anteriores a CI pendiente describen la preparación previa a este resultado. La revisión humana, consentimiento y Word siguen pendientes; no se cierra F2.

@@ -325,7 +325,7 @@
     "story": "API01",
     "version": "0.1.0",
     "python": "3.12.16",
-    "status": "implemented_pending_postgres_ci",
+    "status": "implemented_postgres_ci_passed",
     "schema_revision": "0001_api_base",
     "shared_account_tables": 6,
     "real_registration_enabled": false,
@@ -335,6 +335,14 @@
       "postgres_skipped": 15
     },
     "human_reviewer": "John Ortiz",
-    "human_review_status": "pending"
+    "human_review_status": "pending",
+    "ci": {
+      "run_id": 46066007419,
+      "source_commit": "54dcb4fca50f98ead7bd8cda3ed90e5a823dba46",
+      "passed": 28,
+      "skipped": 0,
+      "postgres_passed": 15,
+      "database_environment": "ephemeral GitHub Actions PostgreSQL/PostGIS"
+    }
   }
 }

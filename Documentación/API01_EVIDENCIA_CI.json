@@ -1,0 +1,20 @@
+{
+  "story": "API01",
+  "source_commit": "54dcb4fca50f98ead7bd8cda3ed90e5a823dba46",
+  "workflow_run": 46066007419,
+  "job_id": 140731360970,
+  "conclusion": "success",
+  "python": "3.12.16",
+  "tests_passed": 28,
+  "tests_skipped": 0,
+  "postgres_tests_passed": 15,
+  "non_postgres_tests_passed": 13,
+  "database_environment": "ephemeral GitHub Actions PostgreSQL/PostGIS",
+  "image": "postgis/postgis:16-3.7@sha256:c493152a135059753aef4d8db20c9c55a11aaeae0768e8d7710c23df47be89f2",
+  "migration_revision": "0001_api_base",
+  "migration_roundtrip_tested": true,
+  "real_registration_enabled": false,
+  "neon_connection_tested": false,
+  "pilot_deployed": false,
+  "human_review": "pending John review"
+}

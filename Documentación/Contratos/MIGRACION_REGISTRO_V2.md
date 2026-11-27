@@ -18,6 +18,6 @@ Si posteriormente existe un cliente v1, inventariarlo antes de retirar o cambiar
 
 Una única tabla lógica de cuentas y UUID común, sin copias por cliente o versión. En CAM010 no se ejecutaba SQL; API01 añade la migración inicial y sus pruebas desechables, sin conectarse a Neon ni migrar datos reales. El rol driver nunca se obtiene por elegir requested_role=driver en el alta.
 
-Para revertir ahora basta retirar el borrador v2 y sus referencias mediante un cambio documentado; no afecta datos porque no hay servicio implementado. Cuando haya datos reales, preservar IDs y recibos de consentimiento; no revertir migraciones destructivas ni borrar cuentas para cambiar de contrato. El hash del archivo v1 se conserva en x-legacy-contract y se comprueba en CI.
+API01 ya contiene servicio base y migración; retirar el borrador no revierte su código o esquema automáticamente. La prueba de descenso se limita a la base desechable de CI, sin datos reales. Cuando haya datos persistentes, preservar IDs y recibos de consentimiento y definir reversión con respaldo; no borrar cuentas para cambiar de contrato. El hash del archivo v1 se conserva en x-legacy-contract y se comprueba en CI.
 
 Julian se declara responsable; texto final y contactos pendientes. La publicación del contrato y de la base API no habilita el tratamiento de datos reales.

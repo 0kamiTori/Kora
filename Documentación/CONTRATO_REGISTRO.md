@@ -80,7 +80,7 @@ También se preparan [12 escenarios sintéticos](DATOS_PRUEBA_REGISTRO.md) con d
 
 Ejecutar python scripts/validate_registration_contract.py después de instalar scripts/requirements-contracts.txt en un entorno de herramientas. Valida esquemas JSON Schema 2020-12, referencias internas, ejemplos y resguardos del contrato, no todo OpenAPI ni un backend. Foundation conserva su comprobación previa y CI añade este control independiente. No son dependencias de FastAPI.
 
-La siguiente historia será la base API y persistencia de registro con migraciones y pruebas reales: éxito, consentimiento ausente/cambiado, edad, duplicados simultáneos, reintento, privilegios y caída de base con incidente. Julian y John deben asignar implementador y revisor de esa historia antes de código compartido. No crear otra base de cuentas en Android o web.
+API01 ya aporta la base y migración; la siguiente historia será el alta transaccional con éxito, consentimiento ausente/cambiado, edad, duplicados simultáneos, reintento, privilegios y caída de base con incidente. Julian y John deben asignar implementador y revisor de esa historia antes de código compartido. No reinicializar FastAPI ni crear otra base de cuentas en Android o web.
 
 | Caso de integración pendiente | Resultado exigido |
 |---|---|

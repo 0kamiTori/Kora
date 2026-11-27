@@ -5,7 +5,7 @@
 - API01: base FastAPI con salud, preparación PostgreSQL/PostGIS y política/puerta de registro cerradas; sin alta o sesiones simuladas.
 - Seis tablas compartidas en esquema kora y migración Alembic; unicidad de contactos, integridad y protección de versiones y recibos. Sin datos de arranque o aprobación sintética en aplicación.
 - Python 3.12.16 y dependencias fijadas con uv.lock; entorno aislado y conexiones de servicio/migración sin secretos en Git.
-- 13 pruebas locales aprobadas, 15 PostgreSQL omitidas por falta de servidor local. CI real de PostGIS y compose desechable con digest fijado; resultado pendiente antes de aceptación.
+- 13 pruebas locales aprobadas, 15 PostgreSQL omitidas por falta de servidor local. CI 46066007419 aprobó las 28 sin omisiones sobre PostGIS real, incluyendo ciclo de migración y restricciones. Compose desechable e imagen con digest fijado.
 - Documentación, decisiones y estado actualizados; Word candidatos locales por fallo de render conocido. Sin cambios móviles, despliegue, conexión Neon o cierre de fase.
 
 ## 0.10 — 2026-11-26 — CAM-2026-010
