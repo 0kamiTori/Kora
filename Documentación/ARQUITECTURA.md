@@ -83,3 +83,9 @@ CAM-2026-010 prepara el registro en /api/v2, con v1 de diseño conservado y [mig
 ## Base API01 implementada
 
 CAM-2026-011. FastAPI y Psycopg/SQLAlchemy reales, esquema kora y migración Alembic; ejecución reproducible con lock y PostgreSQL/PostGIS para pruebas. [BASE_API.md](BASE_API.md). La instancia API no ejecuta DDL ni concede roles al arrancar. API01 solo ofrece salud, preparación y registro cerrado; no implementa transacciones de alta, GPS, biometría o alertas. El servicio y el operador tienen variables de conexión separadas y TLS exigido fuera de local. PostGIS 3.7 se fija para una base nueva desechable de pruebas, sin migrar versiones de datos existentes.
+
+## Base de desarrollo Neon DB01
+
+27/11/2026 · DB01 · CAM-2026-012. Base separada kora_dev creada en la misma rama Neon, sin alterar tablas de neondb. PostgreSQL 18.7/PostGIS 3.6.4, revisión 0001_api_base, seis tablas vacías y comprobación Alembic sin deriva. Conexiones locales separadas: pooler con rol de ejecución nuevo y directo con propietario para migraciones. TLS cliente verificado; credenciales solo en .env ignorado. /health/ready responde 200 desde comprobación HTTP en proceso; registro sigue deshabilitado y POST devuelve 503. No se ejecutó la suite destructiva contra Neon ni se desplegó API o conectó la APK. La suite completa anterior sigue limitada a PostgreSQL 16 de CI. Rotación de contraseña propietaria, revisión de John, consentimiento/contactos y revisión visual Word pendientes. Guía en NEON_DESARROLLO.md y evidencia saneada en DB01_EVIDENCIA_NEON.json. No se cierra fase ni se cambian presupuesto, fechas o capacidad.
+
+Neon se utiliza para desarrollo; no se declara contratado o desplegado el piloto de Render. La base separada comparte rama y cómputo; revisar cuotas, región y aislamiento antes de datos reales.

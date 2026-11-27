@@ -40,3 +40,7 @@ Responsable declarado: Julian Hernando Perez Villamizar, por indicación del usu
 ## API01 y siguiente integración
 
 FastAPI y migraciones ya están inicializados; no volver a proponer crearlos como si no existieran. Revisar la evidencia PostgreSQL de CI y continuar con alta transaccional REG01–REG11. La APK y web siguen sin consumir cuentas reales. Para Neon, preparar rama/base de desarrollo, contraseña regenerada y rol de ejecución con permisos mínimos; no usar pruebas destructivas de la suite contra Neon. Falta consentimiento final y contactos, configuración operativa de incidentes y revisión de John. [BASE_API.md](BASE_API.md).
+
+## Actualización de Neon DB01
+
+Ya están creados kora_dev, PostGIS, migración y rol de ejecución separado; no pedir que se vuelvan a crear. Falta rotar la contraseña propietaria expuesta y actualizar MIGRATION_DATABASE_URL localmente, revisar con John, ampliar evidencia de compatibilidad PostgreSQL 18 si cambia la configuración de CI y preparar respaldo/restauración antes de datos reales. No hay alta funcional ni despliegue. Ver NEON_DESARROLLO.md.

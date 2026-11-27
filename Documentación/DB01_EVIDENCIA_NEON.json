@@ -1,0 +1,45 @@
+{
+  "story": "DB01",
+  "date": "2026-11-27",
+  "database": "kora_dev",
+  "environment": "Neon development database; not a separate Neon branch",
+  "postgresql": "18.7 (3190d2f)",
+  "postgis": "3.6.4",
+  "schema_revision": "0001_api_base",
+  "tables": [
+    "account_consents",
+    "account_credentials",
+    "account_roles",
+    "accounts",
+    "consent_versions",
+    "registration_receipts"
+  ],
+  "row_counts": {
+    "account_consents": 0,
+    "account_credentials": 0,
+    "account_roles": 0,
+    "accounts": 0,
+    "consent_versions": 0,
+    "registration_receipts": 0
+  },
+  "client_tls": true,
+  "runtime_role": "kora_app_dev",
+  "runtime_elevated_role_attributes": false,
+  "runtime_excessive_privileges_checked": false,
+  "migration_current": "0001_api_base (head)",
+  "migration_check": "no new upgrade operations",
+  "http": {
+    "live": 200,
+    "ready": 200,
+    "policy": 200,
+    "accounts": 503
+  },
+  "registration_enabled": false,
+  "consent": null,
+  "limitations": [
+    "Readiness smoke checks on PostgreSQL 18.7; not the complete PostgreSQL 16 CI suite",
+    "Owner password rotation pending user action",
+    "No real account registration or deployment",
+    "Word visual verification pending"
+  ]
+}

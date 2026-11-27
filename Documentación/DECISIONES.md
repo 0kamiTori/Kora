@@ -93,3 +93,13 @@ Se preparan 12 escenarios sintéticos adicionales a los 49 ejemplos de esquema. 
 | DEC51 | Pruebas de persistencia en GitHub Actions por falta de Docker/PostgreSQL local | No se usa la credencial expuesta ni se conecta Neon. Las pruebas locales omiten integración con motivo; CI debe demostrarla antes de declararla validada. |
 
 La política de API01 siempre está deshabilitada y el POST rechaza sin crear cuentas. No hay variable para abrirlo antes de implementar el alta y aprobar el tratamiento. Se mantienen dos apelaciones y 30 días bajo servidor para sus historias posteriores, además de presupuesto, horas y fecha final tentativa. Word candidatos preparados localmente; el bloqueo conocido de render sigue pendiente.
+
+## Preparación Neon CAM 2026 012
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC52 | Crear kora_dev como base separada en la rama existente de Neon | Ejecutado por solicitud de preparar desarrollo. No es rama o proyecto separado; sin cambio de tablas en neondb ni contratación nueva. |
+| DEC53 | Usar rol kora_app_dev por pooler y propietario por conexión directa para migraciones | Ejecutado, TLS cliente verificado. Rol nuevo sin privilegios elevados ni CREATE en kora; catálogo de consentimiento y revisión Alembic de solo lectura. Contraseña propietaria expuesta aún pendiente de rotación por Julian. |
+| DEC54 | Conservar PostgreSQL 16/PostGIS 3.7 de CI y registrar PostgreSQL 18.7/PostGIS 3.6.4 de Neon | Migración, deriva y salud verificadas en Neon; no declarar la suite completa probada en PostgreSQL 18. Sin descenso ni limpieza destructiva en Neon. |
+
+DB01_EVIDENCIA_NEON.json registra los resultados sin secretos. Registro real, fases, revisión humana y Word siguen pendientes según NEON_DESARROLLO.md. No se modifican contratos, fechas o presupuesto.

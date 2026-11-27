@@ -1,4 +1,6 @@
 # Köra
+
+Base Neon de desarrollo preparada: [guía DB01](Documentación/NEON_DESARROLLO.md). Conexión y migración verificadas, registro todavía cerrado.
 Sistema académico de movilidad segura para mujeres: aplicación Android con perfiles de pasajera y conductora, web administrativa y backend compartido. Repositorio [0kamiTori/Kora](https://github.com/0kamiTori/Kora).
 
 **Estado al 27/11/2026:** Flutter Android premium con apariencia y pantallas de registro/revisión; FastAPI base con salud y migraciones PostgreSQL/PostGIS. El registro sigue cerrado, móvil sin conexión y web sin inicializar. **Entrega tentativa del sistema completo: 14/01/2027.** Julian desarrolla móvil, John Ortiz web y ambos backend; unas 30 h semanales por persona. No se presenta como fecha institucional certificada ni como factibilidad comprobada.

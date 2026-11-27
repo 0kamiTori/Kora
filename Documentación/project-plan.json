@@ -1,6 +1,6 @@
 {
   "project_name": "Köra",
-  "version": "0.11",
+  "version": "0.12",
   "updated": "2026-11-27",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
@@ -329,7 +329,7 @@
     "schema_revision": "0001_api_base",
     "shared_account_tables": 6,
     "real_registration_enabled": false,
-    "neon_connection_tested": false,
+    "neon_connection_tested": true,
     "local_checks": {
       "passed": 13,
       "postgres_skipped": 15
@@ -344,5 +344,21 @@
       "postgres_passed": 15,
       "database_environment": "ephemeral GitHub Actions PostgreSQL/PostGIS"
     }
+  },
+  "neon_development": {
+    "story": "DB01",
+    "status": "migrated_readiness_verified",
+    "database": "kora_dev",
+    "separate_branch": false,
+    "postgresql": "18.7",
+    "postgis": "3.6.4",
+    "schema_revision": "0001_api_base",
+    "runtime_role_separated": true,
+    "owner_password_rotation": "pending_user_action",
+    "real_registration_enabled": false,
+    "full_postgres_18_suite_run": false,
+    "reviewer": "John Ortiz",
+    "review_status": "pending",
+    "evidence": "Documentación/DB01_EVIDENCIA_NEON.json"
   }
 }
