@@ -79,3 +79,7 @@ No cambian presupuesto, horas, entrega tentativa ni reglas de dos apelaciones/30
 DEC46. El usuario declara que Julian Hernando Perez Villamizar será responsable del tratamiento y solicita ayuda para preparar el contrato y datos sintéticos. Se registra como declaración del usuario, sin atribuir aval institucional. Contacto y texto final aprobado siguen pendientes. Borrador en CONSENTIMIENTO_CUENTA_BORRADOR.md; pruebas en DATOS_PRUEBA_REGISTRO.md. El registro real no se habilita por esta declaración.
 
 Se preparan 12 escenarios sintéticos adicionales a los 49 ejemplos de esquema. No hay importación de cuentas, notificaciones externas o ejecución contra Neon. El workflow corrige el comando pip en YAML multilínea y el verificador comprueba la sintaxis para evitar repetir ese error; la primera ejecución fallida no se presenta como validación aprobada.
+
+## Portal y API inicial de CAM 2026 011
+
+27/11/2026. DEC47. John incorpora el portal web y una primera API construidos fuera del repositorio. Se registran como base de trabajo provisional, propuesta por John y pendiente de revisión con Julian; no es una decisión conjunta. Los contratos de Documentación/Contratos y SINCRONIZACION.md siguen siendo la referencia: las diferencias de la API se tratan como deuda por conciliar en P12, no como cambios aprobados de arquitectura o de contrato. No cambian fechas, horas, presupuesto ni alcance.

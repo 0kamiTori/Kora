@@ -1,5 +1,5 @@
 # Estado del proyecto
-26/11/2026 · revisión documental 0.10 · CAM-2026-010.
+27/11/2026 · revisión documental 0.11 · CAM-2026-011. Las secciones anteriores a «Portal web y API inicial» describen el estado previo y se conservan como registro: donde dicen que no hay web o backend ejecutables, prevalece esa última sección.
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -56,3 +56,21 @@ Word: candidatos CAM010 preparados localmente; se preservan los vigentes por el 
 El usuario designa a Julian Hernando Perez Villamizar como responsable del tratamiento. CONSENTIMIENTO_CUENTA_BORRADOR.md es una propuesta para revisión, con contacto, conservación y condiciones operativas aún por completar; no una autorización legal o institucional aprobada. Se conserva registro real deshabilitado. DATOS_PRUEBA_REGISTRO.md explica 12 escenarios sintéticos, sin envíos o cuentas reales; su forma y los 49 ejemplos de esquema pasan localmente.
 
 La ejecución inicial de CI 45940413728 falló al interpretar YAML por el comando de instalación. Se corrigió con bloque multilínea y comprobación de sintaxis local; la ejecución corregida 45941147338 del commit ba5c7bd984fe9cf6e702b58d125a3dee9b91b440 terminó correctamente: verificación inicial, 49 ejemplos y forma de 12 escenarios sintéticos. No ejecutó backend ni pruebas de negocio. No se realizan cambios Flutter o despliegue. Word candidatos actualizados localmente con esta declaración y borrador; vigentes sin sustituir por el bloqueo conocido de render.
+
+## Portal web y API inicial
+
+27/11/2026 · CAM-2026-011. John incorpora el portal administrativo en apps/admin-web y una primera API en services/api, desarrollados fuera del repositorio entre el 23 y el 27 de noviembre. Rama codex/web-admin-y-api-inicial, pendiente de revisión por Julian antes de integrarse en main.
+
+**Portal.** React 18, TypeScript estricto y Vite 5. Pantallas de sesión, panel, conductoras, viajes, alertas, parámetros, auditoría, solicitudes de datos y seguimiento público. Por defecto usa un adaptador de datos sintéticos en memoria; con VITE_USE_MOCKS=false consume la API. Instrucciones en apps/admin-web/README.md.
+
+**API.** FastAPI con PostgreSQL mediante SQL directo; esquema en services/api/db. Sirve las rutas que el portal necesita, con permisos por rol comprobados en servidor, auditoría de consultas sensibles, WebSocket administrativo y detección de desviación, parada y pérdida de señal. Instrucciones en services/api/README.md.
+
+**Lo que no cumple.** La API no implementa el contrato de registro v2 ni el diseño v1 de Contratos/openapi.json. Difieren rutas, estados de viaje y de alerta, eventos persistidos con secuencia, idempotencia, PostGIS, SQLAlchemy y Alembic, y la versión de Python. Las rutas /api/v1/mobile son provisionales para generar datos sintéticos: Flutter no debe integrarse contra ellas. REG01–REG11 siguen sin ejecutar. Conciliación registrada como P12 y DEC47.
+
+**Biometría y avisos.** No hay motor biométrico: la verificación queda pendiente y la API impide aprobar a una conductora sin identidad confirmada, de modo que hoy ninguna puede aprobarse. Esto no coincide con la primera entrega de registro y aprobación sin biometría; queda por decidir en P12. El doble simulado solo se activa con APP_ENV=test. No hay push, SMS ni bandeja de salida; las alertas solo llegan al portal.
+
+**Evidencia local.** Ocho pruebas de integración de la API aprobadas contra PostgreSQL 18 local desde services/api, con datos sintéticos: sesión y permisos, revisión de conductoras, consulta justificada, viaje con alerta de desviación, pérdida de señal, enlace público, parámetros y solicitudes de datos. El portal se recorrió en navegador contra la API con una sesión administrativa y listas vacías. Las pruebas unitarias y de extremo a extremo del portal no se volvieron a ejecutar al incorporarlo. No hay workflow de CI para web ni API. Probado con Python 3.11, no 3.12.
+
+**Base Neon.** Durante el desarrollo local la API se ejecutó contra la base Neon compartida. Se aplicaron los scripts 001 y 002 (26 tablas) y se crearon cuatro usuarios administrativos sintéticos con una contraseña de demostración conocida, además de registros de auditoría de inicio de sesión. No hay cuentas de pasajeras ni conductoras. Antes de cualquier despliegue hay que sustituir esos usuarios y rotar la credencial de la base, que se compartió por un canal no seguro. La credencial no está en Git.
+
+No cambian apps/mobile, contratos, fechas ni presupuesto. Los Word 01, 02 y 03 no se actualizan en este cambio. Ninguna fase se cierra.

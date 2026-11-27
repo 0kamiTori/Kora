@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## 0.11 — 2026-11-27 — CAM-2026-011
+
+- Incorporado en apps/admin-web el portal administrativo React, TypeScript y Vite desarrollado por John: sesión, conductoras, viajes, alertas, parámetros, auditoría, solicitudes de datos y seguimiento público. Funciona con datos sintéticos en memoria o contra la API.
+- Incorporada en services/api una primera API FastAPI ejecutable con PostgreSQL, scripts SQL en services/api/db y ocho pruebas de integración, hecha para dar servicio al portal.
+- La API no implementa el contrato de registro v2 ni el diseño v1: rutas, estados de viaje y alerta, eventos, idempotencia y persistencia difieren de lo acordado. Diferencias listadas en services/api/README.md y registradas como P12; rutas /api/v1/mobile provisionales, no aptas para integrar Flutter.
+- Sin motor biométrico: la verificación queda pendiente y ninguna conductora puede aprobarse. El doble simulado solo se activa con APP_ENV=test. Sin push, SMS ni bandeja de salida.
+- Durante el desarrollo local la API se ejecutó contra la base Neon compartida: esquema 001 y 002 aplicados y cuatro usuarios administrativos sintéticos creados. Credenciales fuera de Git; ver ESTADO.md.
+- Sin cambios en apps/mobile, contratos, fechas ni presupuesto. Word 01/02/03 no actualizados. Ninguna fase cerrada.
+
 ## 0.10 — 2026-11-26 — CAM-2026-010
 
 - Preparado contrato v2 de política y registro con campos obligatorios, consentimiento explícito, roles seguros, errores, reintentos e idempotencia; v1 conservado con plan de migración.

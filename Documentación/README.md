@@ -1,5 +1,5 @@
 # Documentación vigente de Köra
-Revisión documental 0.10 · 26/11/2026. Punto de entrada para contexto técnico y planificación. Fecha tentativa 14/01/2027; sistema académico completo. Existe base Flutter Android con apariencia configurable y pantallas de registro y revisión sin servicio conectado; web y backend pendientes. Los Word anteriores se preservan mientras se resuelve su renderizado.
+Revisión documental 0.11 · 27/11/2026. Punto de entrada para contexto técnico y planificación. Fecha tentativa 14/01/2027; sistema académico completo. Existe base Flutter Android con apariencia configurable y pantallas de registro y revisión sin servicio conectado; portal web y primera API incorporados, aún sin conciliar con los contratos (ver [estado](ESTADO.md)). Los Word anteriores se preservan mientras se resuelve su renderizado.
 
 - [Visión](VISION.md) y [Word para revisión](01_Documento_vision.docx).
 - [Plan y fases](PLAN_MOVIL.md) y [Word del plan](02_Plan_desarrollo_y_guia.docx).

@@ -36,3 +36,15 @@ PERF01: el usuario reporta APP02 correcto con tirones. Registrar acción y panta
 ## Consentimiento tras declaración del responsable
 
 Responsable declarado: Julian Hernando Perez Villamizar, por indicación del usuario; no volver a pedir su nombre como si no estuviera definido. Completar contacto del proyecto, conservación y eliminación, proveedores/regiones y canal de derechos; revisar y aprobar el borrador antes de personas reales. Los 12 escenarios de datos sintéticos ya están preparados y su ejecución funcional sigue pendiente de backend. [Borrador](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [guía de pruebas](DATOS_PRUEBA_REGISTRO.md).
+
+## Conciliación de la API inicial con los contratos
+
+27/11/2026 · CAM-2026-011. P12: la API de services/api se hizo para el portal y no sigue los contratos del repositorio. Julian y John deben decidir, antes de construir sobre ella o de integrarla en main:
+
+- Si se adapta esta API a los contratos, si se reescribe por historias, o si se revisan los contratos. Tabla de diferencias en services/api/README.md.
+- Registro v2: implementar POST /api/v2/accounts y la política, y retirar las rutas provisionales /api/v1/mobile. Ejecutar REG01–REG11.
+- Estados de viaje y alerta: el portal y la API usan driver_arriving y open/acknowledged/resolved; SINCRONIZACION.md define ready y created/dispatched/delivered/acknowledged/resolved.
+- Aprobación de conductoras: la API exige identidad confirmada, pero la primera entrega es registro y aprobación sin biometría.
+- Persistencia y eventos: PostGIS, SQLAlchemy y Alembic frente a SQL directo; eventos con secuencia por viaje y bandeja de salida frente a difusión en memoria.
+- Base Neon: sustituir los cuatro usuarios administrativos sintéticos y rotar la credencial antes de cualquier despliegue; decidir si la base compartida se reinicia al adoptar migraciones.
+- Añadir verificación de CI para apps/admin-web y services/api, y actualizar los Word.
