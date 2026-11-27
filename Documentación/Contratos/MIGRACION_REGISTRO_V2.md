@@ -10,14 +10,14 @@ El contrato acotado [registration-v2.openapi.json](registration-v2.openapi.json)
 
 APP02 no hace solicitudes HTTP y la web no está inicializada, por lo que no hay consumidores funcionales desplegados ni datos de cuenta que migrar. La futura capa de datos móvil usará la URL configurada del backend compartido y mapeará los campos según [CONTRATO_REGISTRO.md](../CONTRATO_REGISTRO.md). No cambiar el formulario ni crear cuentas simuladas como parte de este cambio.
 
-Los archivos .env.example de API, móvil y web aún contienen /api/v1 como referencia inicial no consumida. Al inicializar la API y conectar los clientes, actualizar sus URLs de registro a /api/v2 explícitamente, sin copiar credenciales de PostgreSQL a los clientes ni inventar endpoints v2 para las historias aún no revisadas. Los eventos de viaje siguen siendo diseño v1 pendiente.
+API01 ya usa /api/v2 en su política y puerta cerrada; elimina API_PREFIX del ejemplo para no sugerir rutas configurables inexistentes. Los ejemplos móviles y web conservan /api/v1 como antecedente no consumido y deben actualizarse explícitamente al conectar el registro. No copiar credenciales PostgreSQL a los clientes ni inventar endpoints v2 para historias no revisadas. Los eventos de viaje siguen siendo diseño pendiente.
 
 Si posteriormente existe un cliente v1, inventariarlo antes de retirar o cambiar rutas; definir adaptación, pruebas y fecha de retirada mediante otra decisión. No aceptar silenciosamente cuerpos v1 como si incluyeran un consentimiento explícito inexistente.
 
 ## Datos y reversión
 
-Una única tabla lógica de cuentas y UUID común, sin copias por cliente o versión. Crear el esquema mediante migraciones cuando exista backend; hoy no se ejecuta ninguna migración ni SQL. El rol driver nunca se obtiene por elegir requested_role=driver en el alta.
+Una única tabla lógica de cuentas y UUID común, sin copias por cliente o versión. En CAM010 no se ejecutaba SQL; API01 añade la migración inicial y sus pruebas desechables, sin conectarse a Neon ni migrar datos reales. El rol driver nunca se obtiene por elegir requested_role=driver en el alta.
 
 Para revertir ahora basta retirar el borrador v2 y sus referencias mediante un cambio documentado; no afecta datos porque no hay servicio implementado. Cuando haya datos reales, preservar IDs y recibos de consentimiento; no revertir migraciones destructivas ni borrar cuentas para cambiar de contrato. El hash del archivo v1 se conserva en x-legacy-contract y se comprueba en CI.
 
-Texto de consentimiento y responsable pendientes. La publicación de este contrato no habilita el tratamiento de datos reales.
+Julian se declara responsable; texto final y contactos pendientes. La publicación del contrato y de la base API no habilita el tratamiento de datos reales.

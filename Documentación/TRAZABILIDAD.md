@@ -54,3 +54,7 @@ APP02 implementa pantallas y validación local de RF01/RF02, con nueve pruebas n
 ## Contrato RF01 en CAM 2026 010
 
 Registro y política cuentan con diseño v2 separado, preservando v1. Detalle en [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md), migración y casos REG01–REG11 de integración aún pendientes. 49 ejemplos JSON Schema validados; no prueban edad del servidor, unicidad, transacciones, idempotencia o alertas reales. RF01 sigue sin implementar. Reporte general de APP02 correcto con tirones en [PRUEBA_APP02.md](PRUEBA_APP02.md); no cierra RNF05 ni rendimiento.
+
+## Evidencia acotada de API01
+
+API01 aporta infraestructura para RF01 y RNF08: salud, preparación, migración y tablas compartidas. Las pruebas PostgreSQL verificarán restricciones, concurrencia de contactos y protección de consentimiento/recibos; no validan todavía el flujo REG01–REG11 de alta. RF01, autenticación, incidentes administrativos y revisión siguen pendientes. Local sin DB: 13 aprobadas y 15 omitidas con motivo; CI real pendiente de registrar. Ningún RF o fase se cierra por inicializar esta base.

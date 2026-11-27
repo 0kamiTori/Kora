@@ -79,3 +79,17 @@ No cambian presupuesto, horas, entrega tentativa ni reglas de dos apelaciones/30
 DEC46. El usuario declara que Julian Hernando Perez Villamizar será responsable del tratamiento y solicita ayuda para preparar el contrato y datos sintéticos. Se registra como declaración del usuario, sin atribuir aval institucional. Contacto y texto final aprobado siguen pendientes. Borrador en CONSENTIMIENTO_CUENTA_BORRADOR.md; pruebas en DATOS_PRUEBA_REGISTRO.md. El registro real no se habilita por esta declaración.
 
 Se preparan 12 escenarios sintéticos adicionales a los 49 ejemplos de esquema. No hay importación de cuentas, notificaciones externas o ejecución contra Neon. El workflow corrige el comando pip en YAML multilínea y el verificador comprueba la sintaxis para evitar repetir ese error; la primera ejecución fallida no se presenta como validación aprobada.
+
+## Base API01 CAM 2026 011
+
+27/11/2026. Implementación asistida para Julian; revisión cruzada de John pendiente, sin atribuir aprobación o cierre de fase.
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC47 | Inicializar FastAPI, PostgreSQL/PostGIS y Alembic como historia API01 | Solicitado por el usuario. Criterio: proceso activo, preparación real de base y migración reproducible, con registro cerrado. No incluye alta, sesión o aprobación funcional. |
+| DEC48 | Python 3.12.16 y dependencias estables fijadas con uv 0.13.9 y uv.lock | Entorno backend aislado, creado con Python administrado por uv. Versiones en BASE_API.md. |
+| DEC49 | Seis tablas en esquema kora y public.kora_alembic_version; sin cuentas o consentimiento aprobados al migrar | Cuenta única entre clientes, contactos únicos, nombre repetible y recibos protegidos. No se dan por implementados hash criptográfico, edad, numeración completa o idempotencia de negocio. |
+| DEC50 | PostgreSQL 16/PostGIS 3.7 con digest fijado para pruebas desechables | Rama 16-3.7 vigente en proveedor; las anteriores 3.5/3.6 dejaron de actualizarse. Sin actualización de volúmenes existentes o de Neon. |
+| DEC51 | Pruebas de persistencia en GitHub Actions por falta de Docker/PostgreSQL local | No se usa la credencial expuesta ni se conecta Neon. Las pruebas locales omiten integración con motivo; CI debe demostrarla antes de declararla validada. |
+
+La política de API01 siempre está deshabilitada y el POST rechaza sin crear cuentas. No hay variable para abrirlo antes de implementar el alta y aprobar el tratamiento. Se mantienen dos apelaciones y 30 días bajo servidor para sus historias posteriores, además de presupuesto, horas y fecha final tentativa. Word candidatos preparados localmente; el bloqueo conocido de render sigue pendiente.

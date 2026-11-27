@@ -48,3 +48,7 @@ CAM-2026-009. Implementada interfaz móvil premium de registro y revisión, con 
 ## Primer paso de funcionalidad RF01
 
 CAM-2026-010. Contrato v2 de política y registro preparado y verificado por esquemas; no es alta funcional. Revisar entre autores y avanzar a API/migraciones/pruebas sintéticas compartidas. Mantener deshabilitado el registro real sin consentimiento aprobado y responsable identificado. El reporte físico de APP02 añade PERF01 para diagnóstico, sin reestimar aquí fechas u horas. Se conserva la biometría en segunda entrega y el control de fases por evidencia.
+
+## Preparación compartida API01
+
+CAM-2026-011 inicializa base API y migración como historia independiente del alta funcional. Criterio: estado preparado solo con PostGIS y revisión correcta, migración verificable sobre una base vacía y registro cerrado. Localmente falta servidor; CI debe aportar la evidencia de persistencia. Implementación asistida para Julian y revisión de John pendiente. No se alteran fechas, horas o presupuesto ni se declara F2 terminada.

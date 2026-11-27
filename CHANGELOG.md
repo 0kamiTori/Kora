@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## 0.11 — 2026-11-27 — CAM-2026-011
+
+- API01: base FastAPI con salud, preparación PostgreSQL/PostGIS y política/puerta de registro cerradas; sin alta o sesiones simuladas.
+- Seis tablas compartidas en esquema kora y migración Alembic; unicidad de contactos, integridad y protección de versiones y recibos. Sin datos de arranque o aprobación sintética en aplicación.
+- Python 3.12.16 y dependencias fijadas con uv.lock; entorno aislado y conexiones de servicio/migración sin secretos en Git.
+- 13 pruebas locales aprobadas, 15 PostgreSQL omitidas por falta de servidor local. CI real de PostGIS y compose desechable con digest fijado; resultado pendiente antes de aceptación.
+- Documentación, decisiones y estado actualizados; Word candidatos locales por fallo de render conocido. Sin cambios móviles, despliegue, conexión Neon o cierre de fase.
+
 ## 0.10 — 2026-11-26 — CAM-2026-010
 
 - Preparado contrato v2 de política y registro con campos obligatorios, consentimiento explícito, roles seguros, errores, reintentos e idempotencia; v1 conservado con plan de migración.

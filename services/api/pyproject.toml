@@ -1,0 +1,40 @@
+[project]
+name = "kora-api"
+version = "0.1.0"
+description = "Backend compartido de Köra"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "alembic==1.20.1",
+    "fastapi==0.165.0",
+    "psycopg[binary]==3.3.9",
+    "pydantic==2.14.4",
+    "pydantic-settings==2.16.3",
+    "sqlalchemy==2.1.9",
+    "tzdata==2026.6",
+    "uvicorn==0.54.0",
+]
+
+[build-system]
+requires = ["hatchling==1.33.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kora_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["postgres: requires an explicitly configured disposable PostgreSQL database"]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[dependency-groups]
+dev = [
+    "httpx2==2.16.2",
+    "jsonschema==4.26.0",
+    "pytest==9.2.0",
+    "ruff==0.17.6",
+]

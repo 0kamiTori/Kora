@@ -231,3 +231,7 @@ CAM-2026-009 del 26/11/2026. Se incorporan las decisiones DEC37–DEC40: Colombi
 ## 21 Primer contrato funcional de registro
 
 CAM-2026-010. Se prepara el contrato de alta v2 con campos, consentimiento explícito, roles seguros, respuestas y reintentos, sin desplegar API ni conectar Neon. La incompatibilidad con el esquema v1 requiere versión nueva y migración documentada; no una segunda base. El consentimiento real necesita contenido aprobado y responsable. El usuario acepta en general los diseños de APP02 y reporta tirones, registrados como PERF01 pendiente de medición. [Contrato](CONTRATO_REGISTRO.md). Ninguna fase se cierra.
+
+## 22 Base de backend compartido
+
+27/11/2026 · CAM-2026-011. API01 inicializa FastAPI y migración de seis tablas en PostgreSQL/PostGIS, con registro aún cerrado. Es infraestructura verificable y no el alta funcional completa. La cuenta sigue siendo única entre Android y web. [Guía de base API](BASE_API.md). No se habilitan datos reales ni se cierra fase.

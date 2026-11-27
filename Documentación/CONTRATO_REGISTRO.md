@@ -101,3 +101,7 @@ Estos casos no se ejecutan en el verificador de esquemas ni se marcan aprobados 
 Fuentes técnicas: [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) y [jsonschema 4.26.0](https://pypi.org/project/jsonschema/). Son referencias del formato y herramientas, no evidencia de implementación.
 
 Comprobación remota: [Foundation checks 45941147338](https://github.com/0kamiTori/Kora/actions/runs/45941147338), commit ba5c7bd984fe9cf6e702b58d125a3dee9b91b440, terminó correctamente con la verificación inicial, 49 fixtures, forma de 12 escenarios sintéticos y sintaxis YAML. No ejecutó registro o base de datos.
+
+## Implementación parcial API01
+
+API01 implementa GET /api/v2/registration-policy en modo cerrado y una puerta POST /api/v2/accounts que siempre responde 503 REGISTRATION_DISABLED sin interpretar credenciales ni escribir datos. No implementa todavía validación y alta REG01–REG11. Su OpenAPI automático muestra solo lo disponible; no reemplaza el contrato objetivo. Se inicializan tablas y migraciones como preparación, descritas en [BASE_API.md](BASE_API.md). No hay cambios incompatibles en los cuerpos del contrato v2 ni cambios al v1.

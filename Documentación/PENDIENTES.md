@@ -36,3 +36,7 @@ PERF01: el usuario reporta APP02 correcto con tirones. Registrar acción y panta
 ## Consentimiento tras declaración del responsable
 
 Responsable declarado: Julian Hernando Perez Villamizar, por indicación del usuario; no volver a pedir su nombre como si no estuviera definido. Completar contacto del proyecto, conservación y eliminación, proveedores/regiones y canal de derechos; revisar y aprobar el borrador antes de personas reales. Los 12 escenarios de datos sintéticos ya están preparados y su ejecución funcional sigue pendiente de backend. [Borrador](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [guía de pruebas](DATOS_PRUEBA_REGISTRO.md).
+
+## API01 y siguiente integración
+
+FastAPI y migraciones ya están inicializados; no volver a proponer crearlos como si no existieran. Revisar la evidencia PostgreSQL de CI y continuar con alta transaccional REG01–REG11. La APK y web siguen sin consumir cuentas reales. Para Neon, preparar rama/base de desarrollo, contraseña regenerada y rol de ejecución con permisos mínimos; no usar pruebas destructivas de la suite contra Neon. Falta consentimiento final y contactos, configuración operativa de incidentes y revisión de John. [BASE_API.md](BASE_API.md).

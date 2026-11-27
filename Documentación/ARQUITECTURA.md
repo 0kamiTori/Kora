@@ -79,3 +79,7 @@ Flutter Android 3.50.1 con material_ui oficial 1.11.1, Riverpod, GoRouter y Shar
 ## Contrato de alta v2
 
 CAM-2026-010 prepara el registro en /api/v2, con v1 de diseño conservado y [migración](Contratos/MIGRACION_REGISTRO_V2.md). No despliega otra API independiente ni duplica identidades. La implementación futura debe persistir cuenta, credencial protegida, consentimiento e idempotencia atómicamente, con unicidad de contactos y diagnóstico fuera de la dependencia fallida. Servicios y conexión Neon aún no implementados en este paso.
+
+## Base API01 implementada
+
+CAM-2026-011. FastAPI y Psycopg/SQLAlchemy reales, esquema kora y migración Alembic; ejecución reproducible con lock y PostgreSQL/PostGIS para pruebas. [BASE_API.md](BASE_API.md). La instancia API no ejecuta DDL ni concede roles al arrancar. API01 solo ofrece salud, preparación y registro cerrado; no implementa transacciones de alta, GPS, biometría o alertas. El servicio y el operador tienen variables de conexión separadas y TLS exigido fuera de local. PostGIS 3.7 se fija para una base nueva desechable de pruebas, sin migrar versiones de datos existentes.

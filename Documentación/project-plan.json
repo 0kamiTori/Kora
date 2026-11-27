@@ -1,7 +1,7 @@
 {
   "project_name": "Köra",
-  "version": "0.10",
-  "updated": "2026-11-26",
+  "version": "0.11",
+  "updated": "2026-11-27",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
   "end": "2027-01-14",
@@ -320,5 +320,21 @@
       "status": "untriaged",
       "description": "APP02 correcta en general con tirones; pendiente medir en profile en el dispositivo de referencia"
     }
-  ]
+  ],
+  "backend_base": {
+    "story": "API01",
+    "version": "0.1.0",
+    "python": "3.12.16",
+    "status": "implemented_pending_postgres_ci",
+    "schema_revision": "0001_api_base",
+    "shared_account_tables": 6,
+    "real_registration_enabled": false,
+    "neon_connection_tested": false,
+    "local_checks": {
+      "passed": 13,
+      "postgres_skipped": 15
+    },
+    "human_reviewer": "John Ortiz",
+    "human_review_status": "pending"
+  }
 }

@@ -1,0 +1,49 @@
+name: API PostgreSQL checks
+on:
+  push:
+    paths:
+      - 'services/api/**'
+      - '.github/workflows/api.yml'
+      - 'infra/compose.test.yml'
+      - 'Documentación/Contratos/registration-v2.openapi.json'
+  pull_request:
+    paths:
+      - 'services/api/**'
+      - '.github/workflows/api.yml'
+      - 'infra/compose.test.yml'
+      - 'Documentación/Contratos/registration-v2.openapi.json'
+permissions:
+  contents: read
+jobs:
+  postgres:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      db:
+        image: postgis/postgis:16-3.7@sha256:c493152a135059753aef4d8db20c9c55a11aaeae0768e8d7710c23df47be89f2
+        env:
+          POSTGRES_DB: kora_test_api01
+          POSTGRES_USER: kora_test
+          POSTGRES_PASSWORD: synthetic_ci_test_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U kora_test -d kora_test_api01"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      APP_ENV: test
+      KORA_TEST_DATABASE_URL: postgresql+psycopg://kora_test:synthetic_ci_test_only@127.0.0.1:5432/kora_test_api01
+    defaults:
+      run:
+        working-directory: services/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: '0.13.9'
+          enable-cache: true
+          cache-dependency-glob: services/api/uv.lock
+      - run: uv sync --frozen
+      - run: uv run --frozen ruff check .
+      - run: uv run --frozen ruff format --check .
+      - run: uv run --frozen pytest -ra

@@ -1,5 +1,5 @@
 # Documentación vigente de Köra
-Revisión documental 0.10 · 26/11/2026. Punto de entrada para contexto técnico y planificación. Fecha tentativa 14/01/2027; sistema académico completo. Existe base Flutter Android con apariencia configurable y pantallas de registro y revisión sin servicio conectado; web y backend pendientes. Los Word anteriores se preservan mientras se resuelve su renderizado.
+Revisión documental 0.11 · 27/11/2026. Punto de entrada para contexto técnico y planificación. Fecha tentativa 14/01/2027; sistema académico completo. Flutter tiene pantallas sin conexión y FastAPI una base con registro cerrado y migraciones; web y alta funcional pendientes. Los Word anteriores se preservan mientras se resuelve su renderizado.
 
 - [Visión](VISION.md) y [Word para revisión](01_Documento_vision.docx).
 - [Plan y fases](PLAN_MOVIL.md) y [Word del plan](02_Plan_desarrollo_y_guia.docx).
@@ -20,3 +20,5 @@ Los Word se mantienen alineados con los documentos de texto en cada cambio que a
 - [Contrato de registro v2](CONTRATO_REGISTRO.md) y [prueba de APP02 reportada](PRUEBA_APP02.md): primer paso de funcionalidad, servidor aún pendiente.
 
 - [Borrador de consentimiento de cuenta](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [datos sintéticos de registro](DATOS_PRUEBA_REGISTRO.md), preparados para revisión y pruebas aisladas.
+
+- [Base API y migraciones](BASE_API.md), historia API01: backend ejecutable con registro cerrado; pruebas de persistencia diferenciadas de comprobación de esquemas.

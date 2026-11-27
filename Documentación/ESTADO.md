@@ -1,5 +1,5 @@
 # Estado del proyecto
-26/11/2026 · revisión documental 0.10 · CAM-2026-010.
+27/11/2026 · revisión documental 0.11 · CAM-2026-011.
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -35,7 +35,7 @@ CAM-2026-008 queda registrado en los documentos de texto. Las versiones actualiz
 
 ## Pantallas APP02
 
-26/11/2026 · revisión documental 0.10 · CAM-2026-010. Flutter 0.2.0+2 añade registro, solicitud, estado y apelaciones desde Perfil con apariencia premium configurable. Validaciones locales y modelo de revisión separado de widgets; nueve pruebas nuevas, 20 funcionales aprobadas en total y análisis limpio. Las capturas son de widgets con escenarios de prueba, no decisiones reales. No hay alta, envío de solicitud, historial o revisión administrativa funcionales. Documentos y biometría siguen aplazados. El plazo de 30 días se presenta con fecha y permiso de servidor, aún no implementado. [Guía de pantallas](PANTALLAS_REGISTRO.md).
+27/11/2026 · revisión documental 0.11 · CAM-2026-011. Flutter 0.2.0+2 añade registro, solicitud, estado y apelaciones desde Perfil con apariencia premium configurable. Validaciones locales y modelo de revisión separado de widgets; nueve pruebas nuevas, 20 funcionales aprobadas en total y análisis limpio. Las capturas son de widgets con escenarios de prueba, no decisiones reales. No hay alta, envío de solicitud, historial o revisión administrativa funcionales. Documentos y biometría siguen aplazados. El plazo de 30 días se presenta con fecha y permiso de servidor, aún no implementado. [Guía de pantallas](PANTALLAS_REGISTRO.md).
 
 La verificación Word vuelve a fallar incluso con un documento de control de un párrafo. Los Word vigentes siguen preservados; candidatos CAM008 y CAM009 preparados localmente sin publicación hasta renderizar e inspeccionar. No atribuir este límite a un bloqueo del usuario. La próxima historia funcional necesita contrato y backend compartidos; APP02 no cierra RF01, RF02 ni ninguna fase.
 
@@ -56,3 +56,11 @@ Word: candidatos CAM010 preparados localmente; se preservan los vigentes por el 
 El usuario designa a Julian Hernando Perez Villamizar como responsable del tratamiento. CONSENTIMIENTO_CUENTA_BORRADOR.md es una propuesta para revisión, con contacto, conservación y condiciones operativas aún por completar; no una autorización legal o institucional aprobada. Se conserva registro real deshabilitado. DATOS_PRUEBA_REGISTRO.md explica 12 escenarios sintéticos, sin envíos o cuentas reales; su forma y los 49 ejemplos de esquema pasan localmente.
 
 La ejecución inicial de CI 45940413728 falló al interpretar YAML por el comando de instalación. Se corrigió con bloque multilínea y comprobación de sintaxis local; la ejecución corregida 45941147338 del commit ba5c7bd984fe9cf6e702b58d125a3dee9b91b440 terminó correctamente: verificación inicial, 49 ejemplos y forma de 12 escenarios sintéticos. No ejecutó backend ni pruebas de negocio. No se realizan cambios Flutter o despliegue. Word candidatos actualizados localmente con esta declaración y borrador; vigentes sin sustituir por el bloqueo conocido de render.
+
+## Base API01
+
+27/11/2026 · CAM-2026-011. services/api contiene FastAPI ejecutable, configuración sin secretos, salud y preparación PostgreSQL/PostGIS, política de registro cerrada y migración de seis tablas compartidas. Guía: BASE_API.md. La aplicación no crea tablas al arrancar ni carga cuentas o textos aprobados de ejemplo. POST /api/v2/accounts responde REGISTRATION_DISABLED; no hay alta, acceso, revisión o conexión móvil implementados.
+
+Python 3.12.16 aislado con uv, dependencias y lock fijados. Localmente: análisis y formato sin incidencias; 13 pruebas aprobadas y 15 de persistencia omitidas por falta de PostgreSQL/Docker local. Workflow API PostgreSQL checks preparado con base PostGIS real y guardas de entorno, pendiente de resultado remoto al registrar este cambio. No se usa SQLite para sustituir esa evidencia ni se realizan consultas a Neon.
+
+Revisión de John y fase F2 pendientes. Los Word reciben candidato CAM011 local sin sustituir los vigentes hasta resolver el fallo de render. PERF01 y consentimiento final/contactos continúan pendientes.

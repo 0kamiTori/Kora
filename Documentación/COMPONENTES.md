@@ -1,6 +1,6 @@
 # Componentes y ejecución
 
-Android ya está inicializado; comandos y alcance en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). Los demás componentes siguen pendientes. Registrar versiones, variables sin secretos, instalación, pruebas, construcción y diagnóstico al implementarlos.
+Android ya está inicializado; comandos y alcance en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). FastAPI base está inicializado en API01; [BASE_API.md](BASE_API.md) contiene instalación, configuración y límites. Web y funciones completas siguen pendientes.
 
 ## Android
 
@@ -18,9 +18,9 @@ Vistas previstas: sesión, revisión de conductoras, viajes, seguimiento y atenc
 
 ## API
 
-Pendiente de inicializar FastAPI con Python 3.12. Estructura sugerida: app/core, app/auth, app/trips, app/locations, app/verifications, app/alerts y app/events. Añadir pyproject.toml, lock y migraciones Alembic al implementar.
+FastAPI base inicializado en services/api/src/kora_api, con Python 3.12.16, pyproject.toml, uv.lock y Alembic. Salud, preparación PostgreSQL/PostGIS, política y puerta de registro cerradas. Seis tablas compartidas, sin datos de ejemplo al arrancar. Revisar [BASE_API.md](BASE_API.md) antes de migrar o ejecutar pruebas; no apuntar la suite a Neon o a una base con datos reales.
 
-Fuente de diseño: Documentación/Contratos/openapi.json y Documentación/SINCRONIZACION.md. La API valida roles, propiedad, identidad, estados e idempotencia y persiste eventos. PostgreSQL/PostGIS es la fuente de verdad para ambos clientes. Ningún endpoint de contrato está implementado todavía.
+Fuente de diseño de registro: Documentación/CONTRATO_REGISTRO.md y Contratos/registration-v2.openapi.json; v1 queda como antecedente. La validación de alta, sesiones, permisos por recurso, viajes y eventos sigue pendiente. PostgreSQL/PostGIS será fuente común para ambos clientes. Solo GET de política en modo cerrado y POST de rechazo están disponibles del registro; no hay cuentas funcionales.
 
 ## Biometría
 
@@ -32,6 +32,6 @@ Ejecutar como trabajador aislado para que inferencia no bloquee rutas y alertas.
 
 Especificación, no despliegue creado. Ver Documentación/ARQUITECTURA.md. Desarrollo local con API, PostgreSQL/PostGIS y dos clientes; Render para integración y piloto, con API siempre activa, trabajador separado, base gestionada y web estática.
 
-Se crearán Dockerfile, compose y configuración Render al disponer de aplicaciones y comandos de construcción comprobados. Elegir región y planes tras medir memoria y latencia; no introducir un blueprint que apunte a servicios inexistentes. Cada componente requiere health check, límites, secretos de entorno y plan de reversión.
+infra/compose.test.yml y api.yml de CI proporcionan PostgreSQL/PostGIS desechable de pruebas; no son despliegue del piloto. Dockerfile de API y configuración de alojamiento siguen pendientes. Elegir región y planes tras medir memoria y latencia; no introducir un blueprint que apunte a servicios inexistentes.
 
 Presupuestar en conjunto API, trabajador, DB, almacenamiento, egreso y respaldo. No multiplicar costos de una misma API por cada cliente. Los secretos del servidor no se distribuyen a Flutter o Vite.

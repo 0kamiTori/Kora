@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgis/postgis:16-3.7@sha256:c493152a135059753aef4d8db20c9c55a11aaeae0768e8d7710c23df47be89f2
+    environment:
+      POSTGRES_DB: kora_test_api01
+      POSTGRES_USER: kora_test
+      POSTGRES_PASSWORD: synthetic_local_test_only
+    ports:
+      - "127.0.0.1:55432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kora_test -d kora_test_api01"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+# Disposable local test database, not a pilot deployment or real credential store.
