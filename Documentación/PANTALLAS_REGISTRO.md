@@ -54,3 +54,7 @@ La [ejecución Android 45910392743](https://github.com/0kamiTori/Kora/actions/ru
 La APK se descargó, se contrastó el SHA256 del ZIP con GitHub y se verificaron su estructura y certificado. Procedencia y hashes en [apk-provenance.json](Diseno/ImplementacionAPP02/apk-provenance.json). Entrega local en Descargas/Kora_Registro_0.2.0, junto con capturas y un HTML de revisión.
 
 El certificado debug de esta APK difiere del de la primera entrega. Para instalar con el mismo identificador es necesario desinstalar la anterior; se elimina la preferencia de color local. No había cuentas ni viajes guardados. No es una actualización con firma de distribución estable; definir custodia de firma fuera de Git antes de entrega final.
+
+## Reporte posterior de uso en teléfono
+
+26/11/2026. El usuario informa que revisó los diseños de la nueva APK y quedaron bien, con tirones. Se registra en [PRUEBA_APP02.md](PRUEBA_APP02.md). Es prueba general declarada en el Redmi con Android 16, posterior a la preparación de la entrega; no evidencia registro o revisión contra backend. Rendimiento PERF01, accesibilidad y checklist específico siguen pendientes. No se genera otra APK en CAM-2026-010: se prepara el contrato que consumirá la capa de datos futura.

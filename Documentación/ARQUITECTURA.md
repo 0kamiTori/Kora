@@ -75,3 +75,7 @@ Revisión del 24/11/2026: se mantiene la arquitectura objetivo para el sistema c
 
 ## Base móvil implementada en CAM 2026 007
 Flutter Android 3.50.1 con material_ui oficial 1.11.1, Riverpod, GoRouter y SharedPreferencesAsync solo para apariencia local. Capas y versiones en [MOVIL_APARIENCIA.md](MOVIL_APARIENCIA.md). No se crea identidad local alternativa ni API de sincronización de color; backend y contratos permanecen sin cambios.
+
+## Contrato de alta v2
+
+CAM-2026-010 prepara el registro en /api/v2, con v1 de diseño conservado y [migración](Contratos/MIGRACION_REGISTRO_V2.md). No despliega otra API independiente ni duplica identidades. La implementación futura debe persistir cuenta, credencial protegida, consentimiento e idempotencia atómicamente, con unicidad de contactos y diagnóstico fuera de la dependencia fallida. Servicios y conexión Neon aún no implementados en este paso.

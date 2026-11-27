@@ -50,3 +50,7 @@ El usuario reporta prueba correcta de la primera APK en Redmi Note 15 Pro con An
 ## Interfaz APP02 y brecha de integración
 
 APP02 implementa pantallas y validación local de RF01/RF02, con nueve pruebas nuevas y capturas Flutter. La matriz RF sigue pendiente en su conjunto: correo/teléfono únicos, sesiones, revisión, dos apelaciones, deduplicación y plazo de 30 días necesitan servidor y pruebas de integración. No cambia OpenAPI. Detalle y límites en [PANTALLAS_REGISTRO.md](PANTALLAS_REGISTRO.md).
+
+## Contrato RF01 en CAM 2026 010
+
+Registro y política cuentan con diseño v2 separado, preservando v1. Detalle en [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md), migración y casos REG01–REG11 de integración aún pendientes. 49 ejemplos JSON Schema validados; no prueban edad del servidor, unicidad, transacciones, idempotencia o alertas reales. RF01 sigue sin implementar. Reporte general de APP02 correcto con tirones en [PRUEBA_APP02.md](PRUEBA_APP02.md); no cierra RNF05 ni rendimiento.

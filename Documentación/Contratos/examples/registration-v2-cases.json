@@ -1,0 +1,849 @@
+{
+  "description": "Solo datos sintéticos. Validación de esquemas, no ejecución del backend.",
+  "cases": [
+    {
+      "name": "valid passenger",
+      "schema": "AccountRegistrationV2",
+      "valid": true,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "driver intention only",
+      "schema": "AccountRegistrationV2",
+      "valid": true,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "driver",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing email",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing password",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing display_name",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing birth_date",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing phone",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing requested_role",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "missing consent",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger"
+      }
+    },
+    {
+      "name": "reject password 12",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "abcdefghijkl",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject password 12",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ABCDEFGHIJ1!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject password 12",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "Abcdefghijk!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject password 12",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "Abcdefghij12",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject password 11",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "Abcdefghi1!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject display_name 7",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María_2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject display_name 5",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "     ",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject display_name 101",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "ñññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññ",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject birth_date 10",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2001-02-29",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "reject requested_role 5",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "admin",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "consent false",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": false,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "forged roles",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        },
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "name": "forged approval",
+      "schema": "AccountRegistrationV2",
+      "valid": false,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        },
+        "driver_approved": true
+      }
+    },
+    {
+      "name": "name at maximum",
+      "schema": "AccountRegistrationV2",
+      "valid": true,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "ññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññ",
+        "birth_date": "2000-11-26",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      }
+    },
+    {
+      "name": "minor is schema valid but needs server rejection",
+      "schema": "AccountRegistrationV2",
+      "valid": true,
+      "instance": {
+        "email": "prueba@example.invalid",
+        "password": "ClaveDePrueba12!",
+        "display_name": "María Ñ 2",
+        "birth_date": "2015-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "300 000-0000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "expected_server_code": "AGE_RESTRICTED",
+      "server_test_pending": true
+    },
+    {
+      "name": "disabled policy no placeholder consent",
+      "schema": "RegistrationPolicy",
+      "valid": true,
+      "instance": {
+        "policy_version": "test-policy-v1",
+        "registration_enabled": false,
+        "server_date": "2026-11-26",
+        "minimum_age": 18,
+        "display_name_max_length": 100,
+        "password_rules": {
+          "minimum_length": 12,
+          "uppercase": true,
+          "lowercase": true,
+          "digit": true,
+          "special_character": true
+        },
+        "consent": null
+      }
+    },
+    {
+      "name": "enabled policy requires consent",
+      "schema": "RegistrationPolicy",
+      "valid": false,
+      "instance": {
+        "policy_version": "test-policy-v1",
+        "registration_enabled": true,
+        "server_date": "2026-11-26",
+        "minimum_age": 18,
+        "display_name_max_length": 100,
+        "password_rules": {
+          "minimum_length": 12,
+          "uppercase": true,
+          "lowercase": true,
+          "digit": true,
+          "special_character": true
+        },
+        "consent": null
+      }
+    },
+    {
+      "name": "synthetic enabled policy",
+      "schema": "RegistrationPolicy",
+      "valid": true,
+      "instance": {
+        "policy_version": "test-policy-v1",
+        "registration_enabled": true,
+        "server_date": "2026-11-26",
+        "minimum_age": 18,
+        "display_name_max_length": 100,
+        "password_rules": {
+          "minimum_length": 12,
+          "uppercase": true,
+          "lowercase": true,
+          "digit": true,
+          "special_character": true
+        },
+        "consent": {
+          "version": "test-account-consent-v1",
+          "text": "Texto sintético de prueba; no constituye consentimiento aprobado."
+        }
+      }
+    },
+    {
+      "name": "created account no privileges",
+      "schema": "AccountCreatedV2",
+      "valid": true,
+      "instance": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "display_name": "María Ñ 2",
+        "roles": [
+          "passenger"
+        ],
+        "driver_approved": false,
+        "driver_review_status": "not_submitted",
+        "created_at": "2026-11-26T12:00:00Z",
+        "consent_receipt": {
+          "version": "test-account-consent-v1",
+          "recorded_at": "2026-11-26T12:00:00Z"
+        }
+      }
+    },
+    {
+      "name": "response must not grant driver",
+      "schema": "AccountCreatedV2",
+      "valid": false,
+      "instance": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "display_name": "María Ñ 2",
+        "roles": [
+          "passenger",
+          "driver"
+        ],
+        "driver_approved": false,
+        "driver_review_status": "not_submitted",
+        "created_at": "2026-11-26T12:00:00Z",
+        "consent_receipt": {
+          "version": "test-account-consent-v1",
+          "recorded_at": "2026-11-26T12:00:00Z"
+        }
+      }
+    },
+    {
+      "name": "response never echoes password",
+      "schema": "AccountCreatedV2",
+      "valid": false,
+      "instance": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "display_name": "María Ñ 2",
+        "roles": [
+          "passenger"
+        ],
+        "driver_approved": false,
+        "driver_review_status": "not_submitted",
+        "created_at": "2026-11-26T12:00:00Z",
+        "consent_receipt": {
+          "version": "test-account-consent-v1",
+          "recorded_at": "2026-11-26T12:00:00Z"
+        },
+        "password": "not-allowed"
+      }
+    },
+    {
+      "name": "error REQUIRED_FIELDS_MISSING",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "REQUIRED_FIELDS_MISSING",
+        "message": "!OJO! faltan datos obligatorios",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error CONSENT_REQUIRED",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "CONSENT_REQUIRED",
+        "message": "!OJO! Confirma tu consentimiento para crear la cuenta",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error CONTACT_INVALID",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "CONTACT_INVALID",
+        "message": "Este correo o número es inválido, prueba otro",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error PASSWORD_INVALID",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "PASSWORD_INVALID",
+        "message": "La contraseña debe tener mínimo 12 caracteres e incluir una mayúscula, una minúscula, un número y un carácter especial",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error DISPLAY_NAME_INVALID",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "DISPLAY_NAME_INVALID",
+        "message": "Usa hasta 100 caracteres: letras, números y espacios",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error BIRTH_DATE_INVALID",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "BIRTH_DATE_INVALID",
+        "message": "Ingresa una fecha de nacimiento válida",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error AGE_RESTRICTED",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "AGE_RESTRICTED",
+        "message": "Debes tener al menos 18 años para crear una cuenta",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error VALIDATION_ERROR",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "VALIDATION_ERROR",
+        "message": "Revisa los datos de la solicitud",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 422
+    },
+    {
+      "name": "error CONTACT_NOT_AVAILABLE",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "CONTACT_NOT_AVAILABLE",
+        "message": "Este correo o número no está disponible",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 409
+    },
+    {
+      "name": "error CONSENT_VERSION_CHANGED",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "CONSENT_VERSION_CHANGED",
+        "message": "!OJO! Confirma tu consentimiento para crear la cuenta",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 409
+    },
+    {
+      "name": "error IDEMPOTENCY_CONFLICT",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "IDEMPOTENCY_CONFLICT",
+        "message": "No se pudo confirmar el envío. Revisa tus datos e inténtalo de nuevo.",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 409
+    },
+    {
+      "name": "error REGISTRATION_IN_PROGRESS",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "REGISTRATION_IN_PROGRESS",
+        "message": "Tu registro sigue en proceso. Inténtalo nuevamente.",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": true,
+        "field_errors": []
+      },
+      "http_status": 409
+    },
+    {
+      "name": "error REQUEST_INVALID",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "REQUEST_INVALID",
+        "message": "Revisa los datos de la solicitud",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 400
+    },
+    {
+      "name": "error BODY_TOO_LARGE",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "BODY_TOO_LARGE",
+        "message": "Revisa los datos de la solicitud",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 413
+    },
+    {
+      "name": "error UNSUPPORTED_MEDIA_TYPE",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "UNSUPPORTED_MEDIA_TYPE",
+        "message": "Revisa los datos de la solicitud",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 415
+    },
+    {
+      "name": "error RATE_LIMITED",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiados intentos. Inténtalo nuevamente más tarde.",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": true,
+        "field_errors": []
+      },
+      "http_status": 429
+    },
+    {
+      "name": "error REGISTRATION_DISABLED",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "REGISTRATION_DISABLED",
+        "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": false,
+        "field_errors": []
+      },
+      "http_status": 503
+    },
+    {
+      "name": "error DATABASE_UNAVAILABLE",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "DATABASE_UNAVAILABLE",
+        "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": true,
+        "field_errors": [],
+        "incident_id": "00000000-0000-4000-8000-000000000003"
+      },
+      "http_status": 503
+    },
+    {
+      "name": "error INTERNAL_ERROR",
+      "schema": "RegistrationError",
+      "valid": true,
+      "instance": {
+        "code": "INTERNAL_ERROR",
+        "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+        "request_id": "00000000-0000-4000-8000-000000000002",
+        "retryable": true,
+        "field_errors": [],
+        "incident_id": "00000000-0000-4000-8000-000000000003"
+      },
+      "http_status": 500
+    }
+  ]
+}

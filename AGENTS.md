@@ -5,6 +5,8 @@ El producto principal es una aplicación Android de movilidad segura para mujere
 
 Leer antes de trabajar: README.md, Documentación/PLAN_MOVIL.md, Documentación/ARQUITECTURA.md, Documentación/SINCRONIZACION.md y Documentación/ESTADO.md. La planificación estructurada vive en Documentación/project-plan.json; los contratos iniciales en Documentación/Contratos/openapi.json y Documentación/Contratos/events.schema.json. Documentación contiene los Word para revisión académica. No presentar fechas, disponibilidad ni tarifas de planificación como compromisos confirmados.
 
+Para implementar el alta, leer Documentación/CONTRATO_REGISTRO.md y Documentación/Contratos/registration-v2.openapi.json: v2 es borrador de registro, v1 se conserva como diseño sin implementar y no hay dos bases de cuentas. El verificador nuevo comprueba 49 fixtures de esquema, no backend. Texto de consentimiento y responsable pendientes antes de datos reales. APP02 fue probada por el usuario con resultado general correcto y tirones; PERF01 sigue pendiente de medir, sin atribuir corrección automática.
+
 ## Alcance por tarea
 1. Implementar una historia verificable por vez y explicar qué criterio cumple.
 2. Crear ramas codex/<tema>. Revisar git status antes de editar; preservar trabajo ajeno.

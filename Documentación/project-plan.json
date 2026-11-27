@@ -1,6 +1,6 @@
 {
   "project_name": "Köra",
-  "version": "0.9",
+  "version": "0.10",
   "updated": "2026-11-26",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
@@ -261,7 +261,7 @@
   ],
   "registration_requirements": {
     "source": "Documentación/RF01_REGISTRO.md",
-    "status": "agreed_rules_pending_contract_and_implementation",
+    "status": "v2_contract_draft_schema_checked_backend_pending",
     "minimum_age_years": 18,
     "unique_fields": [
       "email",
@@ -292,7 +292,26 @@
       "review_status",
       "appeal"
     ],
-    "physical_device_acceptance": "pending",
+    "physical_device_acceptance": "user_reported_general_success_with_jank_detailed_checks_pending",
     "api_integration": "pending"
-  }
+  },
+  "registration_contract": {
+    "version": "2.0.0-draft.1",
+    "base_path": "/api/v2",
+    "source": "Documentación/Contratos/registration-v2.openapi.json",
+    "legacy_v1_preserved": true,
+    "schema_fixture_count": 49,
+    "status": "contract_only",
+    "real_registration_enabled": false,
+    "consent_approval": "pending",
+    "reviewer_assignment": "pending_before_backend_implementation"
+  },
+  "reported_issues": [
+    {
+      "id": "PERF01",
+      "source": "user_report_2026-11-26",
+      "status": "untriaged",
+      "description": "APP02 correcta en general con tirones; pendiente medir en profile en el dispositivo de referencia"
+    }
+  ]
 }

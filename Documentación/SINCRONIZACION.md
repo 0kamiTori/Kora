@@ -1,6 +1,6 @@
 # Contrato de integración entre móvil y web
 
-Los dos clientes usarán una API /api/v1 y la misma base de datos. No habrá sincronización directa entre teléfonos y navegador ni acceso de clientes a PostgreSQL. La API asigna IDs, valida identidad y roles, decide transiciones y persiste cambios.
+Los dos clientes usarán el backend compartido y la misma base de datos. El registro se prepara en /api/v2 según [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md); las rutas /api/v1 de este documento siguen como diseño inicial parcial sin implementación. No habrá sincronización directa entre teléfonos y navegador ni acceso de clientes a PostgreSQL. La API asigna IDs, valida identidad y roles, decide transiciones y persiste cambios. La introducción de v2 no duplica cuentas, identidades o almacenamiento.
 
 ## Entidades y estados
 

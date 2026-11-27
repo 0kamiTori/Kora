@@ -59,3 +59,17 @@ Los contratos no se modifican en CAM-2026-008. El registro y el panel siguen sin
 | DEC40 | Pantallas premium nativas de registro, solicitud, estado y apelaciones | Solicitadas por el usuario. APP02 implementa interfaz y validaciones locales, sin altas o decisiones ficticias; estados sintéticos solo en test. Contratos sin cambios. |
 
 Se mantienen fecha tentativa final, horas y presupuesto. Las pantallas no acreditan RF01/RF02 completos ni cierre de fase. Los Word de CAM008 y CAM009 están preparados localmente pero siguen pendientes de render: incluso el documento de control de un párrafo no completa la exportación Word en este equipo.
+
+## Contrato de registro CAM 2026 010
+
+26/11/2026. Historia acotada de contrato RF01, sin implementar servicio.
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC41 | Registro v2 con política, datos completos y consentimiento explícito, conservando contrato inicial v1 | Decisión técnica por cambio incompatible de esquema; migración documentada. No hay API desplegada ni cuentas que migrar. |
+| DEC42 | UUID común; alta con pasajera, requested_role como intención, sin sesión ni aprobación de conductora | Decisión técnica que preserva la revisión y una sola identidad. Backend y clientes HTTP pendientes. |
+| DEC43 | Unicidad de correo normalizado y teléfono E.164; clave de idempotencia y recibo transaccional | Reglas técnicas para implementar y probar en base real. TTL de 24 h y cuerpo de 16 KiB propuestos; no atribuir nueva aprobación explícita del usuario. |
+| DEC44 | Consentimiento vigente aprobado antes de habilitar registro real | Contenido, responsable y contacto pendientes; solo datos sintéticos para pruebas mientras se definen. No inventar consentimiento ni autorización institucional. |
+| DEC45 | Usuario revisó APP02 y reporta pantallas correctas con tirones | Evidencia declarada en PRUEBA_APP02.md. PERF01 abierto, pendiente de diagnóstico en profile; no prometer que desaparezca al completar funciones. |
+
+No cambian presupuesto, horas, entrega tentativa ni reglas de dos apelaciones/30 días. La verificación de esquemas no demuestra persistencia o registro funcional. Los Word de esta revisión se preparan localmente sobre los candidatos anteriores; el fallo de render ya documentado impide sustituirlos sin inspección.

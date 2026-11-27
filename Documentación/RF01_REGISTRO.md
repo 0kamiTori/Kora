@@ -46,7 +46,7 @@ Los textos siguientes se conservan literalmente, incluida la redacción solicita
 | Edad inferior a 18 años | Debes tener al menos 18 años para crear una cuenta |
 | Fallo de base de datos o error interno inesperado | Hubo un error para registrate, intentalo nuevamente más tarde |
 
-Faltan acordar el mensaje de nombre de usuario inválido y la prioridad cuando concurren varios errores. La falta de consentimiento debe poder identificarse expresamente, sin quedar oculta por el mensaje genérico. No se cambia el mensaje de error interno sin acuerdo del usuario.
+El mensaje de nombre inválido y la prioridad de varios errores tienen redacción técnica propuesta en APP02 y CONTRATO_REGISTRO.md, revisable sin atribuir aprobación adicional del usuario. La falta de consentimiento debe poder identificarse expresamente, sin quedar oculta por el mensaje genérico. No se cambia el mensaje de error interno sin acuerdo del usuario.
 
 ## Incidentes técnicos y administración
 
@@ -78,7 +78,7 @@ El diagnóstico excluirá contraseñas, tokens, cadenas de conexión, imágenes 
 
 El OpenAPI actual es parcial y no se modifica en este cambio documental. Contrastar el registro y los roles existentes con una cuenta que puede tener ambos perfiles; fijar payloads, códigos de error, respuestas, concurrencia y migración antes de cambiarlo. La aprobación debe tener trazabilidad y autorización en backend.
 
-Quedan por definir: formulario y estados de solicitud de conductora, criterios de revisión y corrección, creación controlada del primer administrador, normalización del correo, espacios y longitud mínima del nombre, máximo de contraseña y caracteres especiales admitidos, fecha y zona horaria de referencia para edad y tratamiento del 29 de febrero, verificación y recuperación de correo, y canal operativo de incidentes. No presentar estos detalles como aprobados.
+Los campos y estados de conductora ya fueron acordados, con integración aplazada. Contrato v2 y normalización se concretan técnicamente en CONTRATO_REGISTRO.md. Siguen pendientes los criterios de revisión documental, creación controlada del primer administrador, texto aprobado de consentimiento y responsable, revisión del criterio de cumpleaños del 29 de febrero, verificación/recuperación de correo y canal operativo de incidentes. No presentar esos pendientes como aprobados.
 
 Julian desarrolla móvil, John web y ambos backend. Asignar implementador y revisor por historia antes de código compartido. Todos los casos de esta sección están pendientes de ejecución; no se cierra ninguna fase.
 
@@ -93,3 +93,9 @@ Primera entrega para Colombia y automóviles. Se aceptan como obligatorios los c
 Estados acordados: borrador, pendiente de revisión, requiere correcciones, rechazada, apelación pendiente y aprobada. Rechazo y petición de correcciones tienen motivo obligatorio. La solicitante puede apelar hasta dos veces por solicitud, con motivo obligatorio; administración revisa y responde con motivo. Una sola apelación pendiente; la segunda se habilita si la primera mantiene el rechazo. Conservar historial y no consumir intentos por reintentos de red.
 
 Tras el rechazo definitivo de la segunda apelación, debe esperar 30 días para iniciar una nueva solicitud de conductora. El instante y la autorización los fijará el servidor; la propuesta operativa es 30 × 24 horas desde la decisión definitiva. No se bloquea automáticamente su cuenta de pasajera. Pantallas APP02 implementadas; envío, aprobaciones, historial y plazo persistido siguen pendientes de API. Este apartado resuelve la definición de estados y campos antes listada como pendiente, sin dar por terminados sus criterios documentales o integración.
+
+## Contrato v2 preparado en CAM 2026 010
+
+[CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md) define política y alta en /api/v2; esquemas, errores, campos y plan de migración en Contratos. El v1 permanece intacto por incompatibilidad de campos obligatorios y consentimiento. 49 casos de esquema comprobados, sin backend ni consultas a Neon.
+
+Se concretan como decisiones técnicas normalización de correo sin distinguir mayúsculas, NFC y quitar espacios exteriores del nombre sin unicidad, fecha civil de servidor en Colombia y prioridad de errores; son revisables, no acuerdos adicionales atribuidos al usuario. El texto aprobado de consentimiento y responsable siguen pendientes. Casos de negocio, sesiones, solicitud, apelaciones y espera continúan sin implementar.

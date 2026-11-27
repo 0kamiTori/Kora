@@ -44,3 +44,7 @@ Orden inmediato: cerrar pendientes de [RF01](RF01_REGISTRO.md), completar contra
 ## Preparación de pantallas APP02
 
 CAM-2026-009. Implementada interfaz móvil premium de registro y revisión, con pruebas locales; el siguiente trabajo es contrato y API compartida, no otra base de identidad local. Dos apelaciones y nueva solicitud tras 30 días de rechazo definitivo requieren persistencia en servidor. Documentos y biometría siguen aplazados según lo acordado. No se cierran fases ni se reestiman aquí fechas u horas.
+
+## Primer paso de funcionalidad RF01
+
+CAM-2026-010. Contrato v2 de política y registro preparado y verificado por esquemas; no es alta funcional. Revisar entre autores y avanzar a API/migraciones/pruebas sintéticas compartidas. Mantener deshabilitado el registro real sin consentimiento aprobado y responsable identificado. El reporte físico de APP02 añade PERF01 para diagnóstico, sin reestimar aquí fechas u horas. Se conserva la biometría en segunda entrega y el control de fases por evidencia.

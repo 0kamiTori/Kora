@@ -82,7 +82,7 @@ def main():
   for target in re.findall(r'\]\(([^)]+)\)',f.read_text(encoding='utf-8')):
    if '://' in target or target.startswith('#'):continue
    check((f.parent/target.split('#')[0]).exists(),f'Enlace roto en {f.name}: {target}')
- print(f'OK: {days} días, {len(weeks)} ventanas semanales, {len(phases)} fases propuestas, {len(ids)} operaciones y ejemplo de evento.')
+ print(f'OK: {days} días, {len(weeks)} ventanas semanales, {len(phases)} fases propuestas, {len(ids)} operaciones del diseño v1 y ejemplo de evento.')
  print(f'Capacidad móvil {a["mobile_gross_hours"]} h; planificadas {a["mobile_planned_hours"]} h; reserva {a["mobile_buffer_hours"]} h.')
  print(f'Presupuesto fuente: {b["declared_total_cop"]:,} COP; diferencia pendiente: {b["reconciliation_pending_cop"]:,} COP.')
  print('No valida todo el estándar OpenAPI ni el funcionamiento de las aplicaciones.')

@@ -26,3 +26,9 @@ Resolver los detalles listados en [RF01_REGISTRO.md](RF01_REGISTRO.md), en espec
 ## Actualización de pendientes APP02
 
 Confirmados: Colombia, automóviles, campos documentales obligatorios con integración posterior, estados de revisión, dos apelaciones con motivos y una pendiente, nueva solicitud tras 30 días de rechazo definitivo. Pendientes: contrato y aplicación del plazo en backend, historial, administración y evidencia de entrega. Definir criterios documentales y política de elegibilidad sin inferencia facial de género. El reloj local no autoriza el reingreso. Validación física de APP02 y sincronización Word aún pendientes.
+
+## Contrato y reporte físico CAM 2026 010
+
+El contrato de alta v2 y la política están preparados y se comprueban con 49 ejemplos de esquema. Falta revisión de autores, texto de consentimiento aprobado/responsable/contacto y ejecución de los casos REG01–REG11 en backend y base de pruebas. Las decisiones técnicas de normalización y reintentos están en [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md); v1 no se altera ni se presume implementado.
+
+PERF01: el usuario reporta APP02 correcto con tirones. Registrar acción y pantalla, medir en dispositivo físico y modo profile, diagnosticar y volver a probar. No se asume corrección automática al finalizar funciones. Checklist de accesibilidad y persistencia sigue pendiente. El bloqueo conocido de render Word continúa sin cambio externo informado.

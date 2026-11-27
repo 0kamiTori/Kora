@@ -10,3 +10,5 @@ La base Android está en apps/mobile; instrucciones en [Aplicación móvil y apa
 Exploración visual: [cinco propuestas](Documentación/Diseno/README.md). El usuario eligió premium con cambio de color; la base Flutter adapta Premium Órbita. El HTML sigue como antecedente visual y no es la aplicación móvil.
 
 Última historia: [pantallas de registro y apelaciones APP02](Documentación/PANTALLAS_REGISTRO.md). Primera entrega académica para Colombia y automóviles; dos apelaciones y nueva solicitud tras 30 días del rechazo definitivo. La aplicación muestra interfaz, no aprobaciones ni cuentas simuladas; backend, documentos y biometría pendientes.
+
+Primer paso funcional preparado: [contrato de registro v2](Documentación/CONTRATO_REGISTRO.md), con campos, consentimiento, respuestas y migración desde el diseño v1. Sigue sin backend ejecutable. [Prueba de APP02 reportada](Documentación/PRUEBA_APP02.md): diseños correctos en general, con tirones pendientes de medir.

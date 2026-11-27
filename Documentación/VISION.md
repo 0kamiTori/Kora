@@ -227,3 +227,7 @@ Requisitos de RF01 en [RF01_REGISTRO.md](RF01_REGISTRO.md), CAM-2026-008 del 26/
 ## 20 Pantallas de registro y revisión
 
 CAM-2026-009 del 26/11/2026. Se incorporan las decisiones DEC37–DEC40: Colombia y automóviles en el primer avance, documentos de conductora obligatorios con integración posterior, dos apelaciones y espera de 30 días tras rechazo definitivo para una nueva solicitud. La aprobación de conductora no elimina el perfil pasajera. Las cuatro pantallas móviles premium APP02 existen como interfaz; no implementan la API, la aprobación o la biometría. Detalle en [PANTALLAS_REGISTRO.md](PANTALLAS_REGISTRO.md). No se reduce el alcance final ni se cierra fase.
+
+## 21 Primer contrato funcional de registro
+
+CAM-2026-010. Se prepara el contrato de alta v2 con campos, consentimiento explícito, roles seguros, respuestas y reintentos, sin desplegar API ni conectar Neon. La incompatibilidad con el esquema v1 requiere versión nueva y migración documentada; no una segunda base. El consentimiento real necesita contenido aprobado y responsable. El usuario acepta en general los diseños de APP02 y reporta tirones, registrados como PERF01 pendiente de medición. [Contrato](CONTRATO_REGISTRO.md). Ninguna fase se cierra.

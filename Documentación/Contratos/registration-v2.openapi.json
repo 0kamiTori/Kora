@@ -1,0 +1,1068 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Köra Registro de cuentas v2",
+    "version": "2.0.0-draft.1",
+    "description": "Contrato de registro para implementación. No es API desplegada. Texto de consentimiento y responsable pendientes; registro real deshabilitado hasta aprobarlos."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api/v2",
+      "description": "Desarrollo previsto; HTTPS obligatorio fuera de local"
+    }
+  ],
+  "security": [],
+  "paths": {
+    "/registration-policy": {
+      "get": {
+        "operationId": "getRegistrationPolicyV2",
+        "summary": "Consultar política y disponibilidad del registro",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Política vigente. Sin consentimiento aprobado: registration_enabled=false y consent=null.",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistrationPolicy"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Errores: INTERNAL_ERROR",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "INTERNAL_ERROR"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Errores: REGISTRATION_DISABLED, DATABASE_UNAVAILABLE",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "description": "Segundos mínimos antes de reintentar; en 409 aplica solo a REGISTRATION_IN_PROGRESS."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "REGISTRATION_DISABLED",
+                            "DATABASE_UNAVAILABLE"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts": {
+      "post": {
+        "operationId": "registerAccountV2",
+        "summary": "Crear cuenta de pasajera e intención opcional de solicitar habilitación",
+        "security": [],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "description": "UUID nuevo por envío lógico. Conservar clave y cuerpo durante reintentos; no guardar la contraseña en disco. TTL propuesto 24 h.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "UTF-8 application/json, máximo 16 KiB. No incluye documentos, fotos, tokens o permisos de administración.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountRegistrationV2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cuenta y consentimiento persistidos atómicamente. Reintento idéntico devuelve el mismo cuerpo.",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              },
+              "Idempotency-Replayed": {
+                "schema": {
+                  "type": "boolean"
+                },
+                "description": "Indica reproducción de un éxito anterior; no altera el cuerpo."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountCreatedV2"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Errores: REQUEST_INVALID",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "REQUEST_INVALID"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Errores: CONTACT_NOT_AVAILABLE, CONSENT_VERSION_CHANGED, IDEMPOTENCY_CONFLICT, REGISTRATION_IN_PROGRESS",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "description": "Segundos mínimos antes de reintentar; en 409 aplica solo a REGISTRATION_IN_PROGRESS."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "CONTACT_NOT_AVAILABLE",
+                            "CONSENT_VERSION_CHANGED",
+                            "IDEMPOTENCY_CONFLICT",
+                            "REGISTRATION_IN_PROGRESS"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Errores: BODY_TOO_LARGE",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "BODY_TOO_LARGE"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Errores: UNSUPPORTED_MEDIA_TYPE",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "UNSUPPORTED_MEDIA_TYPE"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Errores: REQUIRED_FIELDS_MISSING, CONSENT_REQUIRED, CONTACT_INVALID, PASSWORD_INVALID, DISPLAY_NAME_INVALID, BIRTH_DATE_INVALID, AGE_RESTRICTED, VALIDATION_ERROR",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "REQUIRED_FIELDS_MISSING",
+                            "CONSENT_REQUIRED",
+                            "CONTACT_INVALID",
+                            "PASSWORD_INVALID",
+                            "DISPLAY_NAME_INVALID",
+                            "BIRTH_DATE_INVALID",
+                            "AGE_RESTRICTED",
+                            "VALIDATION_ERROR"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Errores: RATE_LIMITED",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "description": "Segundos mínimos antes de reintentar; en 409 aplica solo a REGISTRATION_IN_PROGRESS."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "RATE_LIMITED"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Errores: INTERNAL_ERROR",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "INTERNAL_ERROR"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Errores: REGISTRATION_DISABLED, DATABASE_UNAVAILABLE",
+            "headers": {
+              "X-Request-ID": {
+                "description": "Identificador distinto por intento HTTP; no contiene datos personales.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "const": "no-store"
+                },
+                "description": "No almacenar respuestas del registro en cachés."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "description": "Segundos mínimos antes de reintentar; en 409 aplica solo a REGISTRATION_IN_PROGRESS."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegistrationError"
+                    },
+                    {
+                      "properties": {
+                        "code": {
+                          "enum": [
+                            "REGISTRATION_DISABLED",
+                            "DATABASE_UNAVAILABLE"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PhoneInput": {
+        "type": "object",
+        "properties": {
+          "country_calling_code": {
+            "type": "string",
+            "pattern": "^\\+[1-9][0-9]{0,2}$",
+            "description": "Código internacional con +. No identifica por sí solo un país."
+          },
+          "national_number": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^[0-9 ()-]+$",
+            "description": "Admite presentación con espacios y guiones. Servidor interpreta plan de numeración y produce E.164; concatenar sin validar no basta."
+          }
+        },
+        "required": [
+          "country_calling_code",
+          "national_number"
+        ],
+        "additionalProperties": false
+      },
+      "AccountConsent": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "boolean",
+            "const": true
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "accepted",
+          "version"
+        ],
+        "additionalProperties": false
+      },
+      "AccountRegistrationV2": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 3,
+            "maxLength": 254,
+            "description": "Servidor quita espacios exteriores y usa minúsculas para unicidad, sin quitar puntos ni sufijos +."
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "writeOnly": true,
+            "pattern": "^(?=[\\s\\S]*[A-ZÁÉÍÓÚÜÑ])(?=[\\s\\S]*[a-záéíóúüñ])(?=[\\s\\S]*[0-9])(?=[\\s\\S]*[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9\\s])[\\s\\S]+$",
+            "description": "No recortar, normalizar ni truncar. Sin máximo individual acordado; cuerpo completo limitado a 16 KiB."
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^(?=.*[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9])[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9 ]+$",
+            "description": "NFC y espacios exteriores eliminados antes de validar. Espacios interiores conservados. No es único."
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha civil YYYY-MM-DD, sin hora. Servidor valida que no sea futura y edad >=18 usando fecha America/Bogota."
+          },
+          "phone": {
+            "$ref": "#/components/schemas/PhoneInput"
+          },
+          "requested_role": {
+            "type": "string",
+            "enum": [
+              "passenger",
+              "driver"
+            ],
+            "description": "Intención de onboarding; no concede rol driver ni presenta automáticamente solicitud documental."
+          },
+          "consent": {
+            "$ref": "#/components/schemas/AccountConsent"
+          }
+        },
+        "required": [
+          "email",
+          "password",
+          "display_name",
+          "birth_date",
+          "phone",
+          "requested_role",
+          "consent"
+        ],
+        "additionalProperties": false
+      },
+      "ConsentText": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Texto plano aprobado para creación de cuenta; no autorización biométrica."
+          }
+        },
+        "required": [
+          "version",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "RegistrationPolicy": {
+        "type": "object",
+        "properties": {
+          "policy_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "registration_enabled": {
+            "type": "boolean"
+          },
+          "server_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha informativa en Colombia; el POST vuelve a calcularla."
+          },
+          "minimum_age": {
+            "type": "integer",
+            "const": 18
+          },
+          "display_name_max_length": {
+            "type": "integer",
+            "const": 100
+          },
+          "password_rules": {
+            "const": {
+              "minimum_length": 12,
+              "uppercase": true,
+              "lowercase": true,
+              "digit": true,
+              "special_character": true
+            }
+          },
+          "consent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConsentText"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "policy_version",
+          "registration_enabled",
+          "server_date",
+          "minimum_age",
+          "display_name_max_length",
+          "password_rules",
+          "consent"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "registration_enabled": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "consent": {
+                  "$ref": "#/components/schemas/ConsentText"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "registration_enabled": {
+                  "const": false
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "consent": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AccountCreatedV2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "roles": {
+            "type": "array",
+            "const": [
+              "passenger"
+            ]
+          },
+          "driver_approved": {
+            "type": "boolean",
+            "const": false
+          },
+          "driver_review_status": {
+            "type": "string",
+            "const": "not_submitted"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consent_receipt": {
+            "type": "object",
+            "properties": {
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "recorded_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "version",
+              "recorded_at"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "roles",
+          "driver_approved",
+          "driver_review_status",
+          "created_at",
+          "consent_receipt"
+        ],
+        "additionalProperties": false
+      },
+      "FieldError": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": [
+              "email",
+              "password",
+              "display_name",
+              "birth_date",
+              "phone",
+              "phone.country_calling_code",
+              "phone.national_number",
+              "requested_role",
+              "consent",
+              "consent.accepted",
+              "consent.version",
+              "request"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "REQUIRED_FIELDS_MISSING",
+              "CONSENT_REQUIRED",
+              "CONTACT_INVALID",
+              "PASSWORD_INVALID",
+              "DISPLAY_NAME_INVALID",
+              "BIRTH_DATE_INVALID",
+              "AGE_RESTRICTED",
+              "VALIDATION_ERROR",
+              "CONTACT_NOT_AVAILABLE",
+              "CONSENT_VERSION_CHANGED",
+              "IDEMPOTENCY_CONFLICT",
+              "REGISTRATION_IN_PROGRESS",
+              "REQUEST_INVALID",
+              "BODY_TOO_LARGE",
+              "UNSUPPORTED_MEDIA_TYPE",
+              "RATE_LIMITED",
+              "REGISTRATION_DISABLED",
+              "DATABASE_UNAVAILABLE",
+              "INTERNAL_ERROR"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "field",
+          "code",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "RegistrationError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "REQUIRED_FIELDS_MISSING",
+              "CONSENT_REQUIRED",
+              "CONTACT_INVALID",
+              "PASSWORD_INVALID",
+              "DISPLAY_NAME_INVALID",
+              "BIRTH_DATE_INVALID",
+              "AGE_RESTRICTED",
+              "VALIDATION_ERROR",
+              "CONTACT_NOT_AVAILABLE",
+              "CONSENT_VERSION_CHANGED",
+              "IDEMPOTENCY_CONFLICT",
+              "REGISTRATION_IN_PROGRESS",
+              "REQUEST_INVALID",
+              "BODY_TOO_LARGE",
+              "UNSUPPORTED_MEDIA_TYPE",
+              "RATE_LIMITED",
+              "REGISTRATION_DISABLED",
+              "DATABASE_UNAVAILABLE",
+              "INTERNAL_ERROR"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "field_errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldError"
+            }
+          },
+          "incident_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "request_id",
+          "retryable",
+          "field_errors"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "x-implementation-status": "contract-only-not-deployed",
+  "x-legacy-contract": {
+    "path": "openapi.json",
+    "version": "0.1.0",
+    "sha256": "832335487c05cadf4254490487640fcca969f2dcca02eb9df2ba0bc2cdc4239a",
+    "canonicalization": "LF",
+    "unchanged": true
+  },
+  "x-error-codes": {
+    "REQUIRED_FIELDS_MISSING": {
+      "http_status": 422,
+      "message": "!OJO! faltan datos obligatorios",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "CONSENT_REQUIRED": {
+      "http_status": 422,
+      "message": "!OJO! Confirma tu consentimiento para crear la cuenta",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "CONTACT_INVALID": {
+      "http_status": 422,
+      "message": "Este correo o número es inválido, prueba otro",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "PASSWORD_INVALID": {
+      "http_status": 422,
+      "message": "La contraseña debe tener mínimo 12 caracteres e incluir una mayúscula, una minúscula, un número y un carácter especial",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "DISPLAY_NAME_INVALID": {
+      "http_status": 422,
+      "message": "Usa hasta 100 caracteres: letras, números y espacios",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "BIRTH_DATE_INVALID": {
+      "http_status": 422,
+      "message": "Ingresa una fecha de nacimiento válida",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "AGE_RESTRICTED": {
+      "http_status": 422,
+      "message": "Debes tener al menos 18 años para crear una cuenta",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "VALIDATION_ERROR": {
+      "http_status": 422,
+      "message": "Revisa los datos de la solicitud",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "CONTACT_NOT_AVAILABLE": {
+      "http_status": 409,
+      "message": "Este correo o número no está disponible",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "CONSENT_VERSION_CHANGED": {
+      "http_status": 409,
+      "message": "!OJO! Confirma tu consentimiento para crear la cuenta",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "IDEMPOTENCY_CONFLICT": {
+      "http_status": 409,
+      "message": "No se pudo confirmar el envío. Revisa tus datos e inténtalo de nuevo.",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "REGISTRATION_IN_PROGRESS": {
+      "http_status": 409,
+      "message": "Tu registro sigue en proceso. Inténtalo nuevamente.",
+      "retryable": true,
+      "admin_incident_required": false
+    },
+    "REQUEST_INVALID": {
+      "http_status": 400,
+      "message": "Revisa los datos de la solicitud",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "BODY_TOO_LARGE": {
+      "http_status": 413,
+      "message": "Revisa los datos de la solicitud",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "UNSUPPORTED_MEDIA_TYPE": {
+      "http_status": 415,
+      "message": "Revisa los datos de la solicitud",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "RATE_LIMITED": {
+      "http_status": 429,
+      "message": "Demasiados intentos. Inténtalo nuevamente más tarde.",
+      "retryable": true,
+      "admin_incident_required": false
+    },
+    "REGISTRATION_DISABLED": {
+      "http_status": 503,
+      "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+      "retryable": false,
+      "admin_incident_required": false
+    },
+    "DATABASE_UNAVAILABLE": {
+      "http_status": 503,
+      "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+      "retryable": true,
+      "admin_incident_required": true
+    },
+    "INTERNAL_ERROR": {
+      "http_status": 500,
+      "message": "Hubo un error para registrate, intentalo nuevamente más tarde",
+      "retryable": true,
+      "admin_incident_required": true
+    }
+  },
+  "x-server-rules": [
+    "No habilitar registro real sin consentimiento vigente aprobado y responsable definido.",
+    "Fecha de edad del servidor en America/Bogota; cumplir 18 hoy es válido. En años no bisiestos, 29 de febrero cumple el 1 de marzo como criterio técnico por revisar.",
+    "Email único sin distinguir mayúsculas; teléfono único por E.164 validado con plan de numeración. No unicidad de display_name.",
+    "Transacción para cuenta, hash de contraseña, recibo de consentimiento e idempotencia; restricciones únicas bajo concurrencia.",
+    "Idempotencia de 24 h propuesta: mismo UUID+cuerpo equivalente devuelve mismo 201; distinto cuerpo da 409. Huella HMAC con secreto fuera de Git; nunca guardar cuerpo ni contraseña en recibo.",
+    "No emitir sesión, conceder driver/admin ni presentar solicitud de conductora en el alta.",
+    "Fallos internos generan incidente y aviso saneados fuera de la dependencia fallida; sin contraseñas, tokens, SQL con parámetros o formulario completo."
+  ]
+}
