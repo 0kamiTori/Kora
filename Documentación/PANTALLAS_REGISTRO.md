@@ -46,3 +46,11 @@ No se ha construido ni instalado esta versión en Android local: falta SDK Andro
 ## Siguiente historia
 
 Cerrar contrato de registro y solicitud, asignar implementador y revisor compartidos y construir el backend con identidad y persistencia únicas. Completar el formulario documental y panel web cuando se retome su integración. El acceso, recuperación de cuenta, decisiones administrativas, alertas de incidentes, almacenamiento protegido, dos apelaciones y espera de 30 días deben probarse con API y base real antes de aceptarlos como funcionales.
+
+## APK de desarrollo verificada
+
+La [ejecución Android 45910392743](https://github.com/0kamiTori/Kora/actions/runs/45910392743) aprobó formato, análisis, 20 pruebas funcionales y compilación APK debug del commit b6da6476a0dcf897ba2cc266c86b928a009f59fd. Dos capturas opcionales se omiten en CI. [Artefacto 15160225624](https://github.com/0kamiTori/Kora/actions/runs/45910392743/artifacts/15160225624). La comprobación documental 45910392740 también terminó correctamente. Son evidencias de construcción y pruebas de widgets, no instalación Android física ni integración de backend.
+
+La APK se descargó, se contrastó el SHA256 del ZIP con GitHub y se verificaron su estructura y certificado. Procedencia y hashes en [apk-provenance.json](Diseno/ImplementacionAPP02/apk-provenance.json). Entrega local en Descargas/Kora_Registro_0.2.0, junto con capturas y un HTML de revisión.
+
+El certificado debug de esta APK difiere del de la primera entrega. Para instalar con el mismo identificador es necesario desinstalar la anterior; se elimina la preferencia de color local. No había cuentas ni viajes guardados. No es una actualización con firma de distribución estable; definir custodia de firma fuera de Git antes de entrega final.

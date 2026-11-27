@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0+2",
+  "source_commit": "b6da6476a0dcf897ba2cc266c86b928a009f59fd",
+  "workflow_run": 45910392743,
+  "artifact_id": 15160225624,
+  "archive_sha256": "d51ba439bb2ac53e0c6590557fa34d0eb1ba5d9fdc7bc34fbcea9c1292f17d98",
+  "apk_sha256": "d41cc81bb1711a562bbecc7aaa30f0cd6b0ebf3225443119c561afdab28091a5",
+  "apk_bytes": 165572560,
+  "apk_certificate_sha256": "c79e9df8c921c8df0f6221b8f0e092b0c0d8b92890b81b429ba3b1b6d60e28e5",
+  "same_signing_certificate_as_first_apk": false,
+  "physical_device_tested": false,
+  "app_id": "dev.kora.kora_mobile"
+}

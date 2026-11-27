@@ -1,7 +1,7 @@
 # Instrucciones para desarrollar Köra
 
 ## Contexto y fuentes
-El producto principal es una aplicación Android de movilidad segura para mujeres, con perfiles de pasajera y conductora. La web se desarrolla en paralelo y comparte backend y datos. apps/mobile contiene la base Flutter premium y la historia APP01 de apariencia local; las funciones de cuenta, viajes y seguridad no están implementadas. Web y backend siguen pendientes de inicializar.
+El producto principal es una aplicación Android de movilidad segura para mujeres, con perfiles de pasajera y conductora. La web se desarrolla en paralelo y comparte backend y datos. apps/mobile contiene APP01 de apariencia local y APP02 de pantallas de registro, solicitud, estado y apelaciones. APP02 no crea cuentas ni envía solicitudes; estados de ejemplo solo en test. Las funciones de cuenta, viajes y seguridad no están implementadas. Web y backend siguen pendientes de inicializar. Leer Documentación/RF01_REGISTRO.md y Documentación/PANTALLAS_REGISTRO.md antes de ampliar el registro; preservar dos apelaciones y espera de 30 días del rechazo definitivo sin autorizar con el reloj local.
 
 Leer antes de trabajar: README.md, Documentación/PLAN_MOVIL.md, Documentación/ARQUITECTURA.md, Documentación/SINCRONIZACION.md y Documentación/ESTADO.md. La planificación estructurada vive en Documentación/project-plan.json; los contratos iniciales en Documentación/Contratos/openapi.json y Documentación/Contratos/events.schema.json. Documentación contiene los Word para revisión académica. No presentar fechas, disponibilidad ni tarifas de planificación como compromisos confirmados.
 

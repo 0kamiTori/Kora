@@ -8,7 +8,7 @@ Base Flutter Android inicializada en CAM-2026-007. Una aplicación con perfiles 
 
 Seguir Documentación/GUIA_CODEX.md y Documentación/SINCRONIZACION.md. Conservar pubspec.yaml, pubspec.lock y Flutter 3.50.1. Identificador de desarrollo actual dev.kora.kora_mobile; revisar antes de distribución y no confundirlo con el nombre visible Köra.
 
-Existe código móvil de APP01 y pruebas locales; la aceptación en dispositivo físico sigue pendiente.
+Existe código móvil de APP01 y APP02 con pruebas locales. APP02 añade pantallas de registro, solicitud, estado y apelaciones, sin servicio conectado; ver [PANTALLAS_REGISTRO.md](PANTALLAS_REGISTRO.md). El usuario reporta que la primera APK funciona en su Redmi con Android 16; checklist detallado y validación física de APP02 pendientes.
 
 ## Web
 

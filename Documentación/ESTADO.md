@@ -1,5 +1,5 @@
 # Estado del proyecto
-26/11/2026 · revisión documental 0.8 · CAM-2026-008.
+26/11/2026 · revisión documental 0.9 · CAM-2026-009.
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -38,3 +38,7 @@ CAM-2026-008 queda registrado en los documentos de texto. Las versiones actualiz
 26/11/2026 · revisión documental 0.9 · CAM-2026-009. Flutter 0.2.0+2 añade registro, solicitud, estado y apelaciones desde Perfil con apariencia premium configurable. Validaciones locales y modelo de revisión separado de widgets; nueve pruebas nuevas, 20 funcionales aprobadas en total y análisis limpio. Las capturas son de widgets con escenarios de prueba, no decisiones reales. No hay alta, envío de solicitud, historial o revisión administrativa funcionales. Documentos y biometría siguen aplazados. El plazo de 30 días se presenta con fecha y permiso de servidor, aún no implementado. [Guía de pantallas](PANTALLAS_REGISTRO.md).
 
 La verificación Word vuelve a fallar incluso con un documento de control de un párrafo. Los Word vigentes siguen preservados; candidatos CAM008 y CAM009 preparados localmente sin publicación hasta renderizar e inspeccionar. No atribuir este límite a un bloqueo del usuario. La próxima historia funcional necesita contrato y backend compartidos; APP02 no cierra RF01, RF02 ni ninguna fase.
+
+## Evidencia remota y entrega APP02
+
+La ejecución Android 45910392743 aprobó formato, análisis, 20 pruebas y APK debug del commit b6da6476a0dcf897ba2cc266c86b928a009f59fd. Artefacto 15160225624, versión 0.2.0+2, descargado y verificado. Guía y procedencia en PANTALLAS_REGISTRO.md. Instalación física de APP02 y backend pendientes. README, AGENTS, COMPONENTES y GUIA_CODEX incorporan el contexto nuevo. Se preservan los Word vigentes por el fallo de render documentado.

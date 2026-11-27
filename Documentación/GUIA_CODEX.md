@@ -3,7 +3,7 @@
 
 ## Punto de partida
 
-Abrir este repositorio como proyecto. Leer AGENTS.md y Documentación/ESTADO.md. Android ya tiene base Flutter premium y apariencia local APP01; conservarla. Web y backend siguen pendientes. Completar requisitos y construir autenticación y un flujo compartido antes de GPS o biometría. Comandos Android en MOVIL_APARIENCIA.md.
+Abrir este repositorio como proyecto. Leer AGENTS.md y Documentación/ESTADO.md. Android tiene apariencia local APP01 y pantallas de registro y revisión APP02; conservarlas. Leer RF01_REGISTRO.md y PANTALLAS_REGISTRO.md. Web y backend siguen pendientes. Completar contratos y construir autenticación y un flujo compartido antes de GPS o biometría. Dos apelaciones y nueva solicitud tras 30 días del rechazo definitivo se validarán en servidor. Comandos Android en MOVIL_APARIENCIA.md.
 
 ## Secuencia de tareas
 
