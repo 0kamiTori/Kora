@@ -78,7 +78,7 @@ El diagnóstico excluirá contraseñas, tokens, cadenas de conexión, imágenes 
 
 El OpenAPI actual es parcial y no se modifica en este cambio documental. Contrastar el registro y los roles existentes con una cuenta que puede tener ambos perfiles; fijar payloads, códigos de error, respuestas, concurrencia y migración antes de cambiarlo. La aprobación debe tener trazabilidad y autorización en backend.
 
-Los campos y estados de conductora ya fueron acordados, con integración aplazada. Contrato v2 y normalización se concretan técnicamente en CONTRATO_REGISTRO.md. Siguen pendientes los criterios de revisión documental, creación controlada del primer administrador, texto aprobado de consentimiento y responsable, revisión del criterio de cumpleaños del 29 de febrero, verificación/recuperación de correo y canal operativo de incidentes. No presentar esos pendientes como aprobados.
+Los campos y estados de conductora ya fueron acordados, con integración aplazada. Contrato v2 y normalización se concretan técnicamente en CONTRATO_REGISTRO.md. Siguen pendientes los criterios de revisión documental, creación controlada del primer administrador, texto aprobado de consentimiento y contactos del responsable declarado, revisión del criterio de cumpleaños del 29 de febrero, verificación/recuperación de correo y canal operativo de incidentes. No presentar esos pendientes como aprobados.
 
 Julian desarrolla móvil, John web y ambos backend. Asignar implementador y revisor por historia antes de código compartido. Todos los casos de esta sección están pendientes de ejecución; no se cierra ninguna fase.
 
@@ -98,4 +98,8 @@ Tras el rechazo definitivo de la segunda apelación, debe esperar 30 días para 
 
 [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md) define política y alta en /api/v2; esquemas, errores, campos y plan de migración en Contratos. El v1 permanece intacto por incompatibilidad de campos obligatorios y consentimiento. 49 casos de esquema comprobados, sin backend ni consultas a Neon.
 
-Se concretan como decisiones técnicas normalización de correo sin distinguir mayúsculas, NFC y quitar espacios exteriores del nombre sin unicidad, fecha civil de servidor en Colombia y prioridad de errores; son revisables, no acuerdos adicionales atribuidos al usuario. El texto aprobado de consentimiento y responsable siguen pendientes. Casos de negocio, sesiones, solicitud, apelaciones y espera continúan sin implementar.
+Se concretan como decisiones técnicas normalización de correo sin distinguir mayúsculas, NFC y quitar espacios exteriores del nombre sin unicidad, fecha civil de servidor en Colombia y prioridad de errores; son revisables, no acuerdos adicionales atribuidos al usuario. El texto aprobado de consentimiento y los contactos del responsable declarado siguen pendientes. Casos de negocio, sesiones, solicitud, apelaciones y espera continúan sin implementar.
+
+## Responsable y escenarios sintéticos
+
+Julian Hernando Perez Villamizar se declara responsable. El [borrador de consentimiento](CONSENTIMIENTO_CUENTA_BORRADOR.md) requiere completar contactos y revisión; no habilita el registro real. La [guía de datos sintéticos](DATOS_PRUEBA_REGISTRO.md) añade 12 escenarios de integración preparados, no ejecutados. No usar test-account-consent-v1 con personas reales.

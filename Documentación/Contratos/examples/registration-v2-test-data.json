@@ -1,0 +1,344 @@
+{
+  "environment": "test-only",
+  "data_origin": "generated-fictional-no-real-users",
+  "allow_external_notifications": false,
+  "reference_server_date": "2026-11-26",
+  "consent_version": "test-account-consent-v1",
+  "warning": "No importar en producción. Números generados para pruebas sin comprobar titularidad o asignación; nunca enviar SMS o llamadas. No contiene rostros, documentos ni ubicaciones.",
+  "cases": [
+    {
+      "id": "SYN01",
+      "description": "Alta de pasajera sintética",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000001",
+      "expected_server_result": {
+        "http_status": 201,
+        "roles": [
+          "passenger"
+        ],
+        "driver_approved": false
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN02",
+      "description": "Mismo nombre visible, contactos distintos",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta02@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3110000000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000002",
+      "expected_server_result": {
+        "http_status": 201
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN03",
+      "description": "Correo duplicado con distinta capitalización",
+      "schema_valid": true,
+      "request": {
+        "email": "CUENTA01@KORA.EXAMPLE.INVALID",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3150000000"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000003",
+      "expected_server_result": {
+        "http_status": 409,
+        "code": "CONTACT_NOT_AVAILABLE"
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN04",
+      "description": "Teléfono duplicado con otra presentación",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta04@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "(301) 555-0100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000004",
+      "expected_server_result": {
+        "http_status": 409,
+        "code": "CONTACT_NOT_AVAILABLE"
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN05",
+      "description": "Consentimiento negado",
+      "schema_valid": false,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": false,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000005",
+      "expected_server_result": {
+        "http_status": 422,
+        "code": "CONSENT_REQUIRED"
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN06",
+      "description": "Menor en fecha de referencia fija",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2010-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000006",
+      "expected_server_result": {
+        "http_status": 422,
+        "code": "AGE_RESTRICTED"
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN07",
+      "description": "Intención de conductora no otorga habilitación",
+      "schema_valid": true,
+      "request": {
+        "email": "conductora01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3150000000"
+        },
+        "requested_role": "driver",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000007",
+      "expected_server_result": {
+        "http_status": 201,
+        "roles": [
+          "passenger"
+        ],
+        "driver_approved": false,
+        "driver_review_status": "not_submitted"
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN08",
+      "description": "Reintento idéntico del alta confirmada",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000001",
+      "expected_server_result": {
+        "http_status": 201,
+        "same_account_as": "SYN01",
+        "created_account_count": 1
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN09",
+      "description": "Misma clave con datos diferentes",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Nombre Cambiado",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000001",
+      "expected_server_result": {
+        "http_status": 409,
+        "code": "IDEMPOTENCY_CONFLICT"
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN10",
+      "description": "Intento de inyectar privilegios",
+      "schema_valid": false,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        },
+        "roles": [
+          "admin"
+        ]
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000010",
+      "expected_server_result": {
+        "http_status": 422,
+        "code": "VALIDATION_ERROR"
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN11",
+      "description": "Fecha futura en referencia fija",
+      "schema_valid": true,
+      "request": {
+        "email": "cuenta01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2027-01-01",
+        "phone": {
+          "country_calling_code": "+57",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000011",
+      "expected_server_result": {
+        "http_status": 422,
+        "code": "BIRTH_DATE_INVALID"
+      },
+      "after": null,
+      "server_test_status": "pending_backend"
+    },
+    {
+      "id": "SYN12",
+      "description": "Mismo número nacional con otro código internacional",
+      "schema_valid": true,
+      "request": {
+        "email": "internacional01@kora.example.invalid",
+        "password": "PruebaKora2026!",
+        "display_name": "Juliana Prueba",
+        "birth_date": "2000-01-01",
+        "phone": {
+          "country_calling_code": "+1",
+          "national_number": "3015550100"
+        },
+        "requested_role": "passenger",
+        "consent": {
+          "accepted": true,
+          "version": "test-account-consent-v1"
+        }
+      },
+      "idempotency_key": "10000000-0000-4000-8000-000000000012",
+      "expected_server_result": {
+        "rule": "Si ambas combinaciones superan validación de numeración, no son duplicadas por compartir número nacional."
+      },
+      "after": "SYN01",
+      "server_test_status": "pending_backend",
+      "number_plan_validation_pending": true
+    }
+  ]
+}

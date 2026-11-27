@@ -32,3 +32,7 @@ Confirmados: Colombia, automóviles, campos documentales obligatorios con integr
 El contrato de alta v2 y la política están preparados y se comprueban con 49 ejemplos de esquema. Falta revisión de autores, texto de consentimiento aprobado/responsable/contacto y ejecución de los casos REG01–REG11 en backend y base de pruebas. Las decisiones técnicas de normalización y reintentos están en [CONTRATO_REGISTRO.md](CONTRATO_REGISTRO.md); v1 no se altera ni se presume implementado.
 
 PERF01: el usuario reporta APP02 correcto con tirones. Registrar acción y pantalla, medir en dispositivo físico y modo profile, diagnosticar y volver a probar. No se asume corrección automática al finalizar funciones. Checklist de accesibilidad y persistencia sigue pendiente. El bloqueo conocido de render Word continúa sin cambio externo informado.
+
+## Consentimiento tras declaración del responsable
+
+Responsable declarado: Julian Hernando Perez Villamizar, por indicación del usuario; no volver a pedir su nombre como si no estuviera definido. Completar contacto del proyecto, conservación y eliminación, proveedores/regiones y canal de derechos; revisar y aprobar el borrador antes de personas reales. Los 12 escenarios de datos sintéticos ya están preparados y su ejecución funcional sigue pendiente de backend. [Borrador](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [guía de pruebas](DATOS_PRUEBA_REGISTRO.md).

@@ -303,8 +303,15 @@
     "schema_fixture_count": 49,
     "status": "contract_only",
     "real_registration_enabled": false,
-    "consent_approval": "pending",
-    "reviewer_assignment": "pending_before_backend_implementation"
+    "consent_approval": "draft_pending_contact_and_review",
+    "reviewer_assignment": "pending_before_backend_implementation",
+    "data_controller": {
+      "name": "Julian Hernando Perez Villamizar",
+      "source": "user_declaration",
+      "contact": "pending",
+      "institutional_review": "pending"
+    },
+    "synthetic_scenario_count": 12
   },
   "reported_issues": [
     {

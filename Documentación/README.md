@@ -18,3 +18,5 @@ Los Word se mantienen alineados con los documentos de texto en cada cambio que a
 - [Pantallas de registro y apelaciones](PANTALLAS_REGISTRO.md): APP02, pruebas, dos oportunidades y espera de 30 días; integración de servidor pendiente.
 
 - [Contrato de registro v2](CONTRATO_REGISTRO.md) y [prueba de APP02 reportada](PRUEBA_APP02.md): primer paso de funcionalidad, servidor aún pendiente.
+
+- [Borrador de consentimiento de cuenta](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [datos sintéticos de registro](DATOS_PRUEBA_REGISTRO.md), preparados para revisión y pruebas aisladas.

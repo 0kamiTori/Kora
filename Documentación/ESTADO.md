@@ -45,8 +45,14 @@ La ejecución Android 45910392743 aprobó formato, análisis, 20 pruebas y APK d
 
 ## Primer paso funcional de registro y reporte APP02
 
-CAM-2026-010. Contrato v2 de política y alta preparado en CONTRATO_REGISTRO.md y Contratos/registration-v2.openapi.json, con migración que conserva v1. 49 comprobaciones de esquema y referencias pasan localmente. No hay API, conexión Neon o cuentas funcionales, y no se modifica código Flutter. El consentimiento aprobado y responsable siguen pendientes; el contrato mantiene deshabilitado el registro real en esa situación. Próxima historia: revisión técnica, asignación de implementador/revisor y API con migraciones y pruebas REG01–REG11.
+CAM-2026-010. Contrato v2 de política y alta preparado en CONTRATO_REGISTRO.md y Contratos/registration-v2.openapi.json, con migración que conserva v1. 49 comprobaciones de esquema y referencias pasan localmente. No hay API, conexión Neon o cuentas funcionales, y no se modifica código Flutter. Julian se declara responsable; el consentimiento aprobado y los contactos siguen pendientes; el contrato mantiene deshabilitado el registro real en esa situación. Próxima historia: revisión técnica, asignación de implementador/revisor y API con migraciones y pruebas REG01–REG11.
 
 El usuario reporta revisión correcta de APP02 en su teléfono con tirones. PRUEBA_APP02.md registra evidencia declarada y PERF01 pendiente; no se atribuye rendimiento medido ni corrección futura automática. Las referencias anteriores a instalación física pendiente describen el momento de entrega o el checklist específico, no ausencia de esta prueba general.
 
 Word: candidatos CAM010 preparados localmente; se preservan los vigentes por el fallo de render ya documentado. No se vuelven a declarar sincronizados ni se cierra fase.
+
+## Responsable declarado y material de pruebas
+
+El usuario designa a Julian Hernando Perez Villamizar como responsable del tratamiento. CONSENTIMIENTO_CUENTA_BORRADOR.md es una propuesta para revisión, con contacto, conservación y condiciones operativas aún por completar; no una autorización legal o institucional aprobada. Se conserva registro real deshabilitado. DATOS_PRUEBA_REGISTRO.md explica 12 escenarios sintéticos, sin envíos o cuentas reales; su forma y los 49 ejemplos de esquema pasan localmente.
+
+La ejecución inicial de CI 45940413728 falló al interpretar YAML por el comando de instalación. Se corrige con bloque multilínea y se añade comprobación de sintaxis local; la ejecución corregida debe verificarse antes de cerrar esta tarea. No se realizan cambios Flutter o despliegue. Word candidatos actualizados localmente con esta declaración y borrador; vigentes sin sustituir por el bloqueo conocido de render.

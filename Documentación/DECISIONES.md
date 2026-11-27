@@ -73,3 +73,9 @@ Se mantienen fecha tentativa final, horas y presupuesto. Las pantallas no acredi
 | DEC45 | Usuario revisó APP02 y reporta pantallas correctas con tirones | Evidencia declarada en PRUEBA_APP02.md. PERF01 abierto, pendiente de diagnóstico en profile; no prometer que desaparezca al completar funciones. |
 
 No cambian presupuesto, horas, entrega tentativa ni reglas de dos apelaciones/30 días. La verificación de esquemas no demuestra persistencia o registro funcional. Los Word de esta revisión se preparan localmente sobre los candidatos anteriores; el fallo de render ya documentado impide sustituirlos sin inspección.
+
+## Responsable y datos de prueba de CAM 2026 010
+
+DEC46. El usuario declara que Julian Hernando Perez Villamizar será responsable del tratamiento y solicita ayuda para preparar el contrato y datos sintéticos. Se registra como declaración del usuario, sin atribuir aval institucional. Contacto y texto final aprobado siguen pendientes. Borrador en CONSENTIMIENTO_CUENTA_BORRADOR.md; pruebas en DATOS_PRUEBA_REGISTRO.md. El registro real no se habilita por esta declaración.
+
+Se preparan 12 escenarios sintéticos adicionales a los 49 ejemplos de esquema. No hay importación de cuentas, notificaciones externas o ejecución contra Neon. El workflow corrige el comando pip en YAML multilínea y el verificador comprueba la sintaxis para evitar repetir ese error; la primera ejecución fallida no se presenta como validación aprobada.

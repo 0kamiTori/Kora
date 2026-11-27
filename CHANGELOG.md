@@ -5,7 +5,9 @@
 - Preparado contrato v2 de política y registro con campos obligatorios, consentimiento explícito, roles seguros, errores, reintentos e idempotencia; v1 conservado con plan de migración.
 - Añadidos 49 ejemplos y verificador JSON Schema 2020-12, herramientas fijadas y comprobación de CI separada del verificador inicial. No ejecutan backend ni pruebas de negocio.
 - Registrada aceptación general de diseños APP02 por el usuario y tirones como PERF01 pendiente de medición; no se promete corrección automática.
-- Actualizados contexto, decisiones, estado y planificación. Sin cambios Flutter, SQL, conexión Neon o despliegue; consentimiento real y responsable pendientes.
+- Julian se declara responsable del tratamiento; borrador de consentimiento y 12 escenarios sintéticos preparados, sin habilitar datos reales.
+- Corregida sintaxis YAML del comando pip tras fallo inicial de CI; comprobación de sintaxis añadida al verificador.
+- Actualizados contexto, decisiones, estado y planificación. Sin cambios Flutter, SQL, conexión Neon o despliegue; consentimiento final y contactos pendientes; responsable declarado por el usuario.
 - Word CAM010 preparados localmente; originales conservados hasta resolver el render e inspeccionar candidatos. Ninguna fase cerrada.
 
 ## 0.9 — 2026-11-26 — CAM-2026-009

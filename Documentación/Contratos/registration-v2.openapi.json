@@ -3,7 +3,7 @@
   "info": {
     "title": "Köra Registro de cuentas v2",
     "version": "2.0.0-draft.1",
-    "description": "Contrato de registro para implementación. No es API desplegada. Texto de consentimiento y responsable pendientes; registro real deshabilitado hasta aprobarlos."
+    "description": "Contrato de registro para implementación. No es API desplegada. Julian Hernando Perez Villamizar se declara responsable; texto de consentimiento en borrador, contacto y revisión pendientes. Registro real deshabilitado hasta completarlos."
   },
   "servers": [
     {
@@ -933,6 +933,12 @@
     }
   },
   "x-implementation-status": "contract-only-not-deployed",
+  "x-data-controller": {
+    "name": "Julian Hernando Perez Villamizar",
+    "source": "user-declaration",
+    "contact_status": "pending",
+    "consent_status": "draft-not-approved"
+  },
   "x-legacy-contract": {
     "path": "openapi.json",
     "version": "0.1.0",

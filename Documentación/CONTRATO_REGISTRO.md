@@ -68,11 +68,13 @@ Un éxito ya persistido y coincidente se reproduce antes de exigir la política 
 
 DATABASE_UNAVAILABLE e INTERNAL_ERROR requieren registro y aviso administrativo con incident_id y request_id. Diagnóstico saneado sin contraseña, token, cadena de conexión, biometría, documentos ni formulario completo. El canal no puede depender exclusivamente de la base que falló. Retención, destinatario y recuperación del canal siguen pendientes; no hay alertas reales implementadas en este paso.
 
-El texto de consentimiento, su responsable, contacto y tratamiento siguen pendientes de definición y revisión. No se atribuye aprobación legal o institucional. Esto no bloquea la preparación de API ni pruebas con datos sintéticos; sí impide habilitar el registro público con datos reales. La conexión Neon no se utiliza ni modifica en esta tarea y no se guarda la credencial compartida anteriormente.
+Julian Hernando Perez Villamizar se declara responsable del tratamiento. Se prepara un [borrador de consentimiento](CONSENTIMIENTO_CUENTA_BORRADOR.md), sin aprobación legal o institucional atribuida. Contactos, conservación, proveedores, condiciones operativas y revisión del texto siguen pendientes. Esto no bloquea preparar API y pruebas con datos sintéticos; sí impide habilitar el registro público con datos reales. La conexión Neon no se utiliza ni modifica en esta tarea y no se guarda la credencial compartida anteriormente.
 
 ## Evidencia y siguiente historia
 
 Los [49 ejemplos de esquema](Contratos/examples/registration-v2-cases.json) cubren campos, categorías de contraseña, consentimiento, privilegios, respuestas y privacidad. Un ejemplo menor de edad es válido para JSON Schema y queda expresamente pendiente de rechazo por el servidor; no se presenta como prueba de negocio aprobada.
+
+También se preparan [12 escenarios sintéticos](DATOS_PRUEBA_REGISTRO.md) con datos, dependencias y resultados esperados para backend. Se comprueban sus formas, no se ejecutan cuentas ni solicitudes. No usar esos datos o el consentimiento de prueba en producción.
 
 Ejecutar python scripts/validate_registration_contract.py después de instalar scripts/requirements-contracts.txt en un entorno de herramientas. Valida esquemas JSON Schema 2020-12, referencias internas, ejemplos y resguardos del contrato, no todo OpenAPI ni un backend. Foundation conserva su comprobación previa y CI añade este control independiente. No son dependencias de FastAPI.
 
