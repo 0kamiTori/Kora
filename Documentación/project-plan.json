@@ -354,7 +354,7 @@
     "postgis": "3.6.4",
     "schema_revision": "0001_api_base",
     "runtime_role_separated": true,
-    "owner_password_rotation": "pending_user_action",
+    "owner_password_rotation": "user_reported_updated_current_direct_connection_verified",
     "real_registration_enabled": false,
     "full_postgres_18_suite_run": false,
     "reviewer": "John Ortiz",

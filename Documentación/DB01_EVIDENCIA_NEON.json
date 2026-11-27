@@ -38,8 +38,17 @@
   "consent": null,
   "limitations": [
     "Readiness smoke checks on PostgreSQL 18.7; not the complete PostgreSQL 16 CI suite",
-    "Owner password rotation pending user action",
     "No real account registration or deployment",
     "Word visual verification pending"
-  ]
+  ],
+  "owner_credential_followup": {
+    "date": "2026-11-27",
+    "rotation": "reported_by_user",
+    "current_direct_connection": "verified",
+    "database": "kora_dev",
+    "client_tls": true,
+    "revision": "0001_api_base",
+    "runtime_separate_and_ready": true,
+    "old_credential_revocation_tested": false
+  }
 }

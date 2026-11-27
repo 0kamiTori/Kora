@@ -3,7 +3,7 @@
 ## 0.12 — 2026-11-27 — CAM-2026-012
 
 - DB01: kora_dev creada en Neon, migración 0001_api_base y seis tablas vacías con PostGIS; neondb sin cambios de tablas.
-- Rol de ejecución nuevo y conexiones de aplicación/migración separadas en .env ignorado; TLS cliente y permisos comprobados. Rotación de propietario pendiente.
+- Rol de ejecución nuevo y conexiones de aplicación/migración separadas en .env ignorado; TLS cliente y permisos comprobados. Seguimiento: usuario informa rotación de propietario; conexión directa actual y ejecución separada verificadas. Revocación de credencial anterior no probada.
 - Migración actual y sin deriva; salud preparada 200 y registro cerrado 503 en comprobaciones HTTP locales con Neon real. PostgreSQL 18.7/PostGIS 3.6.4 observados; no equivale a repetir las 28 pruebas de CI PostgreSQL 16.
 - Guía, evidencia, decisiones, estado y plan actualizados. Word candidatos locales pendientes de render; sin cambios de APK, contratos o despliegue ni cierre de fase.
 
