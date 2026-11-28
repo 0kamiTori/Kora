@@ -13,6 +13,15 @@ function Invoke-Checked {
     if ($LASTEXITCODE -ne 0) { throw 'The integration command failed. Review the preceding sanitized output.' }
 }
 
+function Find-Docker {
+    $command = Get-Command docker -ErrorAction SilentlyContinue
+    if ($command) { return $command.Source }
+    foreach ($candidate in @((Join-Path $env:LOCALAPPDATA 'Programs/DockerDesktop/resources/bin/docker.exe'),'C:/Program Files/Docker/Docker/resources/bin/docker.exe')) {
+        if (Test-Path -LiteralPath $candidate) { return $candidate }
+    }
+    throw 'Install Docker Desktop with WSL 2, restart if requested and open Docker Desktop. Neon was not changed.'
+}
+
 Push-Location $apiRoot
 try {
     if ($Action -eq 'Init' -or $Action -eq 'Start') {
@@ -20,8 +29,8 @@ try {
         Invoke-Checked -Arguments @('uv','run','--frozen','python','-m','kora_api.integration','init')
     }
     if ($Action -eq 'Start') {
-        if (-not (Get-Command docker -ErrorAction SilentlyContinue)) { throw 'Install Docker Desktop with WSL 2, restart if requested and open Docker Desktop. Local configuration is already prepared; Neon was not changed.' }
-        Invoke-Checked -Arguments @('docker','compose','-p','kora-mobile-integration','--env-file',$config,'-f',$compose,'up','-d','--wait')
+        $dockerPath = Find-Docker
+        Invoke-Checked -Arguments @($dockerPath,'compose','-p','kora-mobile-integration','--env-file',$config,'-f',$compose,'up','-d','--wait')
         Invoke-Checked -Arguments @('uv','run','--frozen','python','-m','kora_api.integration','prepare')
         if (Test-Path -LiteralPath $pidFile) {
             $saved = Get-Content -LiteralPath $pidFile -Raw | ConvertFrom-Json
@@ -59,7 +68,8 @@ try {
             Remove-Item -LiteralPath $pidFile
         }
         if (Test-Path -LiteralPath $config) {
-            Invoke-Checked -Arguments @('docker','compose','-p','kora-mobile-integration','--env-file',$config,'-f',$compose,'stop')
+            $dockerPath = Find-Docker
+            Invoke-Checked -Arguments @($dockerPath,'compose','-p','kora-mobile-integration','--env-file',$config,'-f',$compose,'stop')
         }
         Write-Output 'Integration stopped. Its configuration and synthetic database volume were retained.'
     }

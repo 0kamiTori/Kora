@@ -293,7 +293,7 @@
       "appeal"
     ],
     "physical_device_acceptance": "user_reported_general_success_with_jank_detailed_checks_pending",
-    "api_integration": "registration_client_implemented_synthetic_only_pending_verification"
+    "api_integration": "registration_client_ci_real_http_passed_synthetic_only_physical_pending"
   },
   "registration_contract": {
     "version": "2.0.0-draft.1",
@@ -323,10 +323,10 @@
   ],
   "backend_base": {
     "story": "API01",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "python": "3.12.16",
     "status": "implemented_postgres_ci_passed",
-    "schema_revision": "0001_api_base",
+    "schema_revision": "0002_consent_guard",
     "shared_account_tables": 6,
     "real_registration_enabled": false,
     "neon_connection_tested": true,
@@ -337,11 +337,11 @@
     "human_reviewer": "John Ortiz",
     "human_review_status": "pending",
     "ci": {
-      "run_id": 46066007419,
-      "source_commit": "54dcb4fca50f98ead7bd8cda3ed90e5a823dba46",
-      "passed": 28,
+      "run_id": 46097071773,
+      "source_commit": "0aee48be6890cdd5835b2e6a8b34adc845ce721c",
+      "passed": 89,
       "skipped": 0,
-      "postgres_passed": 15,
+      "postgres_passed": 32,
       "database_environment": "ephemeral GitHub Actions PostgreSQL/PostGIS"
     }
   },
@@ -352,7 +352,7 @@
     "separate_branch": false,
     "postgresql": "18.7",
     "postgis": "3.6.4",
-    "schema_revision": "0001_api_base",
+    "schema_revision": "0002_consent_guard",
     "runtime_role_separated": true,
     "owner_password_rotation": "user_reported_updated_current_direct_connection_verified",
     "real_registration_enabled": false,
@@ -386,7 +386,7 @@
   "mobile_registration_integration": {
     "story": "APP03",
     "version": "0.3.0+3",
-    "status": "implemented_pending_ci_and_local_runtime",
+    "status": "implemented_ci_passed_local_runtime_blocked_prerequisites",
     "api": "/api/v2",
     "http_dependency": "dio 5.11.1",
     "debug_application_id": "dev.kora.kora_mobile.integration",
@@ -394,10 +394,17 @@
     "local_capture_skipped": 2,
     "backend_local_passed": 57,
     "backend_postgres_skipped": 32,
-    "local_prerequisites": "Docker/WSL installation attempted; Windows elevation pending",
+    "local_prerequisites": "VirtualMachinePlatform/WSL require administrator; Docker installation refused until enabled; adb installed",
     "physical_device_test": "pending",
     "real_registration_enabled": false,
     "reviewer": "John Ortiz",
-    "review_status": "pending"
+    "review_status": "pending",
+    "backend_ci_passed": 89,
+    "real_http_ci": "passed",
+    "android_ci": 46096349372,
+    "real_http_ci_run": 46097071717,
+    "backend_ci_run": 46097071773,
+    "artifact_id": 15243721476,
+    "evidence": "Documentación/APP03_EVIDENCIA_INTEGRACION.json"
   }
 }

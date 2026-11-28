@@ -56,3 +56,5 @@ La implementación del alta y los casos REG01–REG11 ya existen para pruebas si
 ## Integración móvil APP03
 
 Cliente HTTP v2, controlador de registro y preparador local ya implementados. Falta verificar workflows de HTTP real/Android, completar Docker Desktop/WSL en este Windows y autorizar el Redmi por USB para la prueba física. No sustituir base local por Neon para evitar esos requisitos. La variante debug Köra pruebas usa applicationId dev.kora.kora_mobile.integration y puede coexistir con la anterior. Confirmación de registro no equivale a sesión. Seguimiento y pasos en INTEGRACION_MOVIL.md.
+
+APP03 verificado: CI HTTP real, Android y 89 pruebas backend aprobados; Neon migrado a 0002 y cerrado. Ya no falta implementar o verificar esos workflows. Falta habilitar VirtualMachinePlatform/WSL como administrador, completar Docker y autorizar el Redmi por USB. ADB está instalado; scripts/integration.ps1 Init se ejecutó correctamente preservando configuración. Instalador verificado y guía en Descargas/Kora_Herramientas.

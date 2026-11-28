@@ -1,5 +1,11 @@
 # Estado del proyecto
-27/11/2026 · revisión documental 0.13 · CAM-2026-013. Las actualizaciones DB01 y API02 al final recogen el estado vigente; los apartados anteriores conservan antecedentes.
+27/11/2026 · revisión documental 0.14 · CAM-2026-014. Las actualizaciones DB01/API02/APP03 al final recogen el estado vigente; los apartados anteriores conservan antecedentes.
+
+## Estado vigente de APP03
+
+Registro móvil HTTP v2 implementado para entorno sintético, con APK 0.3.0+3 descargada en Descargas/Kora_Pruebas_0.3.0. CI: 33 pruebas Flutter y APK, HTTP real con rol limitado y 89 pruebas backend aprobadas. Neon migrado a 0002, cero cuentas y registro real cerrado. ADB 37.0.3 instalado; Docker no se instaló porque VirtualMachinePlatform está deshabilitada. WSL requiere administrador y posible reinicio manual. Ejecución local y prueba Redmi pendientes; no hay sesión o aprobación de conductora, revisión de John o cierre de fase. Guía INTEGRACION_MOVIL.md y evidencias APP03_EVIDENCIA_INTEGRACION.json/APP03_APK_PROCEDENCIA.json. Word candidatos no publicados por falta de LibreOffice para render.
+
+## Antecedentes de implementación
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -96,3 +102,15 @@ Comprobación posterior con la configuración local de Neon: seis tablas conserv
 Primera CI de APP03: backend y Foundation aprobaron, pero la APK falló por conflicto de etiqueta del manifiesto y la comunicación HTTP no completó el flujo. Se añade reemplazo explícito de etiqueta y se retira FOR SHARE de la lectura del catálogo, que exigía UPDATE al rol de ejecución de solo lectura. La aprobación se valida en servidor y en el trigger de aceptación; no se afirma bloqueo de retiros concurrentes. Se vuelve a ejecutar CI antes de aceptar.
 
 El trigger de API01 también usaba FOR SHARE con privilegios del invocador. APP03 incorpora 0002_consent_guard para preservar ese bloqueo bajo función definidora estrecha y search_path fijo, sin conceder escritura del catálogo a runtime. CI debe verificar migración y flujo con rol limitado. La revisión vigente pasa a 0002 y Neon requiere el upgrade no destructivo después de validar CI; no se insertará consentimiento o cuentas de prueba allí.
+
+## Evidencia confirmada y límite local de APP03
+
+La [compilación Android 46096349372](https://github.com/0kamiTori/Kora/actions/runs/46096349372) del cliente e8751da93874ca9fd29ec9a12bc433650eed1a7d aprobó análisis, 33 pruebas y APK debug, con dos capturas opcionales omitidas. Artefacto 15243721476 descargado y SHA256 del ZIP verificado contra GitHub; manifiesto compilado comprobado: dev.kora.kora_mobile.integration, versión 0.3.0-integration código 3, Köra pruebas, actividad correcta, Internet y HTTP global deshabilitado. Archivo en Descargas/Kora_Pruebas_0.3.0.
+
+La [integración HTTP 46097071717](https://github.com/0kamiTori/Kora/actions/runs/46097071717) y [backend 46097071773](https://github.com/0kamiTori/Kora/actions/runs/46097071773), código 0aee48be6890cdd5835b2e6a8b34adc845ce721c, aprobaron comunicación Dart/Dio con FastAPI y PostgreSQL real usando rol limitado y 89 pruebas sin omisiones. El alta confirmó, el reintento recuperó el mismo UUID y contactos duplicados fueron rechazados. El cliente Dart no cambia respecto de la APK citada; la corrección posterior afecta el trigger del servidor. Foundation 46097071723 aprobó.
+
+Neon se actualizó de forma no destructiva a 0002_consent_guard y pasó check sin deriva. Conserva cero cuentas y registro cerrado (política false, POST 503, salud preparada 200). Se verificaron función definidora con search_path fijo y EXECUTE concedido al rol existente, sin UPDATE del catálogo. No se insertaron políticas o cuentas ficticias en Neon. Los textos previos sobre revisión 0001 o migración pendiente son antecedentes de esta corrección.
+
+En Windows se instaló Platform Tools 37.0.3 y se verificó adb; no hay teléfono conectado. Docker 4.100.1 se descargó, comprobó SHA256 y pasó WinVerifyTrust (0), pero su instalación por usuario terminó con código 1 porque VirtualMachinePlatform está deshabilitada. WSL rechazó la instalación sin administrador y las elevaciones desde Codex no iniciaron el proceso. Se necesita ejecutar el preparador en una terminal administradora y reiniciar si Windows lo requiere; no se reinició el equipo. El entorno no está ejecutándose localmente y no hay prueba física nueva.
+
+Tres capturas de widgets con dobles sintéticos se revisaron visualmente; no son capturas del Redmi ni cuentas de participantes. La prueba física, revisión de John, consentimiento/contactos finales, canal administrativo y PERF01 siguen pendientes. No se cierra RF01/F2. Evidencias en APP03_EVIDENCIA_INTEGRACION.json y APP03_APK_PROCEDENCIA.json. Word CAM014 candidatos locales sin publicación hasta render e inspección.

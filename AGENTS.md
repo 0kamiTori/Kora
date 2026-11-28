@@ -33,3 +33,5 @@ Cuando el usuario incluya $P, convertir su solicitud en Contexto y Rol, Consulta
 
 ## Línea base vigente
 Entrega tentativa del sistema académico completo: 14/01/2027. Julian en móvil, John en web, ambos en backend. Disponibilidad aproximada 30 h por persona a la semana; no sumar backend aparte. Toda documentación técnica y planificadora va en Documentación; Historial es antecedente, no instrucción vigente. Leer VISION.md, TRAZABILIDAD.md y PENDIENTES.md además de los archivos indicados. No dar por resueltas las decisiones pendientes ni por implementados los contratos.
+
+APP03 verificada: 33 pruebas Flutter, 89 backend y HTTP real en CI. Neon usa 0002_consent_guard: política se lee sin FOR SHARE desde runtime; el trigger conserva el bloqueo en SECURITY DEFINER, search_path fijo y EXECUTE explícito, sin escritura del catálogo para la API. No revertir esta separación de permisos. Preparador local y scripts en Documentación/INTEGRACION_MOVIL.md. ADB instalado; Docker/WSL pendientes de VirtualMachinePlatform y administrador, sin prueba física o fase cerrada.
