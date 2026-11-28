@@ -52,3 +52,9 @@ Ya están creados kora_dev, PostGIS, migración y rol de ejecución separado; no
 ## Registro transaccional API02
 
 La implementación del alta y los casos REG01–REG11 ya existen para pruebas sintéticas aisladas; las 83 pruebas pasaron en CI (46085546369) y falta revisión cruzada. No volver a proponer crearlos desde cero. La actualización local de credencial propietaria ya fue verificada. Antes de datos reales siguen pendientes texto de consentimiento aprobado y contactos, canal/destinatario/retención de incidentes y endurecimiento operativo. Bandeja local de incidencias no equivale a entrega. Integración de APK y web, sesiones, aprobación y PERF01 pendientes. Ver REGISTRO_BACKEND.md.
+
+## Integración móvil APP03
+
+Cliente HTTP v2, controlador de registro y preparador local ya implementados. Falta verificar workflows de HTTP real/Android, completar Docker Desktop/WSL en este Windows y autorizar el Redmi por USB para la prueba física. No sustituir base local por Neon para evitar esos requisitos. La variante debug Köra pruebas usa applicationId dev.kora.kora_mobile.integration y puede coexistir con la anterior. Confirmación de registro no equivale a sesión. Seguimiento y pasos en INTEGRACION_MOVIL.md.
+
+APP03 verificado: CI HTTP real, Android y 89 pruebas backend aprobados; Neon migrado a 0002 y cerrado. Ya no falta implementar o verificar esos workflows. Falta habilitar VirtualMachinePlatform/WSL como administrador, completar Docker y autorizar el Redmi por USB. ADB está instalado; scripts/integration.ps1 Init se ejecutó correctamente preservando configuración. Instalador verificado y guía en Descargas/Kora_Herramientas.

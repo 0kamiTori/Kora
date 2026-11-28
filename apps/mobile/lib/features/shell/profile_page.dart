@@ -87,7 +87,7 @@ class ProfilePage extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const Text(
-            'Versión inicial · Pantallas de cuenta en preparación. Registro y solicitudes aún sin conexión al servicio.',
+            'Registro disponible únicamente en el entorno de pruebas. Las solicitudes de conductora siguen en preparación.',
             style: TextStyle(
               color: KoraColors.muted,
               fontSize: 12,

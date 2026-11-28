@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgis/postgis:16-3.7@sha256:c493152a135059753aef4d8db20c9c55a11aaeae0768e8d7710c23df47be89f2
+    environment:
+      POSTGRES_DB: kora_test_mobile
+      POSTGRES_USER: kora_test_mobile_operator
+      POSTGRES_PASSWORD: ${KORA_TEST_DB_PASSWORD:?Generate the isolated integration configuration first}
+    ports:
+      - "127.0.0.1:55433:5432"
+    volumes:
+      - mobile-integration-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kora_test_mobile_operator -d kora_test_mobile"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+volumes:
+  mobile-integration-db:
+# Synthetic integration only. Never connect this stack to Neon or participants.
+# Stop without --volumes; deleting a volume or config is a separate deliberate action.

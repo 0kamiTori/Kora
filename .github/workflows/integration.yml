@@ -1,0 +1,64 @@
+name: Mobile API integration
+on:
+  push:
+    paths:
+      - 'apps/mobile/**'
+      - 'services/api/**'
+      - 'infra/compose.integration.yml'
+      - 'scripts/integration.ps1'
+      - '.github/workflows/integration.yml'
+  pull_request:
+    paths:
+      - 'apps/mobile/**'
+      - 'services/api/**'
+      - 'infra/compose.integration.yml'
+      - 'scripts/integration.ps1'
+      - '.github/workflows/integration.yml'
+permissions:
+  contents: read
+jobs:
+  real-http:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: '0.13.9'
+          enable-cache: true
+          cache-dependency-glob: services/api/uv.lock
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.50.1'
+          cache: true
+      - name: Generate isolated configuration
+        working-directory: services/api
+        run: |
+          uv sync --frozen
+          uv run --frozen python -m kora_api.integration init
+      - name: Start disposable integration database
+        run: docker compose -p kora-mobile-integration --env-file services/api/.local/integration/connection.env -f infra/compose.integration.yml up -d --wait
+      - name: Migrate and prepare synthetic policy
+        working-directory: services/api
+        run: uv run --frozen python -m kora_api.integration prepare
+      - name: Start integration API
+        working-directory: services/api
+        run: |
+          uv run --frozen uvicorn kora_api.integration:create_integration_app --factory --host 127.0.0.1 --port 8000 --no-access-log > .local/integration/server.stdout.log 2> .local/integration/server.stderr.log &
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8000/health/ready > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - name: Execute mobile transport against real HTTP API
+        working-directory: apps/mobile
+        run: |
+          flutter pub get --enforce-lockfile
+          dart run tool/registration_http_smoke.dart
+      - name: Stop isolated containers
+        if: always()
+        run: |
+          if test -f services/api/.local/integration/connection.env; then
+            docker compose -p kora-mobile-integration --env-file services/api/.local/integration/connection.env -f infra/compose.integration.yml stop
+          fi

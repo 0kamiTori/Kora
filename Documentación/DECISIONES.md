@@ -116,3 +116,19 @@ DB01_EVIDENCIA_NEON.json registra los resultados sin secretos. Registro real, fa
 No cambian contratos v1/v2, reglas de conductoras, fechas o presupuesto. Las pruebas locales no acreditan integración PostgreSQL ni cierre de fase; evidencia remota se registra después de ejecutarla.
 
 Seguimiento CAM-2026-013: CI 46085546369 del commit 3144c0cf42850ab6b0951cb87b734103e4d13398 aprobó 83 pruebas sin omisiones, incluidas 32 PostgreSQL. No sustituye la revisión de John o consentimiento aprobado.
+
+## Integración móvil CAM 2026 014
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC59 | APP03 integra el formulario Flutter con política y alta de API02 sobre el mismo v2 | Solicitado por el usuario. Dio fijado, sin nueva identidad local, sesión o cambio de esquema/contrato. Julian implementa con asistencia; revisión de John pendiente. |
+| DEC60 | Base kora_test_mobile y configuración aislada para integración por USB, sin modificar .env de Neon | Preparador explícito con guardas de host/puerto/base/roles y credenciales aleatorias separadas. Consentimiento ficticio solo en entorno test local. Docker/WSL y teléfono deben verificarse realmente antes de afirmar ejecución local. |
+| DEC61 | APK debug Köra pruebas con sufijo .integration y HTTP permitido solo en localhost | Coexiste con entregas anteriores sin migración de preferencias. No firma estable de distribución; el modo sintético se rechaza en release. USB mediante adb reverse, sin abrir PostgreSQL o API a la LAN. |
+| DEC62 | Envío pendiente con contraseña solo en memoria y clave UUID estable; borrar al confirmar o salir | No reenvío automático ni persistencia de credenciales. Salir o morir el proceso pierde reanudación, sin afirmar que no se creó la cuenta. Estado incierto y límite visibles. |
+| DEC63 | Intentar instalar Docker Desktop/WSL desde fuentes oficiales | Autorizado explícitamente por el usuario. Windows exige elevación para WSL; no reiniciar automáticamente ni afirmar instalación por una descarga. Resultado se registra por separado. |
+
+No se altera alcance final, presupuesto, disponibilidad o fecha tentativa. Neon mantiene registro cerrado y los permisos de viajes, conductoras y apelaciones no se amplían.
+
+DEC64 · Corrección compartida necesaria para APP03: migración 0002_consent_guard limita la ejecución privilegiada al trigger ya existente de comprobación/bloqueo de consentimiento. SECURITY DEFINER con search_path fijo pg_catalog,pg_temp y función con relación plenamente calificada, sin SQL dinámico o escrituras del catálogo; EXECUTE público revocado y concesión al rol de ejecución explícita. La política GET usa SELECT ordinario; el trigger conserva FOR SHARE y verifica aprobación dentro del alta. El catálogo sigue sin permisos UPDATE/INSERT/DELETE para la API. Probar con rol limitado por HTTP real antes de aplicar la migración no destructiva al esquema compartido. Sin modificar 0001, tablas, contrato o textos aprobados.
+
+Seguimiento DEC64: el flujo con rol limitado y las 89 pruebas pasaron. La migración 0002 se aplicó a kora_dev, sin cambios de filas, con EXECUTE explícito para kora_app_dev y catálogo sin UPDATE. Salud 200 y alta 503 comprobadas. DEC63 sigue incompleta en Windows por VirtualMachinePlatform/WSL y privilegios administrativos; instalador Docker íntegro y firmado, todavía no instalado.

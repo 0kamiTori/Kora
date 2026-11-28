@@ -29,13 +29,13 @@ jobs:
           flutter-version: '3.50.1'
           cache: true
       - run: flutter pub get --enforce-lockfile
-      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: dart format --output=none --set-exit-if-changed lib test tool
       - run: flutter analyze --fatal-infos
       - run: flutter test --reporter expanded
-      - run: flutter build apk --debug
+      - run: flutter build apk --debug --dart-define=KORA_API_BASE_URL=http://127.0.0.1:8000/api/v2 --dart-define=KORA_SYNTHETIC_INTEGRATION=true
       - uses: actions/upload-artifact@v4
         with:
-          name: kora-android-debug
+          name: kora-android-integration-debug
           path: apps/mobile/build/app/outputs/flutter-apk/app-debug.apk
           if-no-files-found: error
           retention-days: 14

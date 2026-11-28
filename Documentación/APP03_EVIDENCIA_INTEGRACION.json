@@ -1,0 +1,71 @@
+{
+  "story": "APP03",
+  "date": "2026-11-27",
+  "mobile_version": "0.3.0+3",
+  "android": {
+    "run": 46096349372,
+    "job": 140828445380,
+    "source_commit": "e8751da93874ca9fd29ec9a12bc433650eed1a7d",
+    "passed": 33,
+    "optional_captures_skipped": 2,
+    "apk_built": true,
+    "artifact": 15243721476
+  },
+  "real_http": {
+    "run": 46097071717,
+    "job": 140830779057,
+    "source_commit": "0aee48be6890cdd5835b2e6a8b34adc845ce721c",
+    "conclusion": "success",
+    "transport": "Dart Dio -> real loopback HTTP -> FastAPI -> disposable PostgreSQL",
+    "runtime_role_separated": true,
+    "account_created": true,
+    "same_account_replayed": true,
+    "duplicate_rejected": true
+  },
+  "backend": {
+    "run": 46097071773,
+    "job": 140830779349,
+    "source_commit": "0aee48be6890cdd5835b2e6a8b34adc845ce721c",
+    "passed": 89,
+    "skipped": 0,
+    "postgres_passed": 32
+  },
+  "foundation": {
+    "run": 46097071723,
+    "conclusion": "success"
+  },
+  "neon": {
+    "revision": "0002_consent_guard",
+    "accounts": 0,
+    "catalog_update": false,
+    "trigger_execute": true,
+    "trigger_definer": true,
+    "trigger_search_path": [
+      "search_path=pg_catalog, pg_temp"
+    ],
+    "ready": 200,
+    "registration_enabled": false,
+    "post_status": 503
+  },
+  "windows": {
+    "platform_tools": "37.0.3",
+    "adb_available": true,
+    "device_connected_at_check": false,
+    "docker_installer": "4.100.1",
+    "docker_sha256": "98b24fd6f56313899953ca4d2ed05645d69963b598143b75c6585fa4f7f639b2",
+    "docker_authenticode_winverifytrust": 0,
+    "docker_installer_exit": 1,
+    "docker_blocker": "VirtualMachinePlatform Windows feature disabled; requires administrator and possibly reboot",
+    "wsl_installation": "not_completed; winget rejected nonadmin and elevation from agent did not start",
+    "automatic_restart": false
+  },
+  "physical_phone_verification": "pending",
+  "real_registration_enabled": false,
+  "visual_widget_review": {
+    "captures": 3,
+    "synthetic_doubles_only": true,
+    "local_review_passed": true
+  },
+  "human_review": "pending John Ortiz",
+  "word_publication": "pending render; missing bundled LibreOffice"
+}
