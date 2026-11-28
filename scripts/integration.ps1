@@ -44,8 +44,10 @@ try {
     } elseif ($Action -eq 'Status') {
         Invoke-Checked -Arguments @('uv','run','--frozen','python','-m','kora_api.integration','status')
     } elseif ($Action -eq 'Usb') {
-        if (-not (Get-Command adb -ErrorAction SilentlyContinue)) { throw 'Add Android SDK Platform Tools (adb) to PATH, connect the phone by USB and authorize USB debugging.' }
-        Invoke-Checked -Arguments @('adb','reverse','tcp:8000','tcp:8000')
+        $adbTool = Get-Command adb -ErrorAction SilentlyContinue
+        $adbPath = if ($adbTool) { $adbTool.Source } else { Join-Path $env:LOCALAPPDATA 'Android/platform-tools/adb.exe' }
+        if (-not (Test-Path -LiteralPath $adbPath)) { throw 'Install Android SDK Platform Tools, connect the phone by USB and authorize USB debugging.' }
+        Invoke-Checked -Arguments @($adbPath,'reverse','tcp:8000','tcp:8000')
         Write-Output 'USB forwarding ready. Keep the phone connected and the local API running.'
     } elseif ($Action -eq 'Stop') {
         if (Test-Path -LiteralPath $pidFile) {

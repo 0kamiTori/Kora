@@ -86,9 +86,10 @@ class RegistrationService:
 
     def approved_consent(self, session: Session):
         now = self.clock()
+        # Policy reads need only SELECT. The insertion trigger rechecks and
+        # locks approval using the narrowly scoped definer from migration 0002.
         return session.scalar(
-            sa.select(ConsentVersion)
-            .where(
+            sa.select(ConsentVersion).where(
                 ConsentVersion.version == self.settings.registration_consent_version,
                 ConsentVersion.scope == "account_creation",
                 ConsentVersion.state == "approved",

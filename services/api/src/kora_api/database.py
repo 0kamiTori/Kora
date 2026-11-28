@@ -4,7 +4,7 @@ from sqlalchemy.engine import URL, Engine, make_url
 
 from kora_api.config import Settings
 
-SCHEMA_REVISION = "0001_api_base"
+SCHEMA_REVISION = "0002_consent_guard"
 EXPECTED_TABLES = {
     "accounts",
     "account_credentials",

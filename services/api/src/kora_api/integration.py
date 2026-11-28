@@ -163,6 +163,9 @@ def prepare():
             cursor.execute(
                 "GRANT SELECT ON public.kora_alembic_version TO kora_test_mobile_app"
             )
+            cursor.execute(
+                "GRANT EXECUTE ON FUNCTION kora.require_approved_consent() TO kora_test_mobile_app"
+            )
     engine = make_engine(postgres_url(settings.migration_database_url))
     try:
         with engine.begin() as connection:

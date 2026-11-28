@@ -3,6 +3,7 @@
 ## 0.14 — 2026-11-27 — CAM-2026-014
 
 - APP03: formulario móvil conectado a política y alta v2, consentimiento recibido del servidor, respuesta confirmada, errores por campo y reintentos con igual clave/cuerpo en memoria.
+- Migración 0002_consent_guard corrige el trigger bajo rol limitado mediante SECURITY DEFINER con search_path fijo, EXECUTE público revocado y función sin escrituras de catálogo. Neon pendiente de upgrade no destructivo tras CI.
 - Corregidos conflicto de etiqueta debug del manifiesto y lectura de consentimiento que requería UPDATE por FOR SHARE; el catálogo conserva permisos de solo lectura y el trigger verifica aprobación. CI se repite.
 - Dio 5.11.1 fijado; protección de URL y ausencia de logs de formulario. Android 0.3.0+3 debug Köra pruebas con identificador separado y HTTP solo en loopback.
 - Configuración, Compose y preparador sintético local separados de Neon; credenciales de operador/ejecución distintas, consentimiento de prueba explícito y sin cuentas de arranque. Script Windows para iniciar/parar y conexión USB.
