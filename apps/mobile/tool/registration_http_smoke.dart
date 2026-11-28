@@ -6,6 +6,7 @@ import 'package:kora_mobile/features/onboarding/registration_models.dart';
 import 'package:kora_mobile/features/onboarding/registration_repository.dart';
 
 Future<void> main() async {
+  var stage = 'policy';
   final repository = HttpRegistrationRepository(
     const ApiConfig(baseUrl: 'http://127.0.0.1:8000/api/v2', synthetic: true),
   );
@@ -25,9 +26,12 @@ Future<void> main() async {
       driver: true,
       consentVersion: policy.version!,
     );
+    stage = 'register';
     final created = await repository.register(request, key);
+    stage = 'replay';
     final replay = await repository.register(request, key);
     if (created.id != replay.id) throw StateError('Replay mismatch');
+    stage = 'duplicate';
     var duplicate = false;
     try {
       await repository.register(request, registrationKey());
@@ -45,7 +49,10 @@ Future<void> main() async {
       'real_data': false,
     };
     stdout.writeln(jsonEncode(result));
-  } catch (_) {
+  } catch (error) {
+    stderr.writeln(
+      'stage=$stage type=${error.runtimeType}${error is RegistrationFailure ? ' code=${error.code}' : ''}',
+    );
     stderr.writeln(
       'Mobile HTTP integration failed. No credentials or response values are printed.',
     );

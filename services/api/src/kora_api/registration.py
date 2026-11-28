@@ -94,7 +94,6 @@ class RegistrationService:
                 ConsentVersion.state == "approved",
                 ConsentVersion.approved_at <= now,
             )
-            .with_for_update(read=True)
         )
 
     def policy(self):
