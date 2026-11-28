@@ -261,7 +261,7 @@
   ],
   "registration_requirements": {
     "source": "Documentación/RF01_REGISTRO.md",
-    "status": "backend_synthetic_implemented_postgres_ci_pending",
+    "status": "backend_synthetic_implemented_postgres_ci_passed_real_registration_closed",
     "minimum_age_years": 18,
     "unique_fields": [
       "email",
@@ -364,7 +364,7 @@
   "registration_backend": {
     "story": "API02",
     "version": "0.2.0",
-    "status": "implemented_postgres_ci_pending",
+    "status": "implemented_postgres_ci_passed_synthetic_only",
     "real_registration_enabled": false,
     "mobile_connected": false,
     "local_tests_passed": 51,
@@ -373,6 +373,14 @@
     "incident_delivery": "local_outbox_pending_channel",
     "reviewer": "John Ortiz",
     "review_status": "pending",
-    "postgres_tests_expected": 32
+    "postgres_tests_expected": 32,
+    "ci": {
+      "run_id": 46085546369,
+      "source_commit": "3144c0cf42850ab6b0951cb87b734103e4d13398",
+      "passed": 83,
+      "skipped": 0,
+      "postgres_passed": 32,
+      "synthetic_scenarios": 12
+    }
   }
 }

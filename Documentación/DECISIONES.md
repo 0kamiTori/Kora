@@ -114,3 +114,5 @@ DB01_EVIDENCIA_NEON.json registra los resultados sin secretos. Registro real, fa
 | DEC58 | Bandeja JSONL saneada fuera de PostgreSQL para fallos y protección inicial de diez intentos/origen/minuto por proceso | Implementado para desarrollo/pruebas. Entrega administrativa, canal, retención y limitación distribuida pendientes; no se atribuye aviso recibido. |
 
 No cambian contratos v1/v2, reglas de conductoras, fechas o presupuesto. Las pruebas locales no acreditan integración PostgreSQL ni cierre de fase; evidencia remota se registra después de ejecutarla.
+
+Seguimiento CAM-2026-013: CI 46085546369 del commit 3144c0cf42850ab6b0951cb87b734103e4d13398 aprobó 83 pruebas sin omisiones, incluidas 32 PostgreSQL. No sustituye la revisión de John o consentimiento aprobado.
