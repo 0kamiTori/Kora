@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Literal
 
 from pydantic import Field, SecretStr
@@ -17,6 +18,18 @@ class Settings(BaseSettings):
     )
     migration_database_url: SecretStr | None = Field(
         default=None, validation_alias="MIGRATION_DATABASE_URL", repr=False
+    )
+    registration_mode: Literal["disabled", "synthetic_test"] = Field(
+        default="disabled", validation_alias="REGISTRATION_MODE"
+    )
+    registration_consent_version: str | None = Field(
+        default=None, validation_alias="REGISTRATION_CONSENT_VERSION"
+    )
+    registration_hmac_key: SecretStr | None = Field(
+        default=None, validation_alias="REGISTRATION_HMAC_KEY", repr=False
+    )
+    incident_directory: Path = Field(
+        default=Path(".local/incidents"), validation_alias="INCIDENT_DIRECTORY"
     )
     allowed_hosts: str = Field(
         default="localhost,127.0.0.1,testserver", validation_alias="ALLOWED_HOSTS"

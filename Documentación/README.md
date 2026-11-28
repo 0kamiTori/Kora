@@ -22,3 +22,7 @@ Los Word se mantienen alineados con los documentos de texto en cada cambio que a
 - [Borrador de consentimiento de cuenta](CONSENTIMIENTO_CUENTA_BORRADOR.md) y [datos sintéticos de registro](DATOS_PRUEBA_REGISTRO.md), preparados para revisión y pruebas aisladas.
 
 - [Base API y migraciones](BASE_API.md), historia API01: backend ejecutable con registro cerrado; pruebas de persistencia diferenciadas de comprobación de esquemas.
+
+- [Base de desarrollo Neon](NEON_DESARROLLO.md): DB01 preparada y verificada, sin habilitar registro real.
+
+- [Registro del backend](REGISTRO_BACKEND.md), API02: alta transaccional exclusivamente sintética; registro real cerrado.

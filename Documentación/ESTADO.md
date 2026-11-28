@@ -1,5 +1,5 @@
 # Estado del proyecto
-27/11/2026 · revisión documental 0.11 · CAM-2026-011.
+27/11/2026 · revisión documental 0.13 · CAM-2026-013. Las actualizaciones DB01 y API02 al final recogen el estado vigente; los apartados anteriores conservan antecedentes.
 
 ## Base vigente
 Entrega tentativa del sistema completo 14/01/2027. Julian en móvil, John en web y ambos en backend; unas 30 h por persona a la semana. Presupuesto de referencia del documento principal. Fechas, capacidad y financiación no son compromisos nuevos ni aprobación académica.
@@ -70,3 +70,21 @@ Revisión de John y fase F2 pendientes. Los Word reciben candidato CAM011 local 
 La [ejecución 46066007419](https://github.com/0kamiTori/Kora/actions/runs/46066007419) del commit 54dcb4fca50f98ead7bd8cda3ed90e5a823dba46 terminó correctamente. El job postgres aprobó sincronización del lock, análisis, formato y **28 pruebas sin omisiones**, incluidas las 15 de PostgreSQL/PostGIS real. La suite ejecutó el ciclo de migración y comprobación de deriva, salud preparada, concurrencia de contactos y protección de consentimiento/recibos. La [comprobación documental 46066007221](https://github.com/0kamiTori/Kora/actions/runs/46066007221) también aprobó.
 
 [Procedencia de la evidencia](API01_EVIDENCIA_CI.json). Esto verifica API01 sobre una base efímera de CI, no una conexión a Neon ni el alta funcional REG01–REG11. Las menciones anteriores a CI pendiente describen la preparación previa a este resultado. La revisión humana, consentimiento y Word siguen pendientes; no se cierra F2.
+
+## Preparación Neon DB01
+
+27/11/2026 · DB01 · CAM-2026-012. Base separada kora_dev creada en la misma rama Neon, sin alterar tablas de neondb. PostgreSQL 18.7/PostGIS 3.6.4, revisión 0001_api_base, seis tablas vacías y comprobación Alembic sin deriva. Conexiones locales separadas: pooler con rol de ejecución nuevo y directo con propietario para migraciones. TLS cliente verificado; credenciales solo en .env ignorado. /health/ready responde 200 desde comprobación HTTP en proceso; registro sigue deshabilitado y POST devuelve 503. No se ejecutó la suite destructiva contra Neon ni se desplegó API o conectó la APK. La suite completa anterior sigue limitada a PostgreSQL 16 de CI. Rotación de contraseña propietaria, revisión de John, consentimiento/contactos y revisión visual Word pendientes. Guía en NEON_DESARROLLO.md y evidencia saneada en DB01_EVIDENCIA_NEON.json. No se cierra fase ni se cambian presupuesto, fechas o capacidad.
+
+## Verificación tras actualización de credencial
+
+27/11/2026 · Seguimiento DB01/CAM-2026-012. Julian informa actualización de la contraseña propietaria en el .env local. Se verificó conexión directa a kora_dev con neondb_owner, TLS cliente y revisión 0001_api_base; la credencial separada de ejecución sigue preparada. No se consultó con la contraseña anterior, por lo que su revocación no se presenta como prueba independiente. Sustituye el pendiente de actualización local de contraseña indicado anteriormente. Registro y datos reales siguen deshabilitados; revisión de John y Word pendientes.
+
+## Alta de pruebas API02
+
+27/11/2026 · API02 · CAM-2026-013. Alta transaccional v2 implementada para pruebas sintéticas en PostgreSQL local kora_test_*, con validaciones, Argon2id, rol pasajera, consentimiento aprobado de prueba, contactos únicos y reintento HMAC/UUID. Respuesta 201 solo después de confirmar la transacción; clave en curso/conflictiva/vencida controlada y reproducción antes de política nueva. Sin cambio de esquema o datos Neon; aplicación y entornos no sintéticos mantienen registro cerrado. 51 pruebas locales aprobadas y 32 PostgreSQL previstas (31 omitidas en ejecución local anterior; un caso de bloqueo añadido después); CI pendiente. Incidentes saneados en bandeja local independiente de base, aviso real pendiente de canal. No hay sesiones, APK conectada, aprobación funcional o cierre de RF01/F2. Implementación asistida para Julian; revisión de John pendiente. Guía REGISTRO_BACKEND.md. Word candidatos locales pendientes de render; PERF01, consentimiento/contactos y entrega administrativa siguen pendientes.
+
+## Evidencia de API02 confirmada
+
+La [ejecución 46085546369](https://github.com/0kamiTori/Kora/actions/runs/46085546369), commit 3144c0cf42850ab6b0951cb87b734103e4d13398, aprobó sincronización del lock, Ruff y **83 pruebas sin omisiones**: 51 sin PostgreSQL y 32 de PostgreSQL/PostGIS. De estas últimas, 17 verifican el alta, incluyendo REG01–REG11 y los doce escenarios SYN. Foundation 46085546378 también aprobó. [Evidencia](API02_EVIDENCIA_CI.json).
+
+Comprobación posterior con la configuración local de Neon: seis tablas conservadas, cero cuentas, preparación 200, política cerrada y POST 503; no se escribieron datos de prueba. La evidencia funcional de alta corresponde al contenedor de CI, no a un registro habilitado en Neon o a una APK conectada. No hay envío administrativo real: la bandeja sigue pendiente de canal. Revisión de John, consentimiento/contactos y Word pendientes. Los Word CAM013 se prepararon localmente, pero el renderizador confirmó que falta LibreOffice; se conservan los vigentes sin publicar candidatos. No se cierra fase.

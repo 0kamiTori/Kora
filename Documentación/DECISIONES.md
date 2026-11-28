@@ -93,3 +93,26 @@ Se preparan 12 escenarios sintéticos adicionales a los 49 ejemplos de esquema. 
 | DEC51 | Pruebas de persistencia en GitHub Actions por falta de Docker/PostgreSQL local | No se usa la credencial expuesta ni se conecta Neon. Las pruebas locales omiten integración con motivo; CI debe demostrarla antes de declararla validada. |
 
 La política de API01 siempre está deshabilitada y el POST rechaza sin crear cuentas. No hay variable para abrirlo antes de implementar el alta y aprobar el tratamiento. Se mantienen dos apelaciones y 30 días bajo servidor para sus historias posteriores, además de presupuesto, horas y fecha final tentativa. Word candidatos preparados localmente; el bloqueo conocido de render sigue pendiente.
+
+## Preparación Neon CAM 2026 012
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC52 | Crear kora_dev como base separada en la rama existente de Neon | Ejecutado por solicitud de preparar desarrollo. No es rama o proyecto separado; sin cambio de tablas en neondb ni contratación nueva. |
+| DEC53 | Usar rol kora_app_dev por pooler y propietario por conexión directa para migraciones | Ejecutado, TLS cliente verificado. Rol nuevo sin privilegios elevados ni CREATE en kora; catálogo de consentimiento y revisión Alembic de solo lectura. Contraseña propietaria expuesta aún pendiente de rotación por Julian. |
+| DEC54 | Conservar PostgreSQL 16/PostGIS 3.7 de CI y registrar PostgreSQL 18.7/PostGIS 3.6.4 de Neon | Migración, deriva y salud verificadas en Neon; no declarar la suite completa probada en PostgreSQL 18. Sin descenso ni limpieza destructiva en Neon. |
+
+DB01_EVIDENCIA_NEON.json registra los resultados sin secretos. Registro real, fases, revisión humana y Word siguen pendientes según NEON_DESARROLLO.md. No se modifican contratos, fechas o presupuesto.
+
+## Alta transaccional CAM 2026 013
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC55 | API02 implementa alta v2 y pruebas REG01–REG11 sobre tablas existentes | Solicitud del usuario. Implementación asistida para Julian, revisión de John pendiente. Sin nueva base o esquema, sesión o aprobación automática. |
+| DEC56 | Activación exclusiva synthetic_test con APP_ENV=test, PostgreSQL local kora_test_*, correos .invalid, versión test-* aprobada y HMAC independiente | Implementado; Neon y modo normal permanecen cerrados. No existe bandera para registro público ni consentimiento ficticio de arranque. |
+| DEC57 | Argon2id RFC_9106_LOW_MEMORY y HMAC-SHA256 con bloqueo transaccional de clave, TTL 24 h sin reutilización automática | Decisión técnica conforme al contrato existente. Dependencias fijadas; rendimiento y despliegue pendientes de medir. |
+| DEC58 | Bandeja JSONL saneada fuera de PostgreSQL para fallos y protección inicial de diez intentos/origen/minuto por proceso | Implementado para desarrollo/pruebas. Entrega administrativa, canal, retención y limitación distribuida pendientes; no se atribuye aviso recibido. |
+
+No cambian contratos v1/v2, reglas de conductoras, fechas o presupuesto. Las pruebas locales no acreditan integración PostgreSQL ni cierre de fase; evidencia remota se registra después de ejecutarla.
+
+Seguimiento CAM-2026-013: CI 46085546369 del commit 3144c0cf42850ab6b0951cb87b734103e4d13398 aprobó 83 pruebas sin omisiones, incluidas 32 PostgreSQL. No sustituye la revisión de John o consentimiento aprobado.

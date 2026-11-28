@@ -1,0 +1,42 @@
+{
+  "story": "API02",
+  "date": "2026-11-27",
+  "source_commit": "3144c0cf42850ab6b0951cb87b734103e4d13398",
+  "workflow_run": 46085546369,
+  "job_id": 140794147506,
+  "conclusion": "success",
+  "tests_passed": 83,
+  "tests_skipped": 0,
+  "postgres_tests_passed": 32,
+  "non_postgres_tests_passed": 51,
+  "registration_postgres_tests": 17,
+  "synthetic_scenarios_executed": 12,
+  "coverage": [
+    "REG01",
+    "REG02",
+    "REG03",
+    "REG04",
+    "REG05",
+    "REG06",
+    "REG07",
+    "REG08",
+    "REG09",
+    "REG10",
+    "REG11"
+  ],
+  "database_environment": "ephemeral GitHub Actions PostgreSQL 16/PostGIS 3.7",
+  "foundation_run": 46085546378,
+  "foundation_conclusion": "success",
+  "neon_followup": {
+    "readiness_http": 200,
+    "accounts": 0,
+    "registration_enabled": false,
+    "accounts_post_http": 503,
+    "account_writes": false
+  },
+  "real_registration_enabled": false,
+  "mobile_connected": false,
+  "admin_incident_delivery": "local_outbox_pending_channel",
+  "human_review": "pending John Ortiz review",
+  "word_visual_review": "blocked_missing_bundled_libreoffice"
+}

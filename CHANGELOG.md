@@ -1,5 +1,20 @@
 # Historial de cambios
 
+## 0.13 — 2026-11-27 — CAM-2026-013
+
+- API02: registro transaccional v2 solo en pruebas sintéticas aisladas; validaciones, Argon2id, consentimiento, rol pasajera y contactos únicos.
+- Reintentos con HMAC, bloqueo transaccional, TTL y reproducción de éxito anterior a nueva política; sin migración nueva o cambios en Neon.
+- Errores de protocolo controlados, límite inicial por proceso y bandeja de incidentes fuera de base sin secretos. Canal de entrega administrativa pendiente.
+- CI 46085546369 aprobó las 83 pruebas sin omisiones: 51 sin PostgreSQL y 32 de PostgreSQL, con REG01–REG11 y doce escenarios sintéticos. Foundation 46085546378 también aprobó. Neon conserva cero cuentas y registro cerrado.
+- Estado, decisiones y guía actualizados; Word candidatos locales pendientes de render. Sin APK nueva, sesiones, datos reales o cierre de fase.
+
+## 0.12 — 2026-11-27 — CAM-2026-012
+
+- DB01: kora_dev creada en Neon, migración 0001_api_base y seis tablas vacías con PostGIS; neondb sin cambios de tablas.
+- Rol de ejecución nuevo y conexiones de aplicación/migración separadas en .env ignorado; TLS cliente y permisos comprobados. Seguimiento: usuario informa rotación de propietario; conexión directa actual y ejecución separada verificadas. Revocación de credencial anterior no probada.
+- Migración actual y sin deriva; salud preparada 200 y registro cerrado 503 en comprobaciones HTTP locales con Neon real. PostgreSQL 18.7/PostGIS 3.6.4 observados; no equivale a repetir las 28 pruebas de CI PostgreSQL 16.
+- Guía, evidencia, decisiones, estado y plan actualizados. Word candidatos locales pendientes de render; sin cambios de APK, contratos o despliegue ni cierre de fase.
+
 ## 0.11 — 2026-11-27 — CAM-2026-011
 
 - API01: base FastAPI con salud, preparación PostgreSQL/PostGIS y política/puerta de registro cerradas; sin alta o sesiones simuladas.

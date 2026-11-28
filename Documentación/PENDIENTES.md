@@ -40,3 +40,15 @@ Responsable declarado: Julian Hernando Perez Villamizar, por indicación del usu
 ## API01 y siguiente integración
 
 FastAPI y migraciones ya están inicializados; no volver a proponer crearlos como si no existieran. Revisar la evidencia PostgreSQL de CI y continuar con alta transaccional REG01–REG11. La APK y web siguen sin consumir cuentas reales. Para Neon, preparar rama/base de desarrollo, contraseña regenerada y rol de ejecución con permisos mínimos; no usar pruebas destructivas de la suite contra Neon. Falta consentimiento final y contactos, configuración operativa de incidentes y revisión de John. [BASE_API.md](BASE_API.md).
+
+## Actualización de Neon DB01
+
+Ya están creados kora_dev, PostGIS, migración y rol de ejecución separado; no pedir que se vuelvan a crear. Falta rotar la contraseña propietaria expuesta y actualizar MIGRATION_DATABASE_URL localmente, revisar con John, ampliar evidencia de compatibilidad PostgreSQL 18 si cambia la configuración de CI y preparar respaldo/restauración antes de datos reales. No hay alta funcional ni despliegue. Ver NEON_DESARROLLO.md.
+
+## Verificación tras actualización de credencial
+
+27/11/2026 · Seguimiento DB01/CAM-2026-012. Julian informa actualización de la contraseña propietaria en el .env local. Se verificó conexión directa a kora_dev con neondb_owner, TLS cliente y revisión 0001_api_base; la credencial separada de ejecución sigue preparada. No se consultó con la contraseña anterior, por lo que su revocación no se presenta como prueba independiente. Sustituye el pendiente de actualización local de contraseña indicado anteriormente. Registro y datos reales siguen deshabilitados; revisión de John y Word pendientes.
+
+## Registro transaccional API02
+
+La implementación del alta y los casos REG01–REG11 ya existen para pruebas sintéticas aisladas; las 83 pruebas pasaron en CI (46085546369) y falta revisión cruzada. No volver a proponer crearlos desde cero. La actualización local de credencial propietaria ya fue verificada. Antes de datos reales siguen pendientes texto de consentimiento aprobado y contactos, canal/destinatario/retención de incidentes y endurecimiento operativo. Bandeja local de incidencias no equivale a entrega. Integración de APK y web, sesiones, aprobación y PERF01 pendientes. Ver REGISTRO_BACKEND.md.
