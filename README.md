@@ -18,3 +18,5 @@ Primer paso funcional preparado: [contrato de registro v2](Documentación/CONTRA
 Base compartida: [API01 y migraciones](Documentación/BASE_API.md). Ejecutable sin registro abierto; no sustituye el consentimiento final ni implementa aún el alta completa. Las comprobaciones documentales, las pruebas HTTP sin base y la integración PostgreSQL se reportan por separado.
 
 Registro transaccional de pruebas implementado en [API02](Documentación/REGISTRO_BACKEND.md). Sigue cerrado para datos reales; APK sin integración HTTP.
+
+[APP03 conecta el registro móvil al entorno sintético](Documentación/INTEGRACION_MOVIL.md). Verificación HTTP/Android pendiente de CI y prueba física, sin registro real o sesión.

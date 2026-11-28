@@ -182,10 +182,12 @@ void main() {
       await reveal(tester, find.byKey(const Key('register-submit')));
       await tester.tap(find.byKey(const Key('register-submit')));
       await tester.pumpAndSettle();
-      expect(find.text('Conexión pendiente'), findsOneWidget);
+      expect(find.text('Conexión pendiente'), findsNothing);
       expect(
-        find.textContaining('No se ha guardado ni enviado'),
-        findsOneWidget,
+        tester
+            .widget<CheckboxListTile>(find.byKey(const Key('register-consent')))
+            .onChanged,
+        isNull,
       );
       expect(find.text('Cuenta creada'), findsNothing);
       expect(tester.takeException(), isNull);

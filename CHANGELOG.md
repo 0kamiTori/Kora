@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## 0.14 — 2026-11-27 — CAM-2026-014
+
+- APP03: formulario móvil conectado a política y alta v2, consentimiento recibido del servidor, respuesta confirmada, errores por campo y reintentos con igual clave/cuerpo en memoria.
+- Dio 5.11.1 fijado; protección de URL y ausencia de logs de formulario. Android 0.3.0+3 debug Köra pruebas con identificador separado y HTTP solo en loopback.
+- Configuración, Compose y preparador sintético local separados de Neon; credenciales de operador/ejecución distintas, consentimiento de prueba explícito y sin cuentas de arranque. Script Windows para iniciar/parar y conexión USB.
+- 33 pruebas Flutter aprobadas y dos capturas omitidas; backend 57 aprobadas y 32 PostgreSQL omitidas. Workflows HTTP real y APK pendientes de verificar.
+- Usuario autoriza instalación de Docker/WSL; elevación Windows requerida, sin reinicio automático. Documentación y Word candidatos preparados; revisión visual pendiente. Sin datos reales, sesión, aprobación, corrección de PERF01 o cierre de fase.
+
 ## 0.13 — 2026-11-27 — CAM-2026-013
 
 - API02: registro transaccional v2 solo en pruebas sintéticas aisladas; validaciones, Argon2id, consentimiento, rol pasajera y contactos únicos.

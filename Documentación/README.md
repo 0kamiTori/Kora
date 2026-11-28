@@ -26,3 +26,5 @@ Los Word se mantienen alineados con los documentos de texto en cada cambio que a
 - [Base de desarrollo Neon](NEON_DESARROLLO.md): DB01 preparada y verificada, sin habilitar registro real.
 
 - [Registro del backend](REGISTRO_BACKEND.md), API02: alta transaccional exclusivamente sintética; registro real cerrado.
+
+- [Integración móvil y entorno de pruebas](INTEGRACION_MOVIL.md), APP03: guía de Docker/API/USB y comprobaciones separadas de CI y teléfono.

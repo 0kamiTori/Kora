@@ -30,6 +30,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = ".integration"
+            versionNameSuffix = "-integration"
+        }
         release {
             // Production signing must be configured explicitly outside Git.
             signingConfig = null

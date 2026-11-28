@@ -49,3 +49,7 @@ En integración, iniciar sesión en móvil y web con roles de prueba. Solicitar 
 
 ## Responsabilidad del backend y cobertura pendiente
 Julian y John implementan el backend conjuntamente. Cada historia tiene un implementador y revisión cruzada, dentro de las 30 h semanales por persona. Ningún cliente mantiene cuentas ni viajes alternativos. El contrato inicial contiene 13 operaciones y no cubre aún todos los RF: ver TRAZABILIDAD.md. No se modifica su semántica en esta revisión documental.
+
+## Integración móvil APP03
+
+27/11/2026 · APP03 · CAM-2026-014. Android 0.3.0+3 conecta política y alta v2 mediante Dio 5.11.1, con consentimiento explícito del servidor, errores saneados, doble pulsación controlada y envío incierto conservado solo en memoria para reintentar con igual clave. Cuenta creada únicamente tras 201 válido. Se conserva premium/color y no se concede sesión o aprobación de conductora. Configuración y preparador local separan kora_test_mobile de Neon y requieren los controles sintéticos de API02; sin cambios al contrato o esquema. Guía INTEGRACION_MOVIL.md. Pruebas locales: 33 Flutter aprobadas y dos capturas omitidas; backend 57 aprobadas y 32 PostgreSQL omitidas. CI de HTTP real, backend y APK pendiente. No hay prueba física nueva o cierre de fase. Implementación asistida para Julian; revisión de John pendiente. Word candidatos sujetos a render; PERF01, consentimiento real y entrega de incidentes siguen pendientes.

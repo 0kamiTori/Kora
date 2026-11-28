@@ -52,3 +52,7 @@ CAM-2026-010. Contrato v2 de política y registro preparado y verificado por esq
 ## Preparación compartida API01
 
 CAM-2026-011 inicializa base API y migración como historia independiente del alta funcional. Criterio: estado preparado solo con PostGIS y revisión correcta, migración verificable sobre una base vacía y registro cerrado. Localmente falta servidor; CI debe aportar la evidencia de persistencia. Implementación asistida para Julian y revisión de John pendiente. No se alteran fechas, horas o presupuesto ni se declara F2 terminada.
+
+## Integración móvil APP03
+
+27/11/2026 · APP03 · CAM-2026-014. Android 0.3.0+3 conecta política y alta v2 mediante Dio 5.11.1, con consentimiento explícito del servidor, errores saneados, doble pulsación controlada y envío incierto conservado solo en memoria para reintentar con igual clave. Cuenta creada únicamente tras 201 válido. Se conserva premium/color y no se concede sesión o aprobación de conductora. Configuración y preparador local separan kora_test_mobile de Neon y requieren los controles sintéticos de API02; sin cambios al contrato o esquema. Guía INTEGRACION_MOVIL.md. Pruebas locales: 33 Flutter aprobadas y dos capturas omitidas; backend 57 aprobadas y 32 PostgreSQL omitidas. CI de HTTP real, backend y APK pendiente. No hay prueba física nueva o cierre de fase. Implementación asistida para Julian; revisión de John pendiente. Word candidatos sujetos a render; PERF01, consentimiento real y entrega de incidentes siguen pendientes.

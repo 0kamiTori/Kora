@@ -58,3 +58,7 @@ El certificado debug de esta APK difiere del de la primera entrega. Para instala
 ## Reporte posterior de uso en teléfono
 
 26/11/2026. El usuario informa que revisó los diseños de la nueva APK y quedaron bien, con tirones. Se registra en [PRUEBA_APP02.md](PRUEBA_APP02.md). Es prueba general declarada en el Redmi con Android 16, posterior a la preparación de la entrega; no evidencia registro o revisión contra backend. Rendimiento PERF01, accesibilidad y checklist específico siguen pendientes. No se genera otra APK en CAM-2026-010: se prepara el contrato que consumirá la capa de datos futura.
+
+## Integración móvil APP03
+
+27/11/2026 · APP03 · CAM-2026-014. Android 0.3.0+3 conecta política y alta v2 mediante Dio 5.11.1, con consentimiento explícito del servidor, errores saneados, doble pulsación controlada y envío incierto conservado solo en memoria para reintentar con igual clave. Cuenta creada únicamente tras 201 válido. Se conserva premium/color y no se concede sesión o aprobación de conductora. Configuración y preparador local separan kora_test_mobile de Neon y requieren los controles sintéticos de API02; sin cambios al contrato o esquema. Guía INTEGRACION_MOVIL.md. Pruebas locales: 33 Flutter aprobadas y dos capturas omitidas; backend 57 aprobadas y 32 PostgreSQL omitidas. CI de HTTP real, backend y APK pendiente. No hay prueba física nueva o cierre de fase. Implementación asistida para Julian; revisión de John pendiente. Word candidatos sujetos a render; PERF01, consentimiento real y entrega de incidentes siguen pendientes.

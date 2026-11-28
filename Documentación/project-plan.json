@@ -1,6 +1,6 @@
 {
   "project_name": "Köra",
-  "version": "0.13",
+  "version": "0.14",
   "updated": "2026-11-27",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
@@ -293,7 +293,7 @@
       "appeal"
     ],
     "physical_device_acceptance": "user_reported_general_success_with_jank_detailed_checks_pending",
-    "api_integration": "pending"
+    "api_integration": "registration_client_implemented_synthetic_only_pending_verification"
   },
   "registration_contract": {
     "version": "2.0.0-draft.1",
@@ -382,5 +382,22 @@
       "postgres_passed": 32,
       "synthetic_scenarios": 12
     }
+  },
+  "mobile_registration_integration": {
+    "story": "APP03",
+    "version": "0.3.0+3",
+    "status": "implemented_pending_ci_and_local_runtime",
+    "api": "/api/v2",
+    "http_dependency": "dio 5.11.1",
+    "debug_application_id": "dev.kora.kora_mobile.integration",
+    "local_flutter_passed": 33,
+    "local_capture_skipped": 2,
+    "backend_local_passed": 57,
+    "backend_postgres_skipped": 32,
+    "local_prerequisites": "Docker/WSL installation attempted; Windows elevation pending",
+    "physical_device_test": "pending",
+    "real_registration_enabled": false,
+    "reviewer": "John Ortiz",
+    "review_status": "pending"
   }
 }
