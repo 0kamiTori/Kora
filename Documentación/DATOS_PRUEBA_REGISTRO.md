@@ -36,3 +36,7 @@ La referencia server_date de estos datos es 2026-11-26. Inyectar esa fecha en pr
 El verificador comprueba las formas de los 49 ejemplos y de los 12 escenarios, así como sus marcas de prueba. No ejecuta sus resultados HTTP esperados. Todos los escenarios de servidor conservan server_test_status=pending_backend. No se presentan como pruebas de negocio aprobadas hasta implementar y probar API, migraciones, base e incidentes.
 
 El consentimiento test-account-consent-v1 es sintético y no corresponde a una autorización de participantes. El [borrador de consentimiento](CONSENTIMIENTO_CUENTA_BORRADOR.md) se revisa por separado; el registro con personas reales sigue deshabilitado mientras falten texto aprobado, contactos y condiciones operativas.
+
+## Ejecución preparada en API02
+
+tests/test_registration_postgres.py ejecuta los doce escenarios con fecha fija, correo/consentimiento/claves aislados por prueba y sin notificaciones. SYN12 comprueba numeración mediante phonenumbers en lugar de solo su forma. Los estados históricos del JSON fuente se conservan; el resultado real se registra como evidencia de API02 tras CI. Las pruebas destructivas permanecen confinadas a PostgreSQL local desechable y no importan estas cuentas en Neon.

@@ -103,3 +103,14 @@ La política de API01 siempre está deshabilitada y el POST rechaza sin crear cu
 | DEC54 | Conservar PostgreSQL 16/PostGIS 3.7 de CI y registrar PostgreSQL 18.7/PostGIS 3.6.4 de Neon | Migración, deriva y salud verificadas en Neon; no declarar la suite completa probada en PostgreSQL 18. Sin descenso ni limpieza destructiva en Neon. |
 
 DB01_EVIDENCIA_NEON.json registra los resultados sin secretos. Registro real, fases, revisión humana y Word siguen pendientes según NEON_DESARROLLO.md. No se modifican contratos, fechas o presupuesto.
+
+## Alta transaccional CAM 2026 013
+
+| ID | Decisión | Estado |
+|---|---|---|
+| DEC55 | API02 implementa alta v2 y pruebas REG01–REG11 sobre tablas existentes | Solicitud del usuario. Implementación asistida para Julian, revisión de John pendiente. Sin nueva base o esquema, sesión o aprobación automática. |
+| DEC56 | Activación exclusiva synthetic_test con APP_ENV=test, PostgreSQL local kora_test_*, correos .invalid, versión test-* aprobada y HMAC independiente | Implementado; Neon y modo normal permanecen cerrados. No existe bandera para registro público ni consentimiento ficticio de arranque. |
+| DEC57 | Argon2id RFC_9106_LOW_MEMORY y HMAC-SHA256 con bloqueo transaccional de clave, TTL 24 h sin reutilización automática | Decisión técnica conforme al contrato existente. Dependencias fijadas; rendimiento y despliegue pendientes de medir. |
+| DEC58 | Bandeja JSONL saneada fuera de PostgreSQL para fallos y protección inicial de diez intentos/origen/minuto por proceso | Implementado para desarrollo/pruebas. Entrega administrativa, canal, retención y limitación distribuida pendientes; no se atribuye aviso recibido. |
+
+No cambian contratos v1/v2, reglas de conductoras, fechas o presupuesto. Las pruebas locales no acreditan integración PostgreSQL ni cierre de fase; evidencia remota se registra después de ejecutarla.

@@ -16,3 +16,5 @@ Exploración visual: [cinco propuestas](Documentación/Diseno/README.md). El usu
 Primer paso funcional preparado: [contrato de registro v2](Documentación/CONTRATO_REGISTRO.md), con campos, consentimiento, respuestas y migración desde el diseño v1. El alta y las sesiones aún no están implementadas. [Prueba de APP02 reportada](Documentación/PRUEBA_APP02.md): diseños correctos en general, con tirones pendientes de medir.
 
 Base compartida: [API01 y migraciones](Documentación/BASE_API.md). Ejecutable sin registro abierto; no sustituye el consentimiento final ni implementa aún el alta completa. Las comprobaciones documentales, las pruebas HTTP sin base y la integración PostgreSQL se reportan por separado.
+
+Registro transaccional de pruebas implementado en [API02](Documentación/REGISTRO_BACKEND.md). Sigue cerrado para datos reales; APK sin integración HTTP.

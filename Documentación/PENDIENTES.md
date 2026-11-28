@@ -48,3 +48,7 @@ Ya están creados kora_dev, PostGIS, migración y rol de ejecución separado; no
 ## Verificación tras actualización de credencial
 
 27/11/2026 · Seguimiento DB01/CAM-2026-012. Julian informa actualización de la contraseña propietaria en el .env local. Se verificó conexión directa a kora_dev con neondb_owner, TLS cliente y revisión 0001_api_base; la credencial separada de ejecución sigue preparada. No se consultó con la contraseña anterior, por lo que su revocación no se presenta como prueba independiente. Sustituye el pendiente de actualización local de contraseña indicado anteriormente. Registro y datos reales siguen deshabilitados; revisión de John y Word pendientes.
+
+## Registro transaccional API02
+
+La implementación del alta y los casos REG01–REG11 ya existen para pruebas sintéticas aisladas; falta verificar PostgreSQL en CI y revisión cruzada. No volver a proponer crearlos desde cero. La actualización local de credencial propietaria ya fue verificada. Antes de datos reales siguen pendientes texto de consentimiento aprobado y contactos, canal/destinatario/retención de incidentes y endurecimiento operativo. Bandeja local de incidencias no equivale a entrega. Integración de APK y web, sesiones, aprobación y PERF01 pendientes. Ver REGISTRO_BACKEND.md.

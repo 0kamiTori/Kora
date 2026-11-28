@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## 0.13 — 2026-11-27 — CAM-2026-013
+
+- API02: registro transaccional v2 solo en pruebas sintéticas aisladas; validaciones, Argon2id, consentimiento, rol pasajera y contactos únicos.
+- Reintentos con HMAC, bloqueo transaccional, TTL y reproducción de éxito anterior a nueva política; sin migración nueva o cambios en Neon.
+- Errores de protocolo controlados, límite inicial por proceso y bandeja de incidentes fuera de base sin secretos. Canal de entrega administrativa pendiente.
+- 51 pruebas locales aprobadas y 32 PostgreSQL previstas (31 omitidas en ejecución local anterior; un caso de bloqueo añadido después); 83 previstas en CI, incluidas REG01–REG11 y doce escenarios sintéticos. No anticipar resultado remoto.
+- Estado, decisiones y guía actualizados; Word candidatos locales pendientes de render. Sin APK nueva, sesiones, datos reales o cierre de fase.
+
 ## 0.12 — 2026-11-27 — CAM-2026-012
 
 - DB01: kora_dev creada en Neon, migración 0001_api_base y seis tablas vacías con PostGIS; neondb sin cambios de tablas.

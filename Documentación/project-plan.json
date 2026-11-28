@@ -1,6 +1,6 @@
 {
   "project_name": "Köra",
-  "version": "0.12",
+  "version": "0.13",
   "updated": "2026-11-27",
   "planning_mode": "full_system_partial_weeks",
   "start": "2026-11-24",
@@ -261,7 +261,7 @@
   ],
   "registration_requirements": {
     "source": "Documentación/RF01_REGISTRO.md",
-    "status": "v2_contract_draft_schema_checked_backend_pending",
+    "status": "backend_synthetic_implemented_postgres_ci_pending",
     "minimum_age_years": 18,
     "unique_fields": [
       "email",
@@ -301,10 +301,10 @@
     "source": "Documentación/Contratos/registration-v2.openapi.json",
     "legacy_v1_preserved": true,
     "schema_fixture_count": 49,
-    "status": "contract_only",
+    "status": "partially_implemented_synthetic_only",
     "real_registration_enabled": false,
     "consent_approval": "draft_pending_contact_and_review",
-    "reviewer_assignment": "pending_before_backend_implementation",
+    "reviewer_assignment": "John Ortiz; review pending; implementation assisted for Julian",
     "data_controller": {
       "name": "Julian Hernando Perez Villamizar",
       "source": "user_declaration",
@@ -360,5 +360,19 @@
     "reviewer": "John Ortiz",
     "review_status": "pending",
     "evidence": "Documentación/DB01_EVIDENCIA_NEON.json"
+  },
+  "registration_backend": {
+    "story": "API02",
+    "version": "0.2.0",
+    "status": "implemented_postgres_ci_pending",
+    "real_registration_enabled": false,
+    "mobile_connected": false,
+    "local_tests_passed": 51,
+    "postgres_tests_skipped_locally": 31,
+    "synthetic_scenarios": 12,
+    "incident_delivery": "local_outbox_pending_channel",
+    "reviewer": "John Ortiz",
+    "review_status": "pending",
+    "postgres_tests_expected": 32
   }
 }
